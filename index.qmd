@@ -16,7 +16,5 @@ This is a collection of talks on various topics in machine learning and artifici
 
 ## Talks
 
-::: {#sample-listings}
-:::
-
+- [AI History](talks/ai-history/index.qmd)
 
