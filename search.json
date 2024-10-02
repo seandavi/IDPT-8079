@@ -4,35 +4,35 @@
     "href": "exercises/aom-expert-system/play-with-prolog.html",
     "title": "Play with Prolog",
     "section": "",
-    "text": "In this exercise, you are going to use the Prolog programming language to build a simple expert system.\nAn Expert System (ES) is a type of artificial intelligence (AI) system that mimics the decision-making abilities of a human expert in a specific domain or field. It is considered a narrow AI system1, meaning it’s designed for a specific task or problem, rather than general intelligence. Expert Systems are built using logic programming languages like Prolog, which are well-suited for representing and reasoning with complex knowledge and rules. ESs are designed to reason, solve problems, and make decisions autonomously, just like a human expert would. Expert Systems are built using knowledge representation, inference, and reasoning techniques to capture and apply the expertise of human experts. All that said, Expert Systems often represent a decision tree or a set of rules that are applied to a set of inputs to generate a decision. Think about a phone tree that you might encounter when calling a customer service line or a decision tree that you might use to diagnose a patient.\nIn this exercise, we will explore the concept of Expert Systems and how they can be implemented. The goal is NOT to become an expert in Expert Systems, but to get a sense of how they REALLY work and how they can be used to solve problems. Many expert systems that were built in the 1980s and 1990s were built using Prolog, a logic programming language that is well-suited for representing and reasoning with complex knowledge and rules. Prolog is also fairly readable by humans, so it is a great way to demonstrate a REAL expert system. Many of these systems are likely still in use, though they may have been updated to use more modern technologies.\nAs you work through this exercise, think about how complex an expert system would need to be to be useful in a clinical setting. What are the key components that would need to be included? How would you validate the system to ensure that it is accurate and reliable? What are the limitations of expert systems, and how might they be overcome?\n\n\nAn ES is built around a knowledge base that contains a vast amount of information, rules, and relationships specific to the domain it’s designed for. This knowledge is typically acquired from human experts, research papers, or other sources. The knowledge base is organized and structured to facilitate efficient reasoning and problem-solving. Think of this as the “rules” or “facts” that the system uses to make decisions. In a medical setting, gathering the knowledge base might involve reviewing textbooks, guidelines, and expert opinions to extract the key information needed to make diagnoses and treatment recommendations.\nThe inference engine is the “brain” of the ES. It uses the knowledge base to draw conclusions, make decisions, and solve problems. The engine applies logical rules and reasoning techniques to arrive at a solution. Note that the inference engine doesn’t “learn” in the traditional sense, but rather applies predefined rules to the input data. New rules can be added to the system to expand its capabilities, but the system doesn’t learn from experience like a neural network would.\nAn ES typically has a user-friendly interface that allows users to input queries, ask questions, or provide data. The system then uses this input to generate a response, provide recommendations, or solve a problem. The user interface can be text-based, graphical, or voice-activated, depending on the application.\nESs use various reasoning techniques, such as forward and backward chaining, to solve problems and make decisions. The reasoning and problem solving capabilities of an ES are what set it apart from traditional software systems. Languages like Prolog are commonly used to implement the logic and reasoning components of an ES.\n\n\n\nExpert Systems have been applied in various domains and industries, including healthcare, finance, manufacturing, and customer service. ESs can help diagnose diseases, recommend treatments, and guide patient care. ESs can monitor production processes, detect defects, and recommend quality improvements. ESs can provide customer support, answer frequently asked questions, and route complex issues to human representatives.\n\n\n\nWhile Expert Systems have shown significant promise, they also have some limitations. Building an ES requires a significant amount of knowledge acquisition, which can be time-consuming and costly. The knowledge base must be accurately represented and organized to ensure effective reasoning and problem-solving. ESs require ongoing maintenance to keep their knowledge base up-to-date and ensure they remain effective. ESs may struggle with complex, ambiguous, or uncertain problems that require human intuition or creativity. Because ESs rely on predefined rules and logic, they may not adapt well to new or unexpected situations such as additional symptoms, tests, or rare conditions not accounted for when the system was built.\n\n\n\nBefore we dive into the actual exercise, ask ChatGPT (or Claude) a few questions to understand the concept of Expert Systems better. Some examples might include:\n\nWhat is an Expert System?\nHow do Expert Systems work?\nWhat are the components of an Expert System?\nWhat are some applications of Expert Systems?\nWhat are the limitations of Expert Systems?\nHow are Expert Systems different from traditional software systems?\nHow do expert systems compare to machine learning systems?\nWhat are some examples of Expert Systems in healthcare?"
+    "text": "Understand Expert Systems: Know what an expert system is, particularly as a narrow AI system.\nExplore Logic Programming: Learn the basic principles of logic programming and how Prolog is used to model complex decision-making processes.\nLearn to Implement an Expert System: Gain hands-on experience using programming to solve problems using logical rules and knowledge representation.\nDevelop Problem-Solving Skills: Implement a simple expert system in Prolog, mimicking the decision-making capabilities of a human expert.\nUnderstand limitations of Expert Systems: Explore the concept of narrow AI and its practical applications in specific domains through the use of expert systems."
   },
   {
     "objectID": "exercises/aom-expert-system/play-with-prolog.html#components-of-an-expert-system",
     "href": "exercises/aom-expert-system/play-with-prolog.html#components-of-an-expert-system",
     "title": "Play with Prolog",
-    "section": "",
-    "text": "An ES is built around a knowledge base that contains a vast amount of information, rules, and relationships specific to the domain it’s designed for. This knowledge is typically acquired from human experts, research papers, or other sources. The knowledge base is organized and structured to facilitate efficient reasoning and problem-solving. Think of this as the “rules” or “facts” that the system uses to make decisions. In a medical setting, gathering the knowledge base might involve reviewing textbooks, guidelines, and expert opinions to extract the key information needed to make diagnoses and treatment recommendations.\nThe inference engine is the “brain” of the ES. It uses the knowledge base to draw conclusions, make decisions, and solve problems. The engine applies logical rules and reasoning techniques to arrive at a solution. Note that the inference engine doesn’t “learn” in the traditional sense, but rather applies predefined rules to the input data. New rules can be added to the system to expand its capabilities, but the system doesn’t learn from experience like a neural network would.\nAn ES typically has a user-friendly interface that allows users to input queries, ask questions, or provide data. The system then uses this input to generate a response, provide recommendations, or solve a problem. The user interface can be text-based, graphical, or voice-activated, depending on the application.\nESs use various reasoning techniques, such as forward and backward chaining, to solve problems and make decisions. The reasoning and problem solving capabilities of an ES are what set it apart from traditional software systems. Languages like Prolog are commonly used to implement the logic and reasoning components of an ES."
+    "section": "Components of an Expert System",
+    "text": "Components of an Expert System\nAn ES is built around a knowledge base that contains a vast amount of information, rules, and relationships specific to the domain it’s designed for. This knowledge is typically acquired from human experts, research papers, or other sources. The knowledge base is organized and structured to facilitate efficient reasoning and problem-solving. Think of this as the “rules” or “facts” that the system uses to make decisions. In a medical setting, gathering the knowledge base might involve reviewing textbooks, guidelines, and expert opinions to extract the key information needed to make diagnoses and treatment recommendations.\nThe inference engine is the “brain” of the ES. It uses the knowledge base to draw conclusions, make decisions, and solve problems. The engine applies logical rules and reasoning techniques to arrive at a solution. Note that the inference engine doesn’t “learn” in the traditional sense, but rather applies predefined rules to the input data. New rules can be added to the system to expand its capabilities, but the system doesn’t learn from experience like a neural network would.\nAn ES typically has a user-friendly interface that allows users to input queries, ask questions, or provide data. The system then uses this input to generate a response, provide recommendations, or solve a problem. The user interface can be text-based, graphical, or voice-activated, depending on the application.\nESs use various reasoning techniques, such as forward and backward chaining, to solve problems and make decisions. The reasoning and problem solving capabilities of an ES are what set it apart from traditional software systems. Languages like Prolog are commonly used to implement the logic and reasoning components of an ES."
   },
   {
     "objectID": "exercises/aom-expert-system/play-with-prolog.html#applications-of-expert-systems",
     "href": "exercises/aom-expert-system/play-with-prolog.html#applications-of-expert-systems",
     "title": "Play with Prolog",
-    "section": "",
-    "text": "Expert Systems have been applied in various domains and industries, including healthcare, finance, manufacturing, and customer service. ESs can help diagnose diseases, recommend treatments, and guide patient care. ESs can monitor production processes, detect defects, and recommend quality improvements. ESs can provide customer support, answer frequently asked questions, and route complex issues to human representatives."
+    "section": "Applications of Expert Systems",
+    "text": "Applications of Expert Systems\nExpert Systems have been applied in various domains and industries, including healthcare, finance, manufacturing, and customer service. ESs can help diagnose diseases, recommend treatments, and guide patient care. ESs can monitor production processes, detect defects, and recommend quality improvements. ESs can provide customer support, answer frequently asked questions, and route complex issues to human representatives."
   },
   {
     "objectID": "exercises/aom-expert-system/play-with-prolog.html#limitations-of-expert-systems",
     "href": "exercises/aom-expert-system/play-with-prolog.html#limitations-of-expert-systems",
     "title": "Play with Prolog",
-    "section": "",
-    "text": "While Expert Systems have shown significant promise, they also have some limitations. Building an ES requires a significant amount of knowledge acquisition, which can be time-consuming and costly. The knowledge base must be accurately represented and organized to ensure effective reasoning and problem-solving. ESs require ongoing maintenance to keep their knowledge base up-to-date and ensure they remain effective. ESs may struggle with complex, ambiguous, or uncertain problems that require human intuition or creativity. Because ESs rely on predefined rules and logic, they may not adapt well to new or unexpected situations such as additional symptoms, tests, or rare conditions not accounted for when the system was built."
+    "section": "Limitations of Expert Systems",
+    "text": "Limitations of Expert Systems\nWhile Expert Systems have shown significant promise, they also have some limitations. Building an ES requires a significant amount of knowledge acquisition, which can be time-consuming and costly. The knowledge base must be accurately represented and organized to ensure effective reasoning and problem-solving. ESs require ongoing maintenance to keep their knowledge base up-to-date and ensure they remain effective. ESs may struggle with complex, ambiguous, or uncertain problems that require human intuition or creativity. Because ESs rely on predefined rules and logic, they may not adapt well to new or unexpected situations such as additional symptoms, tests, or rare conditions not accounted for when the system was built."
   },
   {
     "objectID": "exercises/aom-expert-system/play-with-prolog.html#using-chatgpt-or-claude-to-understand-expert-systems",
     "href": "exercises/aom-expert-system/play-with-prolog.html#using-chatgpt-or-claude-to-understand-expert-systems",
     "title": "Play with Prolog",
-    "section": "",
-    "text": "Before we dive into the actual exercise, ask ChatGPT (or Claude) a few questions to understand the concept of Expert Systems better. Some examples might include:\n\nWhat is an Expert System?\nHow do Expert Systems work?\nWhat are the components of an Expert System?\nWhat are some applications of Expert Systems?\nWhat are the limitations of Expert Systems?\nHow are Expert Systems different from traditional software systems?\nHow do expert systems compare to machine learning systems?\nWhat are some examples of Expert Systems in healthcare?"
+    "section": "Using ChatGPT (or Claude) to understand Expert Systems",
+    "text": "Using ChatGPT (or Claude) to understand Expert Systems\nBefore we dive into the actual exercise, ask ChatGPT (or Claude) a few questions to understand the concept of Expert Systems better. Some examples might include:\n\nWhat is an Expert System?\nHow do Expert Systems work?\nWhat are the components of an Expert System?\nWhat are some applications of Expert Systems?\nWhat are the limitations of Expert Systems?\nHow are Expert Systems different from traditional software systems?\nHow do expert systems compare to machine learning systems?\nWhat are some examples of Expert Systems in healthcare?"
   },
   {
     "objectID": "exercises/aom-expert-system/play-with-prolog.html#key-features-of-prolog",
@@ -116,7 +116,7 @@
     "href": "index.html#talks",
     "title": "IDPT-8079: Frontier of AI in Medicine",
     "section": "Talks",
-    "text": "Talks\n\n\n\n\n\n\n\n\n\n\nFairness in Machine Learning for Healthcare\n\n\n\n\n\n\n\n\n\n\n\nSean Davis, MD, PhD\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction to Machine Learning\n\n\n\n\n\n\n\n\n\n\n\nSean Davis, MD, PhD\n\n\n\n\n\n\n\n\n\n\n\n\nThe History of Artificial Intelligence and Machine Learning\n\n\n\n\n\n\n\n\n\n\n\nSep 19, 2024\n\n\nSean Davis, MD, PhD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Talks\n\n\n\n\n\n\n\n\n\n\nThe History of Artificial Intelligence and Machine Learning\n\n\n\n\n\n\n\n\n\n\n\nSep 19, 2024\n\n\nSean Davis, MD, PhD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/ai-history/index.html#introduction",
@@ -299,342 +299,6 @@
     "title": "The History of Artificial Intelligence and Machine Learning",
     "section": "References",
     "text": "References\n\n\n\n\n\n\n\n\nAsimov, Isaac. 1950. I, Robot. Bantam hardcover ed. (2). New York: Bantam Books.\n\n\nNorman, Jeremy. 2024. “History of Information.” https://www.historyofinformation.com/?cat=71.\n\n\nTuring, Alan. 1936. “On Computable Numbers, with an Application to the Entscheidungsproblem.” https://www.abelard.org/turpap2/tp2-ie.asp.\n\n\n———. 1950. “Computing Machinery and Intelligence.” Mind 59 (October): 433–60. https://doi.org/10.1093/mind/lix.236.433."
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#introduction",
-    "href": "talks/ml-fairness/index.html#introduction",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Introduction",
-    "text": "Introduction\n\nMachine Learning in Healthcare\nImportance of Fairness\nOverview of the Presentation"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#background-ml-in-healthcare",
-    "href": "talks/ml-fairness/index.html#background-ml-in-healthcare",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Background: ML in Healthcare",
-    "text": "Background: ML in Healthcare\n\nDiagnosis assistance\nTreatment planning\nRisk prediction\nResource allocation\nDrug discovery"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#why-fairness-matters-in-healthcare-ml",
-    "href": "talks/ml-fairness/index.html#why-fairness-matters-in-healthcare-ml",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Why Fairness Matters in Healthcare ML",
-    "text": "Why Fairness Matters in Healthcare ML\n\nEqual access to quality healthcare\nAvoiding perpetuation of historical biases\nLegal and ethical considerations\nBuilding trust in ML systems"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#data-collection-bias",
-    "href": "talks/ml-fairness/index.html#data-collection-bias",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Data Collection Bias",
-    "text": "Data Collection Bias\n\nUnderrepresentation of certain groups\nExample: Lack of diverse skin tones in dermatology datasets\nConsequence: Poor performance on underrepresented groups"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#sampling-bias",
-    "href": "talks/ml-fairness/index.html#sampling-bias",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Sampling Bias",
-    "text": "Sampling Bias\n\nNon-random selection of data points\nExample: Oversampling from urban hospitals\nConsequence: Model may not generalize to rural populations"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#label-bias",
-    "href": "talks/ml-fairness/index.html#label-bias",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Label Bias",
-    "text": "Label Bias\n\nIncorrect or inconsistent labeling of data\nExample: Different diagnosis standards across hospitals\nConsequence: Model learns and perpetuates inconsistent standards"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#feature-selection-bias",
-    "href": "talks/ml-fairness/index.html#feature-selection-bias",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Feature Selection Bias",
-    "text": "Feature Selection Bias\n\nChoosing features that correlate with protected attributes\nExample: Using zip code as a proxy for race\nConsequence: Indirect discrimination"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#algorithmic-bias",
-    "href": "talks/ml-fairness/index.html#algorithmic-bias",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Algorithmic Bias",
-    "text": "Algorithmic Bias\n\nBias introduced by the algorithm itself\nExample: Regularization techniques that favor majority groups\nConsequence: Systematic underperformance for minority groups"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#key-statistical-concepts",
-    "href": "talks/ml-fairness/index.html#key-statistical-concepts",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Key Statistical Concepts",
-    "text": "Key Statistical Concepts\n\nSensitivity (Recall)\nSpecificity\nPositive Predictive Value (PPV)\nNegative Predictive Value (NPV)\nArea Under the ROC Curve (AUC)"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#sensitivity-and-specificity",
-    "href": "talks/ml-fairness/index.html#sensitivity-and-specificity",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Sensitivity and Specificity",
-    "text": "Sensitivity and Specificity\n\n“How well does the model identify positive cases?”\n\n\\(sensitivity = \\frac{True\\; Positives}{True\\; Positives + False\\; Negatives}\\)\n\n“How well does the model identify negative cases?”\n\n\\(specificity = \\frac{True\\; Negatives}{True\\; Negatives + False\\; Positives}\\)"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#positive-and-negative-predictive-values",
-    "href": "talks/ml-fairness/index.html#positive-and-negative-predictive-values",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Positive and Negative Predictive Values",
-    "text": "Positive and Negative Predictive Values\n\n\\(PPV = \\frac{True\\; Positives}{True\\; Positives + False\\; Positives}\\)\n\n“How likely is a positive prediction to be correct?”\n\n\\(NPV = \\frac{True\\; Negatives}{True\\; Negatives + False\\; Negatives}\\)\n\n“How likely is a negative prediction to be correct?”"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#area-under-the-roc-curve-auc",
-    "href": "talks/ml-fairness/index.html#area-under-the-roc-curve-auc",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Area Under the ROC Curve (AUC)",
-    "text": "Area Under the ROC Curve (AUC)\n\nMeasures overall model performance across all thresholds\nPlot of True Positive Rate (sensitivity) vs. False Positive Rate (1-specificity)\nAUC = 0.5 (random guessing) to 1.0 (perfect classification)\nAllows comparison of model performance across different groups"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#case-study-1-skin-cancer-detection",
-    "href": "talks/ml-fairness/index.html#case-study-1-skin-cancer-detection",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Case Study 1: Skin Cancer Detection",
-    "text": "Case Study 1: Skin Cancer Detection\n\nML model for analyzing skin lesion images\nProblem: Unequal performance across skin tones\nData: 100,000 images\n\n80,000 light-skinned\n20,000 dark-skinned\n\nOverall accuracy: 95%\n\nLight-skinned: 97%\nDark-skinned: 85%"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#case-study-2-diabetes-risk-assessment",
-    "href": "talks/ml-fairness/index.html#case-study-2-diabetes-risk-assessment",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Case Study 2: Diabetes Risk Assessment",
-    "text": "Case Study 2: Diabetes Risk Assessment\n\nML model for predicting type 2 diabetes risk\nProblem: Unequal performance across demographic groups\nData: 100,000 patients\n\n70,000 from Group A\n30,000 from Group B\n\nOverall accuracy: 92%\n\nGroup A: 95%\nGroup B: 85%"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#fairness-concepts",
-    "href": "talks/ml-fairness/index.html#fairness-concepts",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Fairness Concepts",
-    "text": "Fairness Concepts\n\nDemographic Fairness\nEquality of Opportunity\nCounterfactual Fairness"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#demographic-fairness",
-    "href": "talks/ml-fairness/index.html#demographic-fairness",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Demographic Fairness",
-    "text": "Demographic Fairness\n\nEqual positive prediction rate across groups\nExample (Skin Cancer):\n\n30% risk prediction for both light and dark skin\n\nExample (Diabetes):\n\n30% high-risk prediction for both Group A and B"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#demographic-fairness-pros-and-cons",
-    "href": "talks/ml-fairness/index.html#demographic-fairness-pros-and-cons",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Demographic Fairness: Pros and Cons",
-    "text": "Demographic Fairness: Pros and Cons\n\nPro: Ensures equal treatment across groups\nCon: May ignore true underlying differences\nHealthcare Implication: Could lead to over/under-diagnosis"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#equality-of-opportunity",
-    "href": "talks/ml-fairness/index.html#equality-of-opportunity",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Equality of Opportunity",
-    "text": "Equality of Opportunity\n\nEqual true positive rates (sensitivity) across groups\nExample (Skin Cancer):\n\n90% detection rate for actual cases in both groups\n\nExample (Diabetes):\n\n80% detection rate for actual high-risk cases in both groups"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#equality-of-opportunity-pros-and-cons",
-    "href": "talks/ml-fairness/index.html#equality-of-opportunity-pros-and-cons",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Equality of Opportunity: Pros and Cons",
-    "text": "Equality of Opportunity: Pros and Cons\n\nPro: Equal chance of correct diagnosis for affected individuals\nCon: May have different false positive rates (specificity)\nHealthcare Implication: Balances patient safety with resource allocation"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#counterfactual-fairness",
-    "href": "talks/ml-fairness/index.html#counterfactual-fairness",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Counterfactual Fairness",
-    "text": "Counterfactual Fairness\n\nPrediction unchanged if only demographic feature changed\nExample (Skin Cancer):\n\nSame risk prediction for identical lesions, regardless of skin tone\n\nExample (Diabetes):\n\nSame risk prediction for identical blood test results, regardless of group"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#counterfactual-fairness-pros-and-cons",
-    "href": "talks/ml-fairness/index.html#counterfactual-fairness-pros-and-cons",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Counterfactual Fairness: Pros and Cons",
-    "text": "Counterfactual Fairness: Pros and Cons\n\nPro: Focuses on relevant medical factors only\nCon: May miss genuine group-specific risk factors\nHealthcare Implication: Promotes individualized care, but may oversimplify complex health disparities"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#visualizing-counterfactual-fairness",
-    "href": "talks/ml-fairness/index.html#visualizing-counterfactual-fairness",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Visualizing Counterfactual Fairness",
-    "text": "Visualizing Counterfactual Fairness\n\nCounterfactual Fairness in Diabetes Risk Assessment"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#challenges-in-achieving-fairness",
-    "href": "talks/ml-fairness/index.html#challenges-in-achieving-fairness",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Challenges in Achieving Fairness",
-    "text": "Challenges in Achieving Fairness\n\nData collection biases\nHistorical health disparities\nConflicting fairness definitions\nBalancing fairness with model performance\nIntersectionality of protected attributes"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#fairness-aware-ml-prejudice-remover-regularizer",
-    "href": "talks/ml-fairness/index.html#fairness-aware-ml-prejudice-remover-regularizer",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Fairness-Aware ML: Prejudice Remover Regularizer",
-    "text": "Fairness-Aware ML: Prejudice Remover Regularizer\n\nReduces influence of sensitive attributes on predictions\nAdds regularization term to learning objective: L = L_0 + η * R\nR penalizes mutual information between sensitive attributes and predictions"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#prejudice-remover-regularizer-how-it-works",
-    "href": "talks/ml-fairness/index.html#prejudice-remover-regularizer-how-it-works",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Prejudice Remover Regularizer: How It Works",
-    "text": "Prejudice Remover Regularizer: How It Works\n\nModify objective function\nMeasure mutual information\nPenalize dependence on sensitive attributes\nBalance original loss and fairness constraint"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#prejudice-remover-regularizer-advantages",
-    "href": "talks/ml-fairness/index.html#prejudice-remover-regularizer-advantages",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Prejudice Remover Regularizer: Advantages",
-    "text": "Prejudice Remover Regularizer: Advantages\n\nFlexible: Applicable to various classifiers\nInterpretable: Clear trade-off parameter\nEffective: Reduces discrimination in various scenarios"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#prejudice-remover-regularizer-limitations",
-    "href": "talks/ml-fairness/index.html#prejudice-remover-regularizer-limitations",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Prejudice Remover Regularizer: Limitations",
-    "text": "Prejudice Remover Regularizer: Limitations\n\nIncreased computational complexity\nPotential accuracy trade-off\nWorks best with binary sensitive attributes"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#other-fairness-aware-ml-techniques",
-    "href": "talks/ml-fairness/index.html#other-fairness-aware-ml-techniques",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Other Fairness-Aware ML Techniques",
-    "text": "Other Fairness-Aware ML Techniques\n\nReweighting\nAdversarial Debiasing\nFair Representation Learning\nPost-processing Methods"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#implementing-fairness-in-healthcare-ml",
-    "href": "talks/ml-fairness/index.html#implementing-fairness-in-healthcare-ml",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Implementing Fairness in Healthcare ML",
-    "text": "Implementing Fairness in Healthcare ML\n\nCollect diverse and representative data\nChoose appropriate fairness metric for the context\nImplement fairness-aware algorithms\nRegularly audit model performance across groups\nInvolve diverse stakeholders in development and deployment"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#ethical-considerations",
-    "href": "talks/ml-fairness/index.html#ethical-considerations",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Ethical Considerations",
-    "text": "Ethical Considerations\n\nTransparency and explainability\nInformed consent for data usage\nPrivacy concerns\nPotential for unintended consequences"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#future-directions",
-    "href": "talks/ml-fairness/index.html#future-directions",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Future Directions",
-    "text": "Future Directions\n\nIntersectional fairness\nCausal approaches to fairness\nDynamic and adaptive fairness\nFairness in federated learning for healthcare"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#conclusion",
-    "href": "talks/ml-fairness/index.html#conclusion",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Conclusion",
-    "text": "Conclusion\n\nFairness in healthcare ML is crucial but complex\nNo one-size-fits-all solution\nBalancing act: fairness, accuracy, and domain-specific considerations\nOngoing research and ethical considerations are key"
-  },
-  {
-    "objectID": "talks/ml-fairness/index.html#questions",
-    "href": "talks/ml-fairness/index.html#questions",
-    "title": "Fairness in Machine Learning for Healthcare",
-    "section": "Questions?",
-    "text": "Questions?\nThank you for your attention!"
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#outline",
-    "href": "talks/ml-intro/index.html#outline",
-    "title": "Introduction to Machine Learning",
-    "section": "Outline",
-    "text": "Outline\n\nRelationship between AI and ML\nMachine Learning Uses\nTypes of Machine Learning\nTraining and Testing\nGeneralizability\nBias and Variance\nKey Concepts in ML\nChallenges and Future Directions\n\n\nThis lecture will provide a comprehensive introduction to machine learning, covering its relationship with AI, fundamental concepts, methodologies, and challenges. Encourage students to ask questions throughout the lecture."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#artificial-intelligence-and-machine-learning",
-    "href": "talks/ml-intro/index.html#artificial-intelligence-and-machine-learning",
-    "title": "Introduction to Machine Learning",
-    "section": "Artificial Intelligence and Machine Learning",
-    "text": "Artificial Intelligence and Machine Learning\n\n\n\nArtificial Intelligence (AI): The broad field of creating intelligent machines\nMachine Learning (ML): A subset of AI focused on learning from data\nDeep Learning: A subset of ML using neural networks with multiple layers\n\n\n\n\n\n\n\ngraph TD\n    A[Artificial Intelligence] --&gt; B[Machine Learning]\n    B --&gt; C[Deep Learning]\n\n\n\n\n\n\n\n\nExplain that ML is a way to achieve AI, but not the only way. AI also includes rule-based systems, expert systems, and other approaches. ML has become dominant due to its ability to learn from data without explicit programming."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#ai-more-broadly",
-    "href": "talks/ml-intro/index.html#ai-more-broadly",
-    "title": "Introduction to Machine Learning",
-    "section": "AI, more broadly",
-    "text": "AI, more broadly"
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#machine-learning-definition",
-    "href": "talks/ml-intro/index.html#machine-learning-definition",
-    "title": "Introduction to Machine Learning",
-    "section": "Machine Learning: Definition",
-    "text": "Machine Learning: Definition\nMachine Learning is the field of study that gives computers the ability to learn without being explicitly programmed. - Arthur Samuel, 1959\n\nEmphasize that this definition, despite being from 1959, still captures the essence of ML. The key is that ML systems improve their performance on a task through experience (data), rather than through explicit programming of rules."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#machine-learning-uses",
-    "href": "talks/ml-intro/index.html#machine-learning-uses",
-    "title": "Introduction to Machine Learning",
-    "section": "Machine Learning Uses",
-    "text": "Machine Learning Uses\n\nImage and Speech Recognition\nNatural Language Processing\nRecommendation Systems\nAutonomous Vehicles\nMedical Diagnosis\nFinancial Forecasting\nAnomaly Detection\nRobotics\n\n\nProvide examples for each use case. For instance:\n\nMedical Diagnosis: Machine Learning (ML) can analyze medical images such as X-rays, MRIs, and CT scans to detect diseases like cancer, fractures, and other abnormalities. ML models can also predict patient outcomes and recommend personalized treatment plans.\nFinance: ML models can predict stock prices by analyzing historical data and market trends. They can also detect fraudulent transactions by identifying unusual patterns and behaviors in financial data.\nRetail: ML can be used for customer segmentation, personalized marketing, and inventory management. For example, recommendation systems suggest products to customers based on their browsing and purchase history.\nTransportation: ML algorithms can optimize routes for delivery services, predict maintenance needs for vehicles, and enhance autonomous driving systems by recognizing objects and making real-time decisions.\nHealthcare: Beyond diagnosis, ML can assist in drug discovery by analyzing chemical compounds and predicting their effectiveness. It can also monitor patient health through wearable devices and alert healthcare providers to potential issues.\nAgriculture: ML can analyze satellite images and sensor data to monitor crop health, predict yields, and optimize irrigation and fertilization schedules.\nManufacturing: Predictive maintenance powered by ML can foresee equipment failures and reduce downtime. Quality control systems can use ML to detect defects in products during the manufacturing process.\nEnergy: ML can optimize energy consumption in smart grids, predict equipment failures in power plants, and enhance the efficiency of renewable energy sources like wind and solar power.\nEntertainment: Streaming services use ML to recommend movies, music, and shows based on user preferences. ML can also be used in content creation, such as generating music or writing scripts.\nEducation: ML can personalize learning experiences by adapting educational content to the needs of individual students. It can also automate grading and provide insights into student performance."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#types-of-machine-learning",
-    "href": "talks/ml-intro/index.html#types-of-machine-learning",
-    "title": "Introduction to Machine Learning",
-    "section": "Types of Machine Learning",
-    "text": "Types of Machine Learning\n\nSupervised Learning\n\nClassification\nRegression\n\nUnsupervised Learning\n\nClustering\nDimensionality Reduction\n\nReinforcement Learning\n\n\nExplain each type: - Supervised: Learning from labeled data - Unsupervised: Finding patterns in unlabeled data - Reinforcement: Learning through interaction with an environment\nGive examples for each, like image classification for supervised learning, customer segmentation for unsupervised learning, and game-playing AI for reinforcement learning."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#training-and-testing",
-    "href": "talks/ml-intro/index.html#training-and-testing",
-    "title": "Introduction to Machine Learning",
-    "section": "Training and Testing",
-    "text": "Training and Testing\n\nTraining Data: Used to teach the model\nTesting Data: Used to evaluate the model’s performance\nValidation Data: Used for tuning hyperparameters\n\n\n\n\n\n\ngraph LR\n    A[Dataset] --&gt; B[Training Data]\n    A --&gt; C[Testing Data]\n    A --&gt; D[Validation Data]\n    B --&gt; E[Train Model]\n    E --&gt; F[Evaluate on Validation]\n    F --&gt; G[Tune Model]\n    G --&gt; E\n    F --&gt; H[Final Evaluation on Test Data]\n\n\n\n\n\n\n\nExplain the importance of keeping test data separate to get an unbiased estimate of model performance. Discuss cross-validation as a technique to make better use of limited data."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#generalizability",
-    "href": "talks/ml-intro/index.html#generalizability",
-    "title": "Introduction to Machine Learning",
-    "section": "Generalizability",
-    "text": "Generalizability\n\nThe ability of a model to perform well on unseen data\nOverfitting: Model performs well on training data but poorly on new data\nUnderfitting: Model fails to capture the underlying pattern in the data\n\ngraph TD\n    A[Model Complexity] --&gt; B[Underfitting]\n    A --&gt; C[Good Fit]\n    A --&gt; D[Overfitting]\n    E[Error] --&gt; F[High Training Error, High Test Error]\n    E --&gt; G[Low Training Error, Low Test Error]\n    E --&gt; H[Low Training Error, High Test Error]\n    B --- F\n    C --- G\n    D --- H\n\nDiscuss techniques to improve generalizability: - Regularization - More training data - Feature selection - Ensemble methods Emphasize the importance of finding the right balance between model complexity and generalizability."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#bias-and-variance",
-    "href": "talks/ml-intro/index.html#bias-and-variance",
-    "title": "Introduction to Machine Learning",
-    "section": "Bias and Variance",
-    "text": "Bias and Variance\n\nBias: Error from incorrect assumptions in the learning algorithm\nVariance: Error from sensitivity to small fluctuations in the training set\nBias-Variance Tradeoff: The conflict in trying to simultaneously minimize these two sources of error\n\n\nExplain that high bias can cause underfitting (the model is too simple to capture the underlying pattern), while high variance can cause overfitting (the model is too complex and captures noise in the data).\nDiscuss how different models have different bias-variance characteristics. For example, linear models often have high bias but low variance, while decision trees can have low bias but high variance."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#key-concepts-in-ml",
-    "href": "talks/ml-intro/index.html#key-concepts-in-ml",
-    "title": "Introduction to Machine Learning",
-    "section": "Key Concepts in ML",
-    "text": "Key Concepts in ML\n\nFeature Engineering\nModel Selection\nHyperparameter Tuning\nEnsemble Methods\nCross-Validation\nEvaluation Metrics\n\n\nBriefly explain each concept: 1. Feature Engineering: Creating new features or transforming existing ones to improve model performance 2. Model Selection: Choosing the appropriate algorithm for your problem 3. Hyperparameter Tuning: Optimizing model parameters that are not learned from data 4. Ensemble Methods: Combining multiple models to improve performance 5. Cross-Validation: Technique for assessing how the model will generalize to an independent dataset 6. Evaluation Metrics: Different ways to measure model performance (accuracy, precision, recall, F1-score, ROC curve, etc.)"
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#challenges-in-machine-learning",
-    "href": "talks/ml-intro/index.html#challenges-in-machine-learning",
-    "title": "Introduction to Machine Learning",
-    "section": "Challenges in Machine Learning",
-    "text": "Challenges in Machine Learning\n\nData Quality and Quantity\nInterpretability vs Performance\nEthical Considerations and Bias\nComputational Resources\nModel Deployment and Maintenance\n\n\nDiscuss each challenge: 1. The importance of good, representative data and the challenges of data collection and cleaning 2. The tradeoff between complex, high-performing models and simpler, more interpretable ones 3. The risk of perpetuating or amplifying societal biases through ML models 4. The need for significant computational power, especially for deep learning models 5. The challenges of deploying models in production environments and keeping them updated"
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#future-directions-in-machine-learning",
-    "href": "talks/ml-intro/index.html#future-directions-in-machine-learning",
-    "title": "Introduction to Machine Learning",
-    "section": "Future Directions in Machine Learning",
-    "text": "Future Directions in Machine Learning\n\nAutoML: Automating the ML pipeline\nFederated Learning: Training models on decentralized data\nExplainable AI: Making black-box models more interpretable\nQuantum Machine Learning: Leveraging quantum computing for ML\nContinual Learning: Adapting to new data without forgetting old patterns\n\n\nBriefly explain each direction and its potential impact. Encourage students to think about how these developments might shape the future of ML and AI."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#conclusion",
-    "href": "talks/ml-intro/index.html#conclusion",
-    "title": "Introduction to Machine Learning",
-    "section": "Conclusion",
-    "text": "Conclusion\n\nMachine Learning is a powerful subset of AI\nIt has diverse applications across industries\nUnderstanding key concepts like generalizability, bias-variance tradeoff is crucial\nML comes with both exciting possibilities and important challenges\n\n\nRecap the main points of the lecture. Emphasize that ML is a rapidly evolving field with great potential, but also stress the importance of using ML responsibly and ethically."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#questions",
-    "href": "talks/ml-intro/index.html#questions",
-    "title": "Introduction to Machine Learning",
-    "section": "Questions?",
-    "text": "Questions?\nThank you for your attention!\n\nEncourage questions from the audience. Be prepared to clarify any concepts that students found confusing. If possible, relate questions back to real-world applications of ML to reinforce the practical importance of these concepts."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#additional-resources",
-    "href": "talks/ml-intro/index.html#additional-resources",
-    "title": "Introduction to Machine Learning",
-    "section": "Additional Resources",
-    "text": "Additional Resources\n\nBooks: “Introduction to Machine Learning with Python” by Müller and Guido\nOnline Courses: Andrew Ng’s Machine Learning course on Coursera\nWebsites: Towards Data Science, KDnuggets\nLibraries: scikit-learn, TensorFlow, PyTorch\n\n\nProvide these resources for students who want to dive deeper into ML. Mention that hands-on practice is crucial for truly understanding ML concepts."
   },
   {
     "objectID": "about.html",
