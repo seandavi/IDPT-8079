@@ -1,0 +1,340 @@
+---
+title: "Introduction to Machine Learning"
+author: "Sean Davis, MD, PhD"
+image: "images/ml-intro-cover.png"
+format: 
+  revealjs:
+    theme: [dark, styles.scss]
+    transition: slide
+    slide-number: true
+    title-slide-attributes:
+      data-background-image: "images/ml-intro-cover.png"
+      data-background-size: 100%
+      data-background-opacity: "0.5"
+---
+
+## Outline
+
+1. Relationship between AI and ML
+2. Machine Learning Uses
+3. Types of Machine Learning
+4. Training and Testing
+5. Generalizability
+6. Bias and Variance
+7. Key Concepts in ML
+8. Challenges and Future Directions
+
+::: notes
+This lecture will provide a comprehensive introduction to machine learning, covering its relationship with AI, fundamental concepts, methodologies, and challenges. Encourage students to ask questions throughout the lecture.
+:::
+
+
+
+## Artificial Intelligence and Machine Learning
+
+:::: .columns
+
+::: {.column}
+- Artificial Intelligence (AI): The broad field of creating intelligent machines
+- Machine Learning (ML): A subset of AI focused on learning from data
+- Deep Learning: A subset of ML using neural networks with multiple layers
+
+::: 
+
+::: {.column}
+```{mermaid}
+graph TD
+    A[Artificial Intelligence] --> B[Machine Learning]
+    B --> C[Deep Learning]
+```
+
+:::
+
+:::: 
+
+::: notes
+Explain that ML is a way to achieve AI, but not the only way. AI also includes rule-based systems, expert systems, and other approaches. ML has become dominant due to its ability to learn from data without explicit programming.
+:::
+
+## AI, more broadly
+
+```{r}
+# Load required library
+library(visNetwork)
+
+# Define the nodes for the AI hierarchy (23 rows in total for id, label, and group)
+nodes <- data.frame(
+    id = 1:22,
+    label = c(
+        "Artificial Intelligence",
+        "Symbolic AI", "Evolutionary Algorithms",
+        "Logic-Based AI", "Agent-Based AI",
+        "Neural-Symbolic AI", "Machine Learning",
+        "Expert Systems", "Knowledge Representation",
+        "Planning Systems", "Genetic Algorithms",
+        "Evolutionary Programming",
+        "Automated Theorem Proving",
+        "Constraint Satisfaction Problems",
+        "Reinforcement Learning", "Multi-Agent Systems",
+        "Hybrid AI Models", "Knowledge-Infused Learning",
+        "Supervised Learning", "Unsupervised Learning",
+        "Semi-Supervised Learning", "Deep Learning"
+    ),
+    group = c(
+        "AI",
+        "Symbolic", "Evolutionary", "Logic-Based",
+        "Agent-Based", "Neural-Symbolic", "Machine Learning",
+        "Symbolic", "Symbolic", "Symbolic",
+        "Evolutionary", "Evolutionary",
+        "Logic-Based", "Logic-Based",
+        "Agent-Based", "Agent-Based",
+        "Neural-Symbolic", "Neural-Symbolic",
+        "Machine Learning", "Machine Learning", "Machine Learning", "Machine Learning"
+    ),
+    font.color = "white"
+)
+
+# Define the edges between the nodes (23 connections)
+edges <- data.frame(
+    from = c(1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 7, 7, 7),
+    to = c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23)
+)
+
+# Create the network visualization
+visNetwork(nodes, edges) %>%
+    visGroups(groupname = "AI", color = "lightblue") %>%
+    visGroups(groupname = "Symbolic", color = "orange") %>%
+    visGroups(groupname = "Evolutionary", color = "lightgreen") %>%
+    visGroups(groupname = "Logic-Based", color = "yellow") %>%
+    visGroups(groupname = "Agent-Based", color = "pink") %>%
+    visGroups(groupname = "Neural-Symbolic", color = "purple") %>%
+    visGroups(groupname = "Machine Learning", color = "red") %>%
+    visLegend() %>%
+    visEdges(arrows = "to")
+
+```
+
+
+## Machine Learning: Definition
+
+Machine Learning is the field of study that gives computers the ability to learn without being explicitly programmed. - Arthur Samuel, 1959
+
+::: notes
+Emphasize that this definition, despite being from 1959, still captures the essence of ML. The key is that ML systems improve their performance on a task through experience (data), rather than through explicit programming of rules.
+:::
+
+
+
+## Machine Learning Uses
+
+- Image and Speech Recognition
+- Natural Language Processing
+- Recommendation Systems
+- Autonomous Vehicles
+- Medical Diagnosis
+- Financial Forecasting
+- Anomaly Detection
+- Robotics
+
+::: notes
+Provide examples for each use case. For instance:
+
+- **Medical Diagnosis**: Machine Learning (ML) can analyze medical images such as X-rays, MRIs, and CT scans to detect diseases like cancer, fractures, and other abnormalities. ML models can also predict patient outcomes and recommend personalized treatment plans.
+
+- **Finance**: ML models can predict stock prices by analyzing historical data and market trends. They can also detect fraudulent transactions by identifying unusual patterns and behaviors in financial data.
+
+- **Retail**: ML can be used for customer segmentation, personalized marketing, and inventory management. For example, recommendation systems suggest products to customers based on their browsing and purchase history.
+
+- **Transportation**: ML algorithms can optimize routes for delivery services, predict maintenance needs for vehicles, and enhance autonomous driving systems by recognizing objects and making real-time decisions.
+
+- **Healthcare**: Beyond diagnosis, ML can assist in drug discovery by analyzing chemical compounds and predicting their effectiveness. It can also monitor patient health through wearable devices and alert healthcare providers to potential issues.
+
+- **Agriculture**: ML can analyze satellite images and sensor data to monitor crop health, predict yields, and optimize irrigation and fertilization schedules.
+
+- **Manufacturing**: Predictive maintenance powered by ML can foresee equipment failures and reduce downtime. Quality control systems can use ML to detect defects in products during the manufacturing process.
+
+- **Energy**: ML can optimize energy consumption in smart grids, predict equipment failures in power plants, and enhance the efficiency of renewable energy sources like wind and solar power.
+
+- **Entertainment**: Streaming services use ML to recommend movies, music, and shows based on user preferences. ML can also be used in content creation, such as generating music or writing scripts.
+
+- **Education**: ML can personalize learning experiences by adapting educational content to the needs of individual students. It can also automate grading and provide insights into student performance.
+
+:::
+
+
+## Types of Machine Learning
+
+1. Supervised Learning
+   - Classification
+   - Regression
+2. Unsupervised Learning
+   - Clustering
+   - Dimensionality Reduction
+3. Reinforcement Learning
+
+::: notes
+Explain each type:
+- Supervised: Learning from labeled data
+- Unsupervised: Finding patterns in unlabeled data
+- Reinforcement: Learning through interaction with an environment
+
+Give examples for each, like image classification for supervised learning, customer segmentation for unsupervised learning, and game-playing AI for reinforcement learning.
+:::
+
+
+
+## Training and Testing
+
+- Training Data: Used to teach the model
+- Testing Data: Used to evaluate the model's performance
+- Validation Data: Used for tuning hyperparameters
+
+```{mermaid}
+graph LR
+    A[Dataset] --> B[Training Data]
+    A --> C[Testing Data]
+    A --> D[Validation Data]
+    B --> E[Train Model]
+    E --> F[Evaluate on Validation]
+    F --> G[Tune Model]
+    G --> E
+    F --> H[Final Evaluation on Test Data]
+```
+
+::: notes
+Explain the importance of keeping test data separate to get an unbiased estimate of model performance. Discuss cross-validation as a technique to make better use of limited data.
+:::
+
+
+
+## Generalizability
+
+- The ability of a model to perform well on unseen data
+- Overfitting: Model performs well on training data but poorly on new data
+- Underfitting: Model fails to capture the underlying pattern in the data
+
+```mermaid
+graph TD
+    A[Model Complexity] --> B[Underfitting]
+    A --> C[Good Fit]
+    A --> D[Overfitting]
+    E[Error] --> F[High Training Error, High Test Error]
+    E --> G[Low Training Error, Low Test Error]
+    E --> H[Low Training Error, High Test Error]
+    B --- F
+    C --- G
+    D --- H
+```
+
+::: notes
+Discuss techniques to improve generalizability:
+- Regularization
+- More training data
+- Feature selection
+- Ensemble methods
+Emphasize the importance of finding the right balance between model complexity and generalizability.
+:::
+
+
+
+## Bias and Variance
+
+- Bias: Error from incorrect assumptions in the learning algorithm
+- Variance: Error from sensitivity to small fluctuations in the training set
+- Bias-Variance Tradeoff: The conflict in trying to simultaneously minimize these two sources of error
+
+::: notes
+Explain that high bias can cause underfitting (the model is too simple to capture the underlying pattern), while high variance can cause overfitting (the model is too complex and captures noise in the data).
+
+Discuss how different models have different bias-variance characteristics. For example, linear models often have high bias but low variance, while decision trees can have low bias but high variance.
+:::
+
+
+
+## Key Concepts in ML
+
+1. Feature Engineering
+2. Model Selection
+3. Hyperparameter Tuning
+4. Ensemble Methods
+5. Cross-Validation
+6. Evaluation Metrics
+
+::: notes
+Briefly explain each concept:
+1. Feature Engineering: Creating new features or transforming existing ones to improve model performance
+2. Model Selection: Choosing the appropriate algorithm for your problem
+3. Hyperparameter Tuning: Optimizing model parameters that are not learned from data
+4. Ensemble Methods: Combining multiple models to improve performance
+5. Cross-Validation: Technique for assessing how the model will generalize to an independent dataset
+6. Evaluation Metrics: Different ways to measure model performance (accuracy, precision, recall, F1-score, ROC curve, etc.)
+:::
+
+
+
+## Challenges in Machine Learning
+
+1. Data Quality and Quantity
+2. Interpretability vs Performance
+3. Ethical Considerations and Bias
+4. Computational Resources
+5. Model Deployment and Maintenance
+
+::: notes
+Discuss each challenge:
+1. The importance of good, representative data and the challenges of data collection and cleaning
+2. The tradeoff between complex, high-performing models and simpler, more interpretable ones
+3. The risk of perpetuating or amplifying societal biases through ML models
+4. The need for significant computational power, especially for deep learning models
+5. The challenges of deploying models in production environments and keeping them updated
+:::
+
+
+
+## Future Directions in Machine Learning
+
+- AutoML: Automating the ML pipeline
+- Federated Learning: Training models on decentralized data
+- Explainable AI: Making black-box models more interpretable
+- Quantum Machine Learning: Leveraging quantum computing for ML
+- Continual Learning: Adapting to new data without forgetting old patterns
+
+::: notes
+Briefly explain each direction and its potential impact. Encourage students to think about how these developments might shape the future of ML and AI.
+:::
+
+
+
+## Conclusion
+
+- Machine Learning is a powerful subset of AI
+- It has diverse applications across industries
+- Understanding key concepts like generalizability, bias-variance tradeoff is crucial
+- ML comes with both exciting possibilities and important challenges
+
+::: notes
+Recap the main points of the lecture. Emphasize that ML is a rapidly evolving field with great potential, but also stress the importance of using ML responsibly and ethically.
+:::
+
+
+
+## Questions?
+
+Thank you for your attention!
+
+::: notes
+Encourage questions from the audience. Be prepared to clarify any concepts that students found confusing. If possible, relate questions back to real-world applications of ML to reinforce the practical importance of these concepts.
+:::
+
+
+
+## Additional Resources
+
+- Books: "Introduction to Machine Learning with Python" by Müller and Guido
+- Online Courses: Andrew Ng's Machine Learning course on Coursera
+- Websites: Towards Data Science, KDnuggets
+- Libraries: scikit-learn, TensorFlow, PyTorch
+
+::: notes
+Provide these resources for students who want to dive deeper into ML. Mention that hands-on practice is crucial for truly understanding ML concepts.
+:::

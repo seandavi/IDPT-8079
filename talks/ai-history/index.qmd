@@ -1,0 +1,269 @@
+---
+title: "The History of Artificial Intelligence and Machine Learning"
+author: Sean Davis, MD, PhD
+image: "images/cover.png"
+date: 2024-09-19
+format: 
+  revealjs: 
+    theme: [dark, ../styles.scss]
+    chalkboard: true
+    slide-number: true
+    title-slide-attributes:
+      data-background-image: "images/cover.png"
+      data-background-size: 100%
+      data-background-opacity: "0.5"
+    
+bibliography: ../references.bib
+---
+
+## Introduction
+
+- Artificial Intelligence (AI) and Machine Learning (ML) have a rich history
+- From early concepts to modern applications
+- This presentation covers key milestones and breakthroughs
+
+
+
+## Early Beginnings (1940s-1950s)
+
+::: {.columns}
+
+::: {.column}
+- 1936: Turing and the Computable Numbers [@turing_computable_1936]
+- 1943: McCulloch and Pitts create a computational model for neural networks
+- 1950: Alan Turing proposes the Turing Test [@Turing1950-TURCMA] and [Paper](https://courses.cs.umbc.edu/471/papers/turing.pdf)
+- 1956: Dartmouth Conference coins the term "Artificial Intelligence"
+:::
+
+::: {.column}
+![](https://historyofinformation.com/images/Screen_Shot_2020-09-09_at_6.46.46_AM_big.png)
+:::
+
+:::
+
+## title
+
+::: {.r-fit-text}
+BIG
+:::
+
+
+## "I, Robot" by Isaac Asimov
+
+
+:::: {.columns}
+
+::: {.column}
+
+- Published in 1950 by Gnome Press
+- Collection of nine science fiction short stories
+- Originally appeared in super-science fiction magazines (1940-1950)
+- Introduced the concept of positronic robots and the Three Laws of Robotics
+
+:::
+
+::: {.column width="40%"}
+![](https://upload.wikimedia.org/wikipedia/en/d/d5/I_robot.jpg)
+:::
+
+::::
+
+@asimov_i_2004
+
+::: {.notes}
+Asimov's work laid the foundation for ethical considerations in AI development.
+:::
+
+## The Three Laws of Robotics
+
+1. A robot may not injure a human being or, through inaction, allow a human being to come to harm.
+2. A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.
+3. A robot must protect its own existence as long as such protection does not conflict with the First or Second Laws.
+
+::: {.fragment}
+Asimov later added the Zeroth Law that superseded the others:
+
+0. A robot may not harm humanity, or, by inaction, allow humanity to come to harm.
+:::
+
+::: {.notes}
+These laws have become a cornerstone in discussions about AI ethics and safety.
+:::
+
+## "I, Robot"'s Influence on Modern AI
+
+- Sparked discussions on machine ethics and AI safety
+- Influenced researchers to consider ethical implications of AI development
+- Concept of "friendly AI" draws parallels to Asimov's laws
+- Challenges presented in stories mirror real-world AI alignment problems
+
+::: {.notes}
+While not directly implementable, Asimov's laws have shaped thinking about AI governance and ethics in the field.
+:::
+
+## 1950: The Turing Test
+
+![Who's the real human?](images/turing_test_cartoon.png)
+
+## The Golden Years (1956-1974)
+
+- Development of early AI programs
+- 1957: Frank Rosenblatt develops the Perceptron
+- 1964: ELIZA, one of the first chatbots, is created by Joseph Weizenbaum
+
+## 1964: ELIZA, one of the first chatbots {.smaller}
+::: {.center}
+
+![](https://upload.wikimedia.org/wikipedia/commons/7/79/ELIZA_conversation.png){fig-align="center"}
+
+:::
+
+::: {.small}
+Although ELIZA was limited in terms of actual understanding, it marked an important milestone in the development of AI and human-computer interaction, showing how conversation-based interfaces could influence the perception of intelligence.
+:::
+
+::: notes
+ELIZA was one of the earliest chatbots, developed in the mid-1960s by Joseph Weizenbaum, a computer scientist at MIT. The program was designed to simulate a conversation between a human and a machine, and it did so by using pattern matching and substitution methodology, a simple but effective form of natural language processing.
+
+ELIZA’s most famous script was called “DOCTOR,” which mimicked a Rogerian psychotherapist. In this role, ELIZA would take users' input and reflect their statements back to them in a way that encouraged further conversation. For example, if a user said, "I'm feeling sad today," ELIZA might respond with, "Why do you think you're feeling sad today?"
+
+While ELIZA's responses were largely superficial, many users were surprised at how human-like they seemed. Weizenbaum created ELIZA to demonstrate how easily people could attribute human-like understanding to a machine, even when its responses were formulaic. He was struck by how quickly people became emotionally attached to the program, despite knowing it was not genuinely intelligent.
+
+Although ELIZA was limited in terms of actual understanding, it marked an important milestone in the development of AI and human-computer interaction, showing how conversation-based interfaces could influence the perception of intelligence.
+:::
+
+## Expert Systems Era (1970s-1980s)
+
+- Focus on rule-based systems and knowledge representation
+- 1972: MYCIN, an expert system for diagnosing blood infections
+- 1980: XCON expert system for computer configurations
+
+
+
+## AI Winter (1974-1980 and 1987-1993)
+
+- Periods of reduced funding and interest in AI
+- Overpromising and underdelivering led to skepticism
+- Shift towards more practical, focused applications
+
+
+
+## Revival of Machine Learning (1990s)
+
+- Increased focus on data-driven approaches
+- 1997: IBM's Deep Blue defeats world chess champion Garry Kasparov
+- Growing interest in neural networks and statistical methods
+
+
+
+## The Rise of Big Data (2000s)
+
+- Explosion of digital data and increased computing power
+- 2006: Geoffrey Hinton introduces deep learning techniques
+- 2010: ImageNet project accelerates computer vision research
+
+
+
+## Deep Learning Revolution (2010s)
+
+- 2012: AlexNet wins ImageNet competition, marking a breakthrough in deep learning
+- 2014: Generative Adversarial Networks (GANs) introduced by Ian Goodfellow
+- 2016: Google's AlphaGo defeats world champion Go player Lee Sedol
+
+
+
+## Natural Language Processing Advancements
+
+- 2018: BERT (Bidirectional Encoder Representations from Transformers) by Google
+- 2019: GPT-2 by OpenAI demonstrates impressive text generation capabilities
+- 2020: GPT-3 sets new standards for language models
+
+
+
+## AI in Healthcare
+
+- 2015: DeepMind's AI diagnoses eye diseases from retinal scans
+- 2019: AI models predict antibiotic resistance and discover new antibiotics
+- 2020-2021: AI assists in COVID-19 research and vaccine development
+
+
+
+## AI in Autonomous Vehicles
+
+- 2009: Google starts self-driving car project (later Waymo)
+- 2015: Tesla introduces Autopilot
+- 2020: Waymo launches fully driverless taxi service in Phoenix
+
+
+
+## AI in Art and Creativity
+
+- 2015: DeepDream generates dreamlike images
+- 2018: AI-generated art piece sells at Christie's auction
+- 2022: Text-to-image models like DALL-E 2 and Midjourney gain popularity
+
+
+
+## Ethical Considerations and AI Safety
+
+- Growing concern over AI bias and fairness
+- 2016: Partnership on AI founded to address ethical concerns
+- Ongoing debates on AI regulation and responsible development
+
+
+
+## AI and Climate Change
+
+- AI used for climate modeling and prediction
+- 2019: DeepMind AI reduces Google data center cooling energy by 40%
+- AI optimizing renewable energy integration and resource management
+
+
+
+## Recent Breakthroughs (2020-2023)
+
+- 2020: AlphaFold 2 solves protein folding problem
+- 2022: ChatGPT demonstrates advanced conversational abilities
+- 2023: Multimodal models like GPT-4 show improved reasoning and task completion
+
+
+
+## Current State of AI and ML (2024)
+
+- Rapid advancements in large language models
+- Increasing focus on AI alignment and safety
+- Integration of AI in various industries and everyday applications
+
+
+
+## Future Directions
+
+- Artificial General Intelligence (AGI) research
+- Quantum computing and AI
+- Neuromorphic computing
+- Human-AI collaboration
+
+For deeper dive into the history, see [@norman_history_2024].
+
+
+## Challenges and Opportunities
+
+- Ethical AI development
+- AI governance and regulation
+- Addressing AI bias and fairness
+- Balancing innovation with responsible development
+
+
+
+## Conclusion
+
+- AI and ML have come a long way since their inception
+- Continued rapid progress and integration into various aspects of life
+- Importance of responsible development and ethical considerations
+
+
+
+## References
+
+
+

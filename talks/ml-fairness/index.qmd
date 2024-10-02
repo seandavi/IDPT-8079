@@ -1,0 +1,319 @@
+---
+title: "Fairness in Machine Learning for Healthcare"
+author: "Sean Davis, MD, PhD"
+image: "images/fair-cover.png"
+format:
+  revealjs:
+    theme: [dark, styles.scss]
+    transition: slide
+    slide-number: true
+    title-slide-attributes:
+      data-background-image: "images/fair-cover.png"
+      data-background-size: 100%
+      data-background-opacity: "0.5"
+---
+
+## Introduction
+
+- Machine Learning in Healthcare
+- Importance of Fairness
+- Overview of the Presentation
+
+
+
+## Background: ML in Healthcare
+
+- Diagnosis assistance
+- Treatment planning
+- Risk prediction
+- Resource allocation
+- Drug discovery
+
+
+
+## Why Fairness Matters in Healthcare ML
+
+- Equal access to quality healthcare
+- Avoiding perpetuation of historical biases
+- Legal and ethical considerations
+- Building trust in ML systems
+
+
+
+# Sources of Bias in Healthcare ML
+
+1. Data Collection Bias
+2. Sampling Bias
+3. Label Bias
+4. Feature Selection Bias
+5. Algorithmic Bias
+
+
+
+## Data Collection Bias
+
+- Underrepresentation of certain groups
+- Example: Lack of diverse skin tones in dermatology datasets
+- Consequence: Poor performance on underrepresented groups
+
+
+
+## Sampling Bias
+
+- Non-random selection of data points
+- Example: Oversampling from urban hospitals
+- Consequence: Model may not generalize to rural populations
+
+
+
+## Label Bias
+
+- Incorrect or inconsistent labeling of data
+- Example: Different diagnosis standards across hospitals
+- Consequence: Model learns and perpetuates inconsistent standards
+
+
+
+## Feature Selection Bias
+
+- Choosing features that correlate with protected attributes
+- Example: Using zip code as a proxy for race
+- Consequence: Indirect discrimination
+
+
+
+## Algorithmic Bias
+
+- Bias introduced by the algorithm itself
+- Example: Regularization techniques that favor majority groups
+- Consequence: Systematic underperformance for minority groups
+
+
+
+## Key Statistical Concepts
+
+1. Sensitivity (Recall)
+2. Specificity
+3. Positive Predictive Value (PPV)
+4. Negative Predictive Value (NPV)
+5. Area Under the ROC Curve (AUC)
+
+
+
+## Sensitivity and Specificity
+
+- "How well does the model identify positive cases?"
+  - $sensitivity = \frac{True\; Positives}{True\; Positives + False\; Negatives}$
+
+- "How well does the model identify negative cases?"
+  - $specificity = \frac{True\; Negatives}{True\; Negatives + False\; Positives}$
+
+
+
+
+## Positive and Negative Predictive Values
+
+- $PPV = \frac{True\; Positives}{True\; Positives + False\; Positives}$
+  - "How likely is a positive prediction to be correct?"
+- $NPV = \frac{True\; Negatives}{True\; Negatives + False\; Negatives}$ 
+  - "How likely is a negative prediction to be correct?"
+
+
+
+## Area Under the ROC Curve (AUC)
+
+- Measures overall model performance across all thresholds
+- Plot of True Positive Rate (sensitivity) vs. False Positive Rate (1-specificity)
+- AUC = 0.5 (random guessing) to 1.0 (perfect classification)
+- Allows comparison of model performance across different groups
+
+
+
+## Case Study 1: Skin Cancer Detection
+
+- ML model for analyzing skin lesion images
+- Problem: Unequal performance across skin tones
+- Data: 100,000 images
+  - 80,000 light-skinned
+  - 20,000 dark-skinned
+- Overall accuracy: 95%
+  - Light-skinned: 97%
+  - Dark-skinned: 85%
+
+
+
+## Case Study 2: Diabetes Risk Assessment
+
+- ML model for predicting type 2 diabetes risk
+- Problem: Unequal performance across demographic groups
+- Data: 100,000 patients
+  - 70,000 from Group A
+  - 30,000 from Group B
+- Overall accuracy: 92%
+  - Group A: 95%
+  - Group B: 85%
+
+
+
+## Fairness Concepts
+
+1. Demographic Fairness
+2. Equality of Opportunity
+3. Counterfactual Fairness
+
+
+
+## Demographic Fairness
+
+- Equal positive prediction rate across groups
+- Example (Skin Cancer):
+  - 30% risk prediction for both light and dark skin
+- Example (Diabetes):
+  - 30% high-risk prediction for both Group A and B
+
+
+
+## Demographic Fairness: Pros and Cons
+
+- Pro: Ensures equal treatment across groups
+- Con: May ignore true underlying differences
+- Healthcare Implication: Could lead to over/under-diagnosis
+
+
+
+## Equality of Opportunity
+
+- Equal true positive rates (sensitivity) across groups
+- Example (Skin Cancer):
+  - 90% detection rate for actual cases in both groups
+- Example (Diabetes):
+  - 80% detection rate for actual high-risk cases in both groups
+
+
+
+## Equality of Opportunity: Pros and Cons
+
+- Pro: Equal chance of correct diagnosis for affected individuals
+- Con: May have different false positive rates (specificity)
+- Healthcare Implication: Balances patient safety with resource allocation
+
+
+
+## Counterfactual Fairness
+
+- Prediction unchanged if only demographic feature changed
+- Example (Skin Cancer):
+  - Same risk prediction for identical lesions, regardless of skin tone
+- Example (Diabetes):
+  - Same risk prediction for identical blood test results, regardless of group
+
+
+
+## Counterfactual Fairness: Pros and Cons
+
+- Pro: Focuses on relevant medical factors only
+- Con: May miss genuine group-specific risk factors
+- Healthcare Implication: Promotes individualized care, but may oversimplify complex health disparities
+
+
+
+## Visualizing Counterfactual Fairness
+
+![Counterfactual Fairness in Diabetes Risk Assessment](images/fairness-diabetes-infographic.svg){width=70%}
+
+
+
+## Challenges in Achieving Fairness
+
+- Data collection biases
+- Historical health disparities
+- Conflicting fairness definitions
+- Balancing fairness with model performance
+- Intersectionality of protected attributes
+
+
+
+## Fairness-Aware ML: Prejudice Remover Regularizer
+
+- Reduces influence of sensitive attributes on predictions
+- Adds regularization term to learning objective:
+  L = L_0 + η * R
+- R penalizes mutual information between sensitive attributes and predictions
+
+
+
+## Prejudice Remover Regularizer: How It Works
+
+1. Modify objective function
+2. Measure mutual information
+3. Penalize dependence on sensitive attributes
+4. Balance original loss and fairness constraint
+
+
+
+## Prejudice Remover Regularizer: Advantages
+
+- Flexible: Applicable to various classifiers
+- Interpretable: Clear trade-off parameter
+- Effective: Reduces discrimination in various scenarios
+
+
+
+## Prejudice Remover Regularizer: Limitations
+
+- Increased computational complexity
+- Potential accuracy trade-off
+- Works best with binary sensitive attributes
+
+
+
+## Other Fairness-Aware ML Techniques
+
+- Reweighting
+- Adversarial Debiasing
+- Fair Representation Learning
+- Post-processing Methods
+
+
+
+## Implementing Fairness in Healthcare ML
+
+1. Collect diverse and representative data
+2. Choose appropriate fairness metric for the context
+3. Implement fairness-aware algorithms
+4. Regularly audit model performance across groups
+5. Involve diverse stakeholders in development and deployment
+
+
+
+## Ethical Considerations
+
+- Transparency and explainability
+- Informed consent for data usage
+- Privacy concerns
+- Potential for unintended consequences
+
+
+
+## Future Directions
+
+- Intersectional fairness
+- Causal approaches to fairness
+- Dynamic and adaptive fairness
+- Fairness in federated learning for healthcare
+
+
+
+## Conclusion
+
+- Fairness in healthcare ML is crucial but complex
+- No one-size-fits-all solution
+- Balancing act: fairness, accuracy, and domain-specific considerations
+- Ongoing research and ethical considerations are key
+
+
+
+## Questions?
+
+Thank you for your attention!
+
