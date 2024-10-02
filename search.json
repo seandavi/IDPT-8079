@@ -287,6 +287,13 @@
     "text": "IBM Watson Wins Jeopardy! (2011)\n\nMilestone: IBM Watson defeated champions Ken Jennings and Brad Rutter on Jeopardy!.\nImpact: Demonstrated AI’s ability to process and understand natural language, leading to applications in healthcare, finance, and customer service."
   },
   {
+    "objectID": "talks/ai-history/index.html#md-anderson-sets-watson-aside-2017-2018",
+    "href": "talks/ai-history/index.html#md-anderson-sets-watson-aside-2017-2018",
+    "title": "The History of Artificial Intelligence and Machine Learning",
+    "section": "MD Anderson sets Watson aside (2017-2018)",
+    "text": "MD Anderson sets Watson aside (2017-2018)\n\nSee Herper (n.d.)"
+  },
+  {
     "objectID": "talks/ai-history/index.html#generative-adversarial-networks-gans-2014",
     "href": "talks/ai-history/index.html#generative-adversarial-networks-gans-2014",
     "title": "The History of Artificial Intelligence and Machine Learning",
@@ -347,7 +354,7 @@
     "href": "talks/ai-history/index.html#references",
     "title": "The History of Artificial Intelligence and Machine Learning",
     "section": "References",
-    "text": "References\n\n\n\n\n\n\n\n\nAsimov, Isaac. 1950. I, Robot. Bantam hardcover ed. (2). New York: Bantam Books.\n\n\nNorman, Jeremy. 2024. “History of Information.” https://www.historyofinformation.com/?cat=71.\n\n\nTuring, Alan. 1936. “On Computable Numbers, with an Application to the Entscheidungsproblem.” https://www.abelard.org/turpap2/tp2-ie.asp.\n\n\n———. 1950. “Computing Machinery and Intelligence.” Mind 59 (October): 433–60. https://doi.org/10.1093/mind/lix.236.433."
+    "text": "References\n\n\n\n\n\n\n\n\nAsimov, Isaac. 1950. I, Robot. Bantam hardcover ed. (2). New York: Bantam Books.\n\n\nHerper, Matthew. n.d. “MD Anderson Benches IBM Watson In Setback For Artificial Intelligence In Medicine.” Forbes. Accessed October 2, 2024. https://www.forbes.com/sites/matthewherper/2017/02/19/md-anderson-benches-ibm-watson-in-setback-for-artificial-intelligence-in-medicine/.\n\n\nNorman, Jeremy. 2024. “History of Information.” https://www.historyofinformation.com/?cat=71.\n\n\nTuring, Alan. 1936. “On Computable Numbers, with an Application to the Entscheidungsproblem.” https://www.abelard.org/turpap2/tp2-ie.asp.\n\n\n———. 1950. “Computing Machinery and Intelligence.” Mind 59 (October): 433–60. https://doi.org/10.1093/mind/lix.236.433."
   },
   {
     "objectID": "about.html",
