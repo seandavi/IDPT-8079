@@ -1,0 +1,10 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/talks/ml-fairness/index.html",
+      "/talks/ml-intro/index.html",
+      "/talks/ai-history/index.html"
+    ]
+  }
+]
