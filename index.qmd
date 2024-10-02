@@ -1,10 +1,10 @@
 ---
 title: "IDPT-8079: Frontier of AI in Medicine"
-listing:
-  id: sample-listings
-  contents: 
-    - "talks/*/*.qmd"
-    - "talks/*/*.html"
+#listing:
+#  id: sample-listings
+#  contents: 
+#    - "talks/*/*.qmd"
+#    - "talks/*/*.html"
 
 ---
 
@@ -12,7 +12,7 @@ This is a collection of talks on various topics in machine learning and artifici
 
 ## Exercises
 
-- [Build an expert system using Prolog](exercises/aom-expert-system/play-with-prolog.qmd)
+- [Build an expert system using Prolog](Exercises/aom-expert-system/play-with-prolog.qmd)
 
 ## Talks
 
