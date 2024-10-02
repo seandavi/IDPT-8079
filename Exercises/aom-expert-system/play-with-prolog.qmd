@@ -13,6 +13,15 @@ date: 2024-10-02
 ---
 
 
+# Learning Goals:
+
+1. **Understand Expert Systems**: Know what an expert system is, particularly as a narrow AI system.
+2. **Explore Logic Programming**: Learn the basic principles of logic programming and how Prolog is used to model complex decision-making processes.
+3. **Learn to Implement an Expert System**: Gain hands-on experience using programming to solve problems using logical rules and knowledge representation.
+4. **Develop Problem-Solving Skills**: Implement a simple expert system in Prolog, mimicking the decision-making capabilities of a human expert.
+5. **Understand limitations of Expert Systems**: Explore the concept of narrow AI and its practical applications in specific domains through the use of expert systems.
+
+
 # Introduction
 
 In this exercise, you are going to use the Prolog programming language to build a simple expert system. 
@@ -293,7 +302,22 @@ When you visit the link, you'll see something like this:
 
 You can click the BOTTOM blue button next to the "check_diagnosis_and_treatment" button to execute the program and see the results. 
 
-If you want to try with different symptoms, you can edit the facts at the top of the program and then click the "check_diagnosis_and_treatment" button to run the program again. Remember that putting a `%` mark at the beginning of the line turns the line into a comment, so it any line (or symptom) that starts with `%` will be ignored by the Prolog interpreter. 
+![](20241002101923.png)
+
+If you want to try with different symptoms, you can edit the facts at the top of the program and then click the "check_diagnosis_and_treatment" button to run the program again. Remember that putting a `%` mark at the beginning of the line turns the line into a comment, so it any line (or symptom) that starts with `%` will be ignored by the Prolog interpreter. For example, modify the symptoms like this:
+
+```prolog
+% Facts (Patient's Symptoms)
+symptom(fever).
+symptom(fatigue).
+symptom(runny_nose).
+symptom(sneezing).
+% symptom(itchy_eyes).
+```
+
+Then click the "check_diagnosis_and_treatment" button to run the program again. 
+
+Note that adding new symptoms **WILL NOT** change the diagnosis or treatment recommendations **UNLESS** you add or modify the rules of the program. Try it by adding a symptom (fact) like `symptom(vomiting)` and see what happens. 
 
 The goal here is not to learn Prolog in depth, but to get a sense of how it works and how it can be used to build expert systems. 
 
