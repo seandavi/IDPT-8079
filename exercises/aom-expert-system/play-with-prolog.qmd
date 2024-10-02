@@ -13,6 +13,15 @@ date: 2024-10-02
 ---
 
 
+# Learning Goals:
+
+1. **Understand Expert Systems**: Know what an expert system is, particularly as a narrow AI system.
+2. **Explore Logic Programming**: Learn the basic principles of logic programming and how Prolog is used to model complex decision-making processes.
+3. **Learn to Implement an Expert System**: Gain hands-on experience using programming to solve problems using logical rules and knowledge representation.
+4. **Develop Problem-Solving Skills**: Implement a simple expert system in Prolog, mimicking the decision-making capabilities of a human expert.
+5. **Understand limitations of Expert Systems**: Explore the concept of narrow AI and its practical applications in specific domains through the use of expert systems.
+
+
 # Introduction
 
 In this exercise, you are going to use the Prolog programming language to build a simple expert system. 
