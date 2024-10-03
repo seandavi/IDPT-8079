@@ -123,7 +123,7 @@
     "href": "talks/ml-intro/index.html#outline",
     "title": "Introduction to Machine Learning",
     "section": "Outline",
-    "text": "Outline\n\nRelationship between AI and ML\nMachine Learning Uses\nTypes of Machine Learning\nTraining and Testing\nGeneralizability\nBias and Variance\nKey Concepts in ML\nChallenges and Future Directions"
+    "text": "Outline\n\nRelationship between AI and ML\nTypes of Machine Learning\nA little about data\nSupervised Learning\nUnsupervised Learning"
   },
   {
     "objectID": "talks/ml-intro/index.html#an-ontology-of-ai",
