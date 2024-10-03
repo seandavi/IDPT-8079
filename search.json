@@ -116,7 +116,7 @@
     "href": "index.html#talks",
     "title": "IDPT-8079: Frontier of AI in Medicine",
     "section": "Talks",
-    "text": "Talks\n\nAI History"
+    "text": "Talks\n\nAI History\nIntroduction to Artificial Intelligence and Machine Learning"
   },
   {
     "objectID": "talks/ai-history/index.html#introduction",
@@ -347,7 +347,315 @@
     "href": "talks/ai-history/index.html#references",
     "title": "The History of Artificial Intelligence and Machine Learning",
     "section": "References",
-    "text": "References\n\n\n\n\n\n\n\n\nAsimov, Isaac. 1950. I, Robot. Bantam hardcover ed. (2). New York: Bantam Books.\n\n\nHerper, Matthew. n.d. “MD Anderson Benches IBM Watson In Setback For Artificial Intelligence In Medicine.” Forbes. Accessed October 2, 2024. https://www.forbes.com/sites/matthewherper/2017/02/19/md-anderson-benches-ibm-watson-in-setback-for-artificial-intelligence-in-medicine/.\n\n\nNorman, Jeremy. 2024. “History of Information.” https://www.historyofinformation.com/?cat=71.\n\n\nTuring, Alan. 1936. “On Computable Numbers, with an Application to the Entscheidungsproblem.” https://www.abelard.org/turpap2/tp2-ie.asp.\n\n\n———. 1950. “Computing Machinery and Intelligence.” Mind 59 (October): 433–60. https://doi.org/10.1093/mind/lix.236.433."
+    "text": "References\n\n\n\n\nAsimov, Isaac. 1950. I, Robot. Bantam hardcover ed. (2). New York: Bantam Books.\n\n\nHerper, Matthew. n.d. “MD Anderson Benches IBM Watson In Setback For Artificial Intelligence In Medicine.” Forbes. Accessed October 2, 2024. https://www.forbes.com/sites/matthewherper/2017/02/19/md-anderson-benches-ibm-watson-in-setback-for-artificial-intelligence-in-medicine/.\n\n\nNorman, Jeremy. 2024. “History of Information.” https://www.historyofinformation.com/?cat=71.\n\n\nTuring, Alan. 1936. “On Computable Numbers, with an Application to the Entscheidungsproblem.” https://www.abelard.org/turpap2/tp2-ie.asp.\n\n\n———. 1950. “Computing Machinery and Intelligence.” Mind 59 (October): 433–60. https://doi.org/10.1093/mind/lix.236.433."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#outline",
+    "href": "talks/ml-intro/index.html#outline",
+    "title": "Introduction to Machine Learning",
+    "section": "Outline",
+    "text": "Outline\n\nRelationship between AI and ML\nMachine Learning Uses\nTypes of Machine Learning\nTraining and Testing\nGeneralizability\nBias and Variance\nKey Concepts in ML\nChallenges and Future Directions"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#an-ontology-of-ai",
+    "href": "talks/ml-intro/index.html#an-ontology-of-ai",
+    "title": "Introduction to Machine Learning",
+    "section": "An Ontology of AI",
+    "text": "An Ontology of AI"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#what-is-machine-learning",
+    "href": "talks/ml-intro/index.html#what-is-machine-learning",
+    "title": "Introduction to Machine Learning",
+    "section": "What is Machine Learning?",
+    "text": "What is Machine Learning?\nThe study of computer algorithms that improve automatically through experience. It is seen as a subset of artificial intelligence. Machine learning systems give the computer the ability to learn without being explicitly programmed rules."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#what-is-deep-learning",
+    "href": "talks/ml-intro/index.html#what-is-deep-learning",
+    "title": "Introduction to Machine Learning",
+    "section": "What is Deep Learning?",
+    "text": "What is Deep Learning?\nMachine learning algorithms that are inspired by the structure and function of the brain. Deep learning is a subset of machine learning in artificial intelligence that has networks capable of learning unsupervised from data that is often unstructured (i.e., text or images)."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#ai-vs.-ml-vs.-deep-learning",
+    "href": "talks/ml-intro/index.html#ai-vs.-ml-vs.-deep-learning",
+    "title": "Introduction to Machine Learning",
+    "section": "AI vs. ML vs. Deep Learning",
+    "text": "AI vs. ML vs. Deep Learning\n\n\nArtificialIntelligence\n\n\nMachineLearning\n\n\nDeepLearning"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#ai-vs.-ml-vs.-deep-learning-1",
+    "href": "talks/ml-intro/index.html#ai-vs.-ml-vs.-deep-learning-1",
+    "title": "Introduction to Machine Learning",
+    "section": "AI vs. ML vs. Deep Learning",
+    "text": "AI vs. ML vs. Deep Learning\n\n\nArtificialIntelligence\n\n\nMachineLearning\n\n\nDeepLearning"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#an-ontology-of-data",
+    "href": "talks/ml-intro/index.html#an-ontology-of-data",
+    "title": "Introduction to Machine Learning",
+    "section": "An ontology of Data",
+    "text": "An ontology of Data\n\n\n\n\nOne way to think about different classes of data."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#structured-data-vs-unstructured-data",
+    "href": "talks/ml-intro/index.html#structured-data-vs-unstructured-data",
+    "title": "Introduction to Machine Learning",
+    "section": "Structured Data vs Unstructured Data",
+    "text": "Structured Data vs Unstructured Data\n\n\n\n\n\n\n\n\n\nStructured data\nUnstructured data\n\n\n\n\nWhat is it?\nData that fits in a predefined data model or schema.\nData without an underlying model to discern attributes.\n\n\nBasic example\nAn Excel table.\nA collection of video files.\n\n\nBest for\nA set of predefined observations or characteristics (columns) on a collection of things (rows)\nAn associated collection of data, objects, or files where the attributes change or are unknown.\n\n\nCommon formats\nCSV, TSV, Excel, SQL databases.\nImages, audio, video, text."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#tabular-data",
+    "href": "talks/ml-intro/index.html#tabular-data",
+    "title": "Introduction to Machine Learning",
+    "section": "Tabular Data",
+    "text": "Tabular Data\n\nRows and columns\nEach column has a specific data type\nEach row represents an observation on a subject (e.g., patient, sample)\n\nTerminology: - Feature: A column in the dataset - Target: The variable you are trying to predict - Observation: A row in the dataset - Dimension: The number of features in the dataset (sometimes represented by \\(p\\)) - Sample: A single row in the dataset (usually represented by \\(n\\))"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#classes-of-machine-learning",
+    "href": "talks/ml-intro/index.html#classes-of-machine-learning",
+    "title": "Introduction to Machine Learning",
+    "section": "Classes of Machine Learning",
+    "text": "Classes of Machine Learning\n\nBroad classes of machine learning."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#types-of-machine-learning",
+    "href": "talks/ml-intro/index.html#types-of-machine-learning",
+    "title": "Introduction to Machine Learning",
+    "section": "Types of Machine Learning",
+    "text": "Types of Machine Learning\n\nSupervised Learning\n\nClassification\nRegression\n\nUnsupervised Learning\n\nClustering\nDimensionality Reduction\n\nReinforcement Learning"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#reinforecement-learning",
+    "href": "talks/ml-intro/index.html#reinforecement-learning",
+    "title": "Introduction to Machine Learning",
+    "section": "Reinforecement Learning",
+    "text": "Reinforecement Learning\n\nLearning through interaction: Unlike supervised learning where you have labeled data, RL agents learn by interacting with an environment.\nDelayed rewards: The agent doesn’t receive immediate feedback about the optimal action, but rather must learn which actions lead to better cumulative rewards over time.\nExploration vs. exploitation: The agent must balance exploring new actions versus exploiting known good actions.\nSequential decision making: RL deals with sequences of decisions rather than one-time predictions.\n\n\nExamples\n\n\n\nGame playing (e.g., AlphaGo, OpenAI Five)\nRobotics control\n\n\n\nAutonomous driving\nTrading strategies"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#a-map-of-machine-learning-approaches",
+    "href": "talks/ml-intro/index.html#a-map-of-machine-learning-approaches",
+    "title": "Introduction to Machine Learning",
+    "section": "A map of machine learning approaches",
+    "text": "A map of machine learning approaches\n\n\nhttps://scikit-learn.org/stable/tutorial/machine_learning_map/index.html"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#supervised-learning-1",
+    "href": "talks/ml-intro/index.html#supervised-learning-1",
+    "title": "Introduction to Machine Learning",
+    "section": "Supervised Learning",
+    "text": "Supervised Learning\n\nGiven a dataset of input-output pairs: \\(\\{(x_1, y_1), (x_2, y_2), \\ldots, (x_n, y_n)\\}\\)\nLearn a function \\(f\\) with parameters \\(\\theta\\) that maps inputs \\(x\\) to outputs \\(y\\) \\[y = f(x; \\theta) + \\epsilon\\]\nObjective: Choose parameters \\(\\theta\\) to minimize the prediction error \\(\\epsilon\\)\n\nWhen \\(y\\) is a continuous variable (e.g., house prices), it’s a regression problem.\nWhen \\(y\\) is a discrete variable (e.g., spam or not spam), it’s a classification problem."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#classification",
+    "href": "talks/ml-intro/index.html#classification",
+    "title": "Introduction to Machine Learning",
+    "section": "Classification",
+    "text": "Classification"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#regression",
+    "href": "talks/ml-intro/index.html#regression",
+    "title": "Introduction to Machine Learning",
+    "section": "Regression",
+    "text": "Regression\n\nNot all regression is linear…."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#classification-example",
+    "href": "talks/ml-intro/index.html#classification-example",
+    "title": "Introduction to Machine Learning",
+    "section": "Classification Example",
+    "text": "Classification Example\n\nThe classic iris"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#classification-example-1",
+    "href": "talks/ml-intro/index.html#classification-example-1",
+    "title": "Introduction to Machine Learning",
+    "section": "Classification Example",
+    "text": "Classification Example\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n\n6.2\n2.8\n4.8\n1.8\nvirginica\n\n\n4.8\n3.4\n1.6\n0.2\nsetosa\n\n\n5.0\n3.4\n1.5\n0.2\nsetosa\n\n\n5.9\n3.2\n4.8\n1.8\nversicolor\n\n\n5.8\n4.0\n1.2\n0.2\nsetosa\n\n\n5.8\n2.7\n3.9\n1.2\nversicolor\n\n\n6.7\n3.1\n4.7\n1.5\nversicolor\n\n\n5.6\n2.8\n4.9\n2.0\nvirginica\n\n\n6.3\n2.8\n5.1\n1.5\nvirginica\n\n\n6.3\n2.5\n5.0\n1.9\nvirginica\n\n\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n5.5\n2.4\n3.8\n1.1\nversicolor\n\n\n6.5\n3.0\n5.2\n2.0\nvirginica\n\n\n5.6\n3.0\n4.5\n1.5\nversicolor\n\n\n7.3\n2.9\n6.3\n1.8\nvirginica\n\n\n6.1\n3.0\n4.9\n1.8\nvirginica\n\n\n4.3\n3.0\n1.1\n0.1\nsetosa\n\n\n6.4\n3.2\n5.3\n2.3\nvirginica\n\n\n4.8\n3.0\n1.4\n0.3\nsetosa\n\n\n6.1\n2.9\n4.7\n1.4\nversicolor"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#classification-example-2",
+    "href": "talks/ml-intro/index.html#classification-example-2",
+    "title": "Introduction to Machine Learning",
+    "section": "Classification Example",
+    "text": "Classification Example"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#training-and-testing",
+    "href": "talks/ml-intro/index.html#training-and-testing",
+    "title": "Introduction to Machine Learning",
+    "section": "Training and Testing",
+    "text": "Training and Testing\n\n\nTraining Data: Used to teach the model. It consists of input-output pairs for a supervised learning task.\nTesting Data: Used to evaluate the model’s performance. It should be separate from the training data, but come from the same distribution or population.\nValidation Data: Used for tuning hyperparameters. Hyperparameters are settings that control the learning process (e.g., k in k-NN, learning rate in neural networks)."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#generalizability",
+    "href": "talks/ml-intro/index.html#generalizability",
+    "title": "Introduction to Machine Learning",
+    "section": "Generalizability",
+    "text": "Generalizability\n\nThe ability of a model to perform well on unseen data\n\nThis table shows the relationship between training error, testing error, and overfitting, good fit, and underfitting.\n\n\n\nTraining Error\nTesting Error\nModel Fit\n\n\n\n\nLow\nHigh\nOverfit\n\n\nLow\nLow\nGood Fit\n\n\nHigh\nHigh\nUnderfit (poor performance)"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#bias-and-variance",
+    "href": "talks/ml-intro/index.html#bias-and-variance",
+    "title": "Introduction to Machine Learning",
+    "section": "Bias and Variance",
+    "text": "Bias and Variance\n\nBias: Error from incorrect assumptions in the learning algorithm\nVariance: Error from sensitivity to small fluctuations in the training set\nBias-Variance Tradeoff: The conflict in trying to simultaneously minimize these two sources of error"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning",
+    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning",
+    "title": "Introduction to Machine Learning",
+    "section": "Algorithms for Supervised Learning",
+    "text": "Algorithms for Supervised Learning\n\nLinear regression."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-1",
+    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-1",
+    "title": "Introduction to Machine Learning",
+    "section": "Algorithms for Supervised Learning",
+    "text": "Algorithms for Supervised Learning\n\nAnscombe’s Quartet\nhttps://en.wikipedia.org/wiki/Anscombe%27s_quartet"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-2",
+    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-2",
+    "title": "Introduction to Machine Learning",
+    "section": "Algorithms for Supervised Learning",
+    "text": "Algorithms for Supervised Learning\n\nClassification and Regression Trees (CART)."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-3",
+    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-3",
+    "title": "Introduction to Machine Learning",
+    "section": "Algorithms for Supervised Learning",
+    "text": "Algorithms for Supervised Learning\n\nK-nearest neighbor (kNN) algorithm."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-4",
+    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-4",
+    "title": "Introduction to Machine Learning",
+    "section": "Algorithms for Supervised Learning",
+    "text": "Algorithms for Supervised Learning\n\nRandom Forests."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-5",
+    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-5",
+    "title": "Introduction to Machine Learning",
+    "section": "Algorithms for Supervised Learning",
+    "text": "Algorithms for Supervised Learning\n\nDeep learning."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#applying-supervised-learning-algorithms",
+    "href": "talks/ml-intro/index.html#applying-supervised-learning-algorithms",
+    "title": "Introduction to Machine Learning",
+    "section": "Applying Supervised Learning Algorithms",
+    "text": "Applying Supervised Learning Algorithms\n\nThe mlr3 ecosystem in R."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#key-concepts-in-supervised-learning",
+    "href": "talks/ml-intro/index.html#key-concepts-in-supervised-learning",
+    "title": "Introduction to Machine Learning",
+    "section": "Key Concepts in Supervised Learning",
+    "text": "Key Concepts in Supervised Learning\n\nFeature Engineering\nModel Selection\nHyperparameter Tuning\nEnsemble Methods\nCross-Validation\nEvaluation Metrics\n\n\nBriefly explain each concept: 1. Feature Engineering: Creating new features or transforming existing ones to improve model performance 2. Model Selection: Choosing the appropriate algorithm for your problem 3. Hyperparameter Tuning: Optimizing model parameters that are not learned from data 4. Ensemble Methods: Combining multiple models to improve performance 5. Cross-Validation: Technique for assessing how the model will generalize to an independent dataset 6. Evaluation Metrics: Different ways to measure model performance (accuracy, precision, recall, F1-score, ROC curve, etc.)"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#challenges-in-machine-learning",
+    "href": "talks/ml-intro/index.html#challenges-in-machine-learning",
+    "title": "Introduction to Machine Learning",
+    "section": "Challenges in Machine Learning",
+    "text": "Challenges in Machine Learning\n\nData Quality and Quantity\nInterpretability vs Performance\nEthical Considerations and Bias\nComputational Resources\nModel Deployment and Maintenance\n\n\nDiscuss each challenge: 1. The importance of good, representative data and the challenges of data collection and cleaning 2. The tradeoff between complex, high-performing models and simpler, more interpretable ones 3. The risk of perpetuating or amplifying societal biases through ML models 4. The need for significant computational power, especially for deep learning models 5. The challenges of deploying models in production environments and keeping them updated"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#clustering",
+    "href": "talks/ml-intro/index.html#clustering",
+    "title": "Introduction to Machine Learning",
+    "section": "Clustering",
+    "text": "Clustering\n\nGene expression measurements."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#classes-of-unsupervised-learning-algorithms",
+    "href": "talks/ml-intro/index.html#classes-of-unsupervised-learning-algorithms",
+    "title": "Introduction to Machine Learning",
+    "section": "Classes of unsupervised learning algorithms",
+    "text": "Classes of unsupervised learning algorithms\n\n\n\n\n\nClustering.\n\n\n\n\n\n\nDimensionality reduction."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#clustering-1",
+    "href": "talks/ml-intro/index.html#clustering-1",
+    "title": "Introduction to Machine Learning",
+    "section": "Clustering",
+    "text": "Clustering\n\nThinking about similarities and differences"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#clustering-2",
+    "href": "talks/ml-intro/index.html#clustering-2",
+    "title": "Introduction to Machine Learning",
+    "section": "Clustering",
+    "text": "Clustering\n\nAlgorithm for hierarchical clustering"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#clustering-3",
+    "href": "talks/ml-intro/index.html#clustering-3",
+    "title": "Introduction to Machine Learning",
+    "section": "Clustering",
+    "text": "Clustering\n\nAlgorithm for hierarchical clustering"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#clustering-4",
+    "href": "talks/ml-intro/index.html#clustering-4",
+    "title": "Introduction to Machine Learning",
+    "section": "Clustering",
+    "text": "Clustering\n\nAlgorithm for hierarchical clustering"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#dimensionality-reduction",
+    "href": "talks/ml-intro/index.html#dimensionality-reduction",
+    "title": "Introduction to Machine Learning",
+    "section": "Dimensionality Reduction",
+    "text": "Dimensionality Reduction\n\nSchematic PCA."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#dimensionality-reduction-1",
+    "href": "talks/ml-intro/index.html#dimensionality-reduction-1",
+    "title": "Introduction to Machine Learning",
+    "section": "Dimensionality Reduction",
+    "text": "Dimensionality Reduction\n\nUsing dimensionality reduction to explore 22,000 dimensions of gene expression data on 280 samples.\nhttps://seandavi.github.io/ITR/geoquery_mds.html"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#future-directions-in-machine-learning",
+    "href": "talks/ml-intro/index.html#future-directions-in-machine-learning",
+    "title": "Introduction to Machine Learning",
+    "section": "Future Directions in Machine Learning",
+    "text": "Future Directions in Machine Learning\n\nAutoML: Automating the ML pipeline\nFederated Learning: Training models on decentralized data\nExplainable AI: Making black-box models more interpretable\nQuantum Machine Learning: Leveraging quantum computing for ML\nContinual Learning: Adapting to new data without forgetting old patterns"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#conclusion",
+    "href": "talks/ml-intro/index.html#conclusion",
+    "title": "Introduction to Machine Learning",
+    "section": "Conclusion",
+    "text": "Conclusion\n\nSupervised learning: Predicting outcomes based on labeled data\n\nClassification: Assigning labels to data\nRegression: Predicting continuous values\n\nUnsupervised learning: Finding patterns in unlabeled data\n\nClustering: Grouping similar data points\nDimensionality reduction: Simplifying complex data by reducing dimensions\n\nReinforcement learning: Learning through interaction with an environment"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#resources",
+    "href": "talks/ml-intro/index.html#resources",
+    "title": "Introduction to Machine Learning",
+    "section": "Resources",
+    "text": "Resources\n\nRecent reviews\n\nMachine Learning in Genomic Medicine: A Review of Computational Problems and Data Sets\nOpportunities And Obstacles For Deep Learning In Biology And Medicine\n\nHands-on Tutorials\n\nhttps://seandavi.github.io/RBiocBook\nMany online courses and tutorials\n\nBlogs and online materials\n\nhttps://blog.recast.ai/machine-learning-algorithms/\nhttps://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A\nhttps://www.youtube.com/c/joshstarmer\n\nMachine Learning in R\n\nhttps://www.datacamp.com/community/tutorials/machine-learning-in-r\nhttps://daviddalpiaz.github.io/r4sl/"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#questions",
+    "href": "talks/ml-intro/index.html#questions",
+    "title": "Introduction to Machine Learning",
+    "section": "Questions?",
+    "text": "Questions?"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#additional-resources",
+    "href": "talks/ml-intro/index.html#additional-resources",
+    "title": "Introduction to Machine Learning",
+    "section": "Additional Resources",
+    "text": "Additional Resources\n\nBooks: “Introduction to Machine Learning with Python” by Müller and Guido\nOnline Courses: Andrew Ng’s Machine Learning course on Coursera\nWebsites: Towards Data Science, KDnuggets\nLibraries: scikit-learn, TensorFlow, PyTorch\n\n\nProvide these resources for students who want to dive deeper into ML. Mention that hands-on practice is crucial for truly understanding ML concepts."
   },
   {
     "objectID": "about.html",
