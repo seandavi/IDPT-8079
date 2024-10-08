@@ -1,423 +1,262 @@
 [
   {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html",
-    "title": "Play with Prolog",
+    "objectID": "r_basics.html",
+    "href": "r_basics.html",
+    "title": "Up and Running with R",
     "section": "",
-    "text": "Understand Expert Systems: Know what an expert system is, particularly as a narrow AI system.\nExplore Logic Programming: Learn the basic principles of logic programming and how Prolog is used to model complex decision-making processes.\nLearn to Implement an Expert System: Gain hands-on experience using programming to solve problems using logical rules and knowledge representation.\nDevelop Problem-Solving Skills: Implement a simple expert system in Prolog, mimicking the decision-making capabilities of a human expert.\nUnderstand limitations of Expert Systems: Explore the concept of narrow AI and its practical applications in specific domains through the use of expert systems."
+    "text": "In this chapter, we’re going to get an introduction to the R language, so we can dive right into programming. We’re going to create a pair of virtual dice that can generate random numbers. No need to worry if you’re new to programming. We’ll return to many of the concepts here in more detail later.\nTo simulate a pair of dice, we need to break down each die into its essential features. A die can only show one of six numbers: 1, 2, 3, 4, 5, and 6. We can capture the die’s essential characteristics by saving these numbers as a group of values in the computer. Let’s save these numbers first and then figure out a way to “roll” our virtual die.\n\n\nThe RStudio interface is simple. You type R code into the bottom line of the RStudio console pane and then click Enter to run it. The code you type is called a command, because it will command your computer to do something for you. The line you type it into is called the command line.\n\n\n\n\n\n\nFigure 1: Your computer does your bidding when you type R commands at the prompt in the bottom line of the console pane. Don’t forget to hit the Enter key. When you first open RStudio, the console appears in the pane on your left, but you can change this with File &gt; Tools &gt; Global Options in the menu bar.\n\n\n\nWhen you type a command at the prompt and hit Enter, your computer executes the command and shows you the results. Then RStudio displays a fresh prompt for your next command. For example, if you type 1 + 1 and hit Enter, RStudio will display:\n&gt; 1 + 1\n[1] 2\n&gt;\nYou’ll notice that a [1] appears next to your result. R is just letting you know that this line begins with the first value in your result. Some commands return more than one value, and their results may fill up multiple lines. For example, the command 100:130 returns 31 values; it creates a sequence of integers from 100 to 130. Notice that new bracketed numbers appear at the start of the second and third lines of output. These numbers just mean that the second line begins with the 14th value in the result, and the third line begins with the 25th value. You can mostly ignore the numbers that appear in brackets:\n&gt; 100:130\n [1] 100 101 102 103 104 105 106 107 108 109 110 111 112\n[14] 113 114 115 116 117 118 119 120 121 122 123 124 125\n[25] 126 127 128 129 130\n\n\n\n\n\n\nTip\n\n\n\nThe colon operator (:) returns every integer between two integers. It is an easy way to create a sequence of numbers.\n\n\n\n\n\n\n\n\nWhen do we compile?\n\n\n\nIn some languages, like C, Java, and FORTRAN, you have to compile your human-readable code into machine-readable code (often 1s and 0s) before you can run it. If you’ve programmed in such a language before, you may wonder whether you have to compile your R code before you can use it. The answer is no. R is a dynamic programming language, which means R automatically interprets your code as you run it.\n\n\nIf you type an incomplete command and press Enter, R will display a + prompt, which means R is waiting for you to type the rest of your command. Either finish the command or hit Escape to start over:\n&gt; 5 -\n+\n+ 1\n[1] 4\nIf you type a command that R doesn’t recognize, R will return an error message. If you ever see an error message, don’t panic. R is just telling you that your computer couldn’t understand or do what you asked it to do. You can then try a different command at the next prompt:\n&gt; 3 % 5\nError: unexpected input in \"3 % 5\"\n&gt;\n\n\n\n\n\n\nTip\n\n\n\nWhenever you get an error message in R, consider googling the error message. You’ll often find that someone else has had the same problem and has posted a solution online. Simply cutting-and-pasting the error message into a search engine will often work\n\n\nOnce you get the hang of the command line, you can easily do anything in R that you would do with a calculator. For example, you could do some basic arithmetic:\n\n2 * 3   \n\n[1] 6\n\n4 - 1   \n\n[1] 3\n\n# this obeys order-of-operations\n6 / (4 - 1)   \n\n[1] 2\n\n\n\n\n\n\n\n\nTip\n\n\n\nR treats the hashtag character, #, in a special way; R will not run anything that follows a hashtag on a line. This makes hashtags very useful for adding comments and annotations to your code. Humans will be able to read the comments, but your computer will pass over them. The hashtag is known as the commenting symbol in R.\n\n\n\n\n\n\n\n\nCancelling commands\n\n\n\nSome R commands may take a long time to run. You can cancel a command once it has begun by pressing ctrl + c or by clicking the “stop sign” if it is available in Rstudio. Note that it may also take R a long time to cancel the command.\n\n\n\n\nThat’s the basic interface for executing R code in RStudio. Think you have it? If so, try doing these simple tasks. If you execute everything correctly, you should end up with the same number that you started with:\n\nChoose any number and add 2 to it.\nMultiply the result by 3.\nSubtract 6 from the answer.\nDivide what you get by 3.\n\n\n10 + 2\n\n[1] 12\n\n12 * 3\n\n[1] 36\n\n36 - 6\n\n[1] 30\n\n30 / 3\n\n[1] 10\n\n\n\n\n\n\nNow that you know how to use R, let’s use it to make a virtual die. The : operator from a couple of pages ago gives you a nice way to create a group of numbers from one to six. The : operator returns its results as a vector (we are going to work with vectors in more detail), a one-dimensional set of numbers:\n1:6\n## 1 2 3 4 5 6\nThat’s all there is to how a virtual die looks! But you are not done yet. Running 1:6 generated a vector of numbers for you to see, but it didn’t save that vector anywhere for later use. If we want to use those numbers again, we’ll have to ask your computer to save them somewhere. You can do that by creating an R object.\nR lets you save data by storing it inside an R object. What is an object? Just a name that you can use to call up stored data. For example, you can save data into an object like a or b. Wherever R encounters the object, it will replace it with the data saved inside, like so:\n\na &lt;- 1\na\n\n[1] 1\n\n\n\na + 2\n\n[1] 3\n\n\n\n\n\n\n\n\nWhat just happened?\n\n\n\n\nTo create an R object, choose a name and then use the less-than symbol, &lt;, followed by a minus sign, -, to save data into it. This combination looks like an arrow, &lt;-. R will make an object, give it your name, and store in it whatever follows the arrow. So a &lt;- 1 stores 1 in an object named a.\nWhen you ask R what’s in a, R tells you on the next line.\nYou can use your object in new R commands, too. Since a previously stored the value of 1, you’re now adding 1 to 2.\n\n\n\n\n\n\n\n\n\nAssignment vs expressions\n\n\n\nEverything that you type into the R console can be assigned to one of two categories:\n\nAssignments\nExpressions\n\nAn expression is a command that tells R to do something. For example, 1 + 2 is an expression that tells R to add 1 and 2. When you type an expression into the R console, R will evaluate the expression and return the result. For example, if you type 1 + 2 into the R console, R will return 3. Expressions can have “side effects” but they don’t explicitly result in anything being added to R memory.\n\n5 + 2\n\n[1] 7\n\n28 %% 3\n\n[1] 1\n\n3^2\n\n[1] 9\n\n5 + 4 * 4 + 4 ^ 4 / 10\n\n[1] 46.6\n\n\nWhile using R as a calculator is interesting, to do useful and interesting things, we need to assign values to objects. To create objects, we need to give it a name followed by the assignment operator &lt;- (or, entirely equivalently, =) and the value we want to give it:\n\nweight_kg &lt;- 55\n\n\n\nSo, for another example, the following code would create an object named die that contains the numbers one through six. To see what is stored in an object, just type the object’s name by itself:\n\ndie &lt;- 1:6\ndie\n\n[1] 1 2 3 4 5 6\n\n\nWhen you create an object, the object will appear in the environment pane of RStudio, as shown in Figure 2. This pane will show you all of the objects you’ve created since opening RStudio.\n\n\n\n\n\n\nFigure 2: Assignment creates an object in the environment pane.\n\n\n\nYou can name an object in R almost anything you want, but there are a few rules. First, a name cannot start with a number. Second, a name cannot use some special symbols, like ^, !, $, @, +, -, /, or *:\n\n\n\nGood names\nNames that cause errors\n\n\n\n\na\n1trial\n\n\nb\n$\n\n\nFOO\n^mean\n\n\nmy_var\n2nd\n\n\n.day\n!bad\n\n\n\n\n\n\n\n\n\nCapitalization matters\n\n\n\nR is case-sensitive, so name and Name will refer to different objects:\n&gt; Name = 0\n&gt; Name + 1\n[1] 1\n&gt; name + 1\nError: object 'name' not found\nThe error above is a common one!\n\n\nFinally, R will overwrite any previous information stored in an object without asking you for permission. So, it is a good idea to not use names that are already taken:\n\nmy_number &lt;- 1\nmy_number \n\n[1] 1\n\n\n\nmy_number &lt;- 999\nmy_number\n\n[1] 999\n\n\nYou can see which object names you have already used with the function ls:\nls()\nYour environment will contain different names than mine, because you have probably created different objects.\nYou can also see which names you have used by examining RStudio’s environment pane.\nWe now have a virtual die that is stored in the computer’s memory and which has a name that we can use to refer to it. You can access it whenever you like by typing the word die.\nSo what can you do with this die? Quite a lot. R will replace an object with its contents whenever the object’s name appears in a command. So, for example, you can do all sorts of math with the die. Math isn’t so helpful for rolling dice, but manipulating sets of numbers will be your stock and trade as a data scientist. So let’s take a look at how to do that:\n\ndie - 1\n\n[1] 0 1 2 3 4 5\n\ndie / 2\n\n[1] 0.5 1.0 1.5 2.0 2.5 3.0\n\ndie * die\n\n[1]  1  4  9 16 25 36\n\n\nR uses element-wise execution when working with a vector like die. When you manipulate a set of numbers, R will apply the same operation to each element in the set. So for example, when you run die - 1, R subtracts one from each element of die.\nWhen you use two or more vectors in an operation, R will line up the vectors and perform a sequence of individual operations. For example, when you run die * die, R lines up the two die vectors and then multiplies the first element of vector 1 by the first element of vector 2. R then multiplies the second element of vector 1 by the second element of vector 2, and so on, until every element has been multiplied. The result will be a new vector the same length as the first two {Figure 3}.\n\n\n\n\n\n\nFigure 3: “When R performs element-wise execution, it matches up vectors and then manipulates each pair of elements independently.”\n\n\n\nIf you give R two vectors of unequal lengths, R will repeat the shorter vector until it is as long as the longer vector, and then do the math, as shown in Figure 4. This isn’t a permanent change–the shorter vector will be its original size after R does the math. If the length of the short vector does not divide evenly into the length of the long vector, R will return a warning message. This behavior is known as vector recycling, and it helps R do element-wise operations:\n\n1:2\n\n[1] 1 2\n\n1:4\n\n[1] 1 2 3 4\n\ndie\n\n[1] 1 2 3 4 5 6\n\ndie + 1:2\n\n[1] 2 4 4 6 6 8\n\ndie + 1:4\n\nWarning in die + 1:4: longer object length is not a multiple of shorter object\nlength\n\n\n[1] 2 4 6 8 6 8\n\n\n\n\n\n\n\n\nFigure 4: “R will repeat a short vector to do element-wise operations with two vectors of uneven lengths.”\n\n\n\nElement-wise operations are a very useful feature in R because they manipulate groups of values in an orderly way. When you start working with data sets, element-wise operations will ensure that values from one observation or case are only paired with values from the same observation or case. Element-wise operations also make it easier to write your own programs and functions in R.\n\n\n\n\n\n\nElement-wise operations are not matrix operations\n\n\n\nIt is important to know that operations with vectors are not the same that you might expect if you are expecting R to perform “matrix” operations. R can do inner multiplication with the %*% operator and outer multiplication with the %o% operator:\n# Inner product (1*1 + 2*2 + 3*3 + 4*4 + 5*5 + 6*6)\ndie %*% die\n# Outer product\ndie %o% die\n\n\nNow that you can do math with your die object, let’s look at how you could “roll” it. Rolling your die will require something more sophisticated than basic arithmetic; you’ll need to randomly select one of the die’s values. And for that, you will need a function.\n\n\n\nR has many functions and puts them all at our disposal. We can use functions to do simple and sophisticated tasks. For example, we can round a number with the round function, or calculate its factorial with the factorial function. Using a function is pretty simple. Just write the name of the function and then the data you want the function to operate on in parentheses:\n\nround(3.1415)\n\n[1] 3\n\nfactorial(3)\n\n[1] 6\n\n\nThe data that you pass into the function is called the function’s argument. The argument can be raw data, an R object, or even the results of another R function. In this last case, R will work from the innermost function to the outermost Figure 5.\n\nmean(1:6)\n\n[1] 3.5\n\nmean(die)\n\n[1] 3.5\n\nround(mean(die))\n\n[1] 4\n\n\n\n\n\n\n\n\nFigure 5: “When you link functions together, R will resolve them from the innermost operation to the outermost. Here R first looks up die, then calculates the mean of one through six, then rounds the mean.”\n\n\n\nReturning to our die, we can use the sample function to randomly select one of the die’s values; in other words, the sample function can simulate rolling the die.\nThe sample function takes two arguments: a vector named x and a number named size. sample will return size elements from the vector:\n\nsample(x = 1:4, size = 2)\n\n[1] 2 1\n\n\nTo roll your die and get a number back, set x to die and sample one element from it. You’ll get a new (maybe different) number each time you roll it:\n\nsample(x = die, size = 1)\n\n[1] 1\n\nsample(x = die, size = 1)\n\n[1] 1\n\nsample(x = die, size = 1)\n\n[1] 5\n\n\nMany R functions take multiple arguments that help them do their job. You can give a function as many arguments as you like as long as you separate each argument with a comma.\nYou may have noticed that I set die and 1 equal to the names of the arguments in sample, x and size. Every argument in every R function has a name. You can specify which data should be assigned to which argument by setting a name equal to data, as in the preceding code. This becomes important as you begin to pass multiple arguments to the same function; names help you avoid passing the wrong data to the wrong argument. However, using names is optional. You will notice that R users do not often use the name of the first argument in a function. So you might see the previous code written as:\n\nsample(die, size = 1)\n\n[1] 1\n\n\nOften, the name of the first argument is not very descriptive, and it is usually obvious what the first piece of data refers to anyways.\nBut how do you know which argument names to use? If you try to use a name that a function does not expect, you will likely get an error:\nround(3.1415, corners = 2)\n## Error in round(3.1415, corners = 2) : unused argument(s) (corners = 2)\nIf you’re not sure which names to use with a function, you can look up the function’s arguments with args. To do this, place the name of the function in the parentheses behind args. For example, you can see that the round function takes two arguments, one named x and one named digits:\n\nargs(round)\n\nfunction (x, digits = 0, ...) \nNULL\n\n\nDid you notice that args shows that the digits argument of round is already set to 0? Frequently, an R function will take optional arguments like digits. These arguments are considered optional because they come with a default value. You can pass a new value to an optional argument if you want, and R will use the default value if you do not. For example, round will round your number to 0 digits past the decimal point by default. To override the default, supply your own value for digits:\n\nround(3.1415)\n\n[1] 3\n\nround(3.1415, digits = 2)\n\n[1] 3.14\n\n# pi happens to be a built-in value in R\npi\n\n[1] 3.141593\n\nround(pi)\n\n[1] 3\n\n\nYou should write out the names of each argument after the first one or two when you call a function with multiple arguments. Why? First, this will help you and others understand your code. It is usually obvious which argument your first input refers to (and sometimes the second input as well). However, you’d need a large memory to remember the third and fourth arguments of every R function. Second, and more importantly, writing out argument names prevents errors.\nIf you do not write out the names of your arguments, R will match your values to the arguments in your function by order. For example, in the following code, the first value, die, will be matched to the first argument of sample, which is named x. The next value, 1, will be matched to the next argument, size:\n\nsample(die, 1)\n\n[1] 3\n\n\nAs you provide more arguments, it becomes more likely that your order and R’s order may not align. As a result, values may get passed to the wrong argument. Argument names prevent this. R will always match a value to its argument name, no matter where it appears in the order of arguments:\n\nsample(size = 1, x = die)\n\n[1] 1\n\n\n\n\nIf you set size = 2, you can almost simulate a pair of dice. Before we run that code, think for a minute why that might be the case. sample will return two numbers, one for each die:\n\nsample(die, size = 2)\n\n[1] 5 3\n\n\nI said this “almost” works because this method does something funny. If you use it many times, you’ll notice that the second die never has the same value as the first die, which means you’ll never roll something like a pair of threes or snake eyes. What is going on?\nBy default, sample builds a sample without replacement. To see what this means, imagine that sample places all of the values of die in a jar or urn. Then imagine that sample reaches into the jar and pulls out values one by one to build its sample. Once a value has been drawn from the jar, sample sets it aside. The value doesn’t go back into the jar, so it cannot be drawn again. So if sample selects a six on its first draw, it will not be able to select a six on the second draw; six is no longer in the jar to be selected. Although sample creates its sample electronically, it follows this seemingly physical behavior.\nOne side effect of this behavior is that each draw depends on the draws that come before it. In the real world, however, when you roll a pair of dice, each die is independent of the other. If the first die comes up six, it does not prevent the second die from coming up six. In fact, it doesn’t influence the second die in any way whatsoever. You can recreate this behavior in sample by adding the argument replace = TRUE:\n\nsample(die, size = 2, replace = TRUE)\n\n[1] 1 1\n\n\nThe argument replace = TRUE causes sample to sample with replacement. Our jar example provides a good way to understand the difference between sampling with replacement and without. When sample uses replacement, it draws a value from the jar and records the value. Then it puts the value back into the jar. In other words, sample replaces each value after each draw. As a result, sample may select the same value on the second draw. Each value has a chance of being selected each time. It is as if every draw were the first draw.\nSampling with replacement is an easy way to create independent random samples. Each value in your sample will be a sample of size one that is independent of the other values. This is the correct way to simulate a pair of dice:\n\nsample(die, size = 2, replace = TRUE)\n\n[1] 5 4\n\n\nCongratulate yourself; you’ve just run your first simulation in R! You now have a method for simulating the result of rolling a pair of dice. If you want to add up the dice, you can feed your result straight into the sum function:\n\ndice &lt;- sample(die, size = 2, replace = TRUE)\ndice\n\n[1] 6 1\n\nsum(dice)\n\n[1] 7\n\n\nWhat would happen if you call dice multiple times? Would R generate a new pair of dice values each time? Let’s give it a try:\n\ndice\n\n[1] 6 1\n\ndice\n\n[1] 6 1\n\ndice\n\n[1] 6 1\n\n\nThe name dice refers to a vector of two numbers. Calling more than once does not change the favlue. Each time you call dice, R will show you the result of that one time you called sample and saved the output to dice. R won’t rerun sample(die, 2, replace = TRUE) to create a new roll of the dice. Once you save a set of results to an R object, those results do not change.\nHowever, it would be convenient to have an object that can re-roll the dice whenever you call it. You can make such an object by writing your own R function.\n\n\n\n\nTo recap, you already have working R code that simulates rolling a pair of dice:\n\ndie &lt;- 1:6\ndice &lt;- sample(die, size = 2, replace = TRUE)\nsum(dice)\n\n[1] 8\n\n\nYou can retype this code into the console anytime you want to re-roll your dice. However, this is an awkward way to work with the code. It would be easier to use your code if you wrapped it into its own function, which is exactly what we’ll do now. We’re going to write a function named roll that you can use to roll your virtual dice. When you’re finished, the function will work like this: each time you call roll(), R will return the sum of rolling two dice:\nroll()\n## 8 \n\nroll()\n## 3\n\nroll()\n## 7\nFunctions may seem mysterious or fancy, but they are just another type of R object. Instead of containing data, they contain code. This code is stored in a special format that makes it easy to reuse the code in new situations. You can write your own functions by recreating this format.\n\n\nEvery function in R has three basic parts: a name, a body of code, and a set of arguments. To make your own function, you need to replicate these parts and store them in an R object, which you can do with the function function. To do this, call function() and follow it with a pair of braces, {}:\n\nmy_function &lt;- function() {}\n\nThis function, as written, doesn’t do anything (yet). However, it is a valid function. You can call it by typing its name followed by an open and closed parenthesis:\n\nmy_function()\n\nNULL\n\n\nfunction will build a function out of whatever R code you place between the braces. For example, you can turn your dice code into a function by calling:\n\nroll &lt;- function() {\n  die &lt;- 1:6\n  dice &lt;- sample(die, size = 2, replace = TRUE)\n  sum(dice)\n}\n\n\n\n\n\n\n\nIndentation and readability\n\n\n\nNotice each line of code between the braces is indented. This makes the code easier to read but has no impact on how the code runs. R ignores spaces and line breaks and executes one complete expression at a time. Note that in other languages like python, spacing is extremely important and part of the language.\n\n\nJust hit the Enter key between each line after the first brace, {. R will wait for you to type the last brace, }, before it responds.\nDon’t forget to save the output of function to an R object. This object will become your new function. To use it, write the object’s name followed by an open and closed parenthesis:\n\nroll()\n\n[1] 6\n\n\nYou can think of the parentheses as the “trigger” that causes R to run the function. If you type in a function’s name without the parentheses, R will show you the code that is stored inside the function. If you type in the name with the parentheses, R will run that code:\n\nroll\n\nfunction() {\n  die &lt;- 1:6\n  dice &lt;- sample(die, size = 2, replace = TRUE)\n  sum(dice)\n}\n\nroll()\n\n[1] 4\n\n\nThe code that you place inside your function is known as the body of the function. When you run a function in R, R will execute all of the code in the body and then return the result of the last line of code. If the last line of code doesn’t return a value, neither will your function, so you want to ensure that your final line of code returns a value. One way to check this is to think about what would happen if you ran the body of code line by line in the command line. Would R display a result after the last line, or would it not?\nHere’s some code that would display a result:\ndice\n1 + 1\nsqrt(2)\nAnd here’s some code that would not:\ndice &lt;- sample(die, size = 2, replace = TRUE)\ntwo &lt;- 1 + 1\na &lt;- sqrt(2)\nAgain, this is just showing the distinction between expressions and assignments.\n\n\n\n\nWhat if we removed one line of code from our function and changed the name die to bones (just a name–don’t think of it as important), like this?\n\nroll2 &lt;- function() {\n  dice &lt;- sample(bones, size = 2, replace = TRUE)\n  sum(dice)\n}\n\nNow I’ll get an error when I run the function. The function needs the object bones to do its job, but there is no object named bones to be found (you can check by typing ls() which will show you the names in the environment, or memory).\nroll2()\n## Error in sample(bones, size = 2, replace = TRUE) : \n##   object 'bones' not found\nYou can supply bones when you call roll2 if you make bones an argument of the function. To do this, put the name bones in the parentheses that follow function when you define roll2:\n\nroll2 &lt;- function(bones) {\n  dice &lt;- sample(bones, size = 2, replace = TRUE)\n  sum(dice)\n}\n\nNow roll2 will work as long as you supply bones when you call the function. You can take advantage of this to roll different types of dice each time you call roll2.\nRemember, we’re rolling pairs of dice:\n\nroll2(bones = 1:4)\n\n[1] 5\n\nroll2(bones = 1:6)\n\n[1] 7\n\nroll2(1:20)\n\n[1] 23\n\n\nNotice that roll2 will still give an error if you do not supply a value for the bones argument when you call roll2:\nroll2()\n## Error in sample(bones, size = 2, replace = TRUE) : \n##   argument \"bones\" is missing, with no default\nYou can prevent this error by giving the bones argument a default value. To do this, set bones equal to a value when you define roll2:\n\nroll2 &lt;- function(bones = 1:6) {\n  dice &lt;- sample(bones, size = 2, replace = TRUE)\n  sum(dice)\n}\n\nNow you can supply a new value for bones if you like, and roll2 will use the default if you do not:\n\nroll2()\n\n[1] 6\n\n\nYou can give your functions as many arguments as you like. Just list their names, separated by commas, in the parentheses that follow function. When the function is run, R will replace each argument name in the function body with the value that the user supplies for the argument. If the user does not supply a value, R will replace the argument name with the argument’s default value (if you defined one).\nTo summarize, function helps you construct your own R functions. You create a body of code for your function to run by writing code between the braces that follow function. You create arguments for your function to use by supplying their names in the parentheses that follow function. Finally, you give your function a name by saving its output to an R object, as shown in Figure 6.\nOnce you’ve created your function, R will treat it like every other function in R. Think about how useful this is. Have you ever tried to create a new Excel option and add it to Microsoft’s menu bar? Or a new slide animation and add it to Powerpoint’s options? When you work with a programming language, you can do these types of things. As you learn to program in R, you will be able to create new, customized, reproducible tools for yourself whenever you like.\n\n\n\n\n\n\nFigure 6: “Every function in R has the same parts, and you can use function to create these parts. Assign the result to a name, so you can call the function later.”\n\n\n\n\n\n\nScripts are code that are saved for later reuse or editing. An R script is just a plain text file that you save R code in. You can open an R script in RStudio by going to File &gt; New File &gt; R script in the menu bar. RStudio will then open a fresh script above your console pane, as shown in Figure 7.\nI strongly encourage you to write and edit all of your R code in a script before you run it in the console. Why? This habit creates a reproducible record of your work. When you’re finished for the day, you can save your script and then use it to rerun your entire analysis the next day. Scripts are also very handy for editing and proofreading your code, and they make a nice copy of your work to share with others. To save a script, click the scripts pane, and then go to File &gt; Save As in the menu bar.\n\n\n\n\n\n\nFigure 7: “When you open an R Script (File &gt; New File &gt; R Script in the menu bar), RStudio creates a fourth pane (or puts a new tab in the existing pane) above the console where you can write and edit your code.”\n\n\n\nRStudio comes with many built-in features that make it easy to work with scripts. First, you can automatically execute a line of code in a script by clicking the Run button at the top of the editor panel.\nR will run whichever line of code your cursor is on. If you have a whole section highlighted, R will run the highlighted code. Alternatively, you can run the entire script by clicking the Source button. Don’t like clicking buttons? You can use Control + Return as a shortcut for the Run button. On Macs, that would be Command + Return.\nIf you’re not convinced about scripts, you soon will be. It becomes a pain to write multi-line code in the console’s single-line command line. Let’s avoid that headache and open your first script now before we move to the next chapter.\n\n\n\n\n\n\nTip\n\n\n\nExtract function\nRStudio comes with a tool that can help you build functions. To use it, highlight the lines of code in your R script that you want to turn into a function. Then click Code &gt; Extract Function in the menu bar. RStudio will ask you for a function name to use and then wrap your code in a function call. It will scan the code for undefined variables and use these as arguments.\nYou may want to double-check RStudio’s work. It assumes that your code is correct, so if it does something surprising, you may have a problem in your code.\n\n\n\n\n\nWe’ve covered a lot of ground already. You now have a virtual die stored in your computer’s memory, as well as your own R function that rolls a pair of dice. You’ve also begun speaking the R language.\nThe two most important components of the R language are objects, which store data, and functions, which manipulate data. R also uses a host of operators like +, -, *, /, and &lt;- to do basic tasks. As a data scientist, you will use R objects to store data in your computer’s memory, and you will use functions to automate tasks and do complicated calculations."
   },
   {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#components-of-an-expert-system",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html#components-of-an-expert-system",
-    "title": "Play with Prolog",
-    "section": "Components of an Expert System",
-    "text": "Components of an Expert System\nAn ES is built around a knowledge base that contains a vast amount of information, rules, and relationships specific to the domain it’s designed for. This knowledge is typically acquired from human experts, research papers, or other sources. The knowledge base is organized and structured to facilitate efficient reasoning and problem-solving. Think of this as the “rules” or “facts” that the system uses to make decisions. In a medical setting, gathering the knowledge base might involve reviewing textbooks, guidelines, and expert opinions to extract the key information needed to make diagnoses and treatment recommendations.\nThe inference engine is the “brain” of the ES. It uses the knowledge base to draw conclusions, make decisions, and solve problems. The engine applies logical rules and reasoning techniques to arrive at a solution. Note that the inference engine doesn’t “learn” in the traditional sense, but rather applies predefined rules to the input data. New rules can be added to the system to expand its capabilities, but the system doesn’t learn from experience like a neural network would.\nAn ES typically has a user-friendly interface that allows users to input queries, ask questions, or provide data. The system then uses this input to generate a response, provide recommendations, or solve a problem. The user interface can be text-based, graphical, or voice-activated, depending on the application.\nESs use various reasoning techniques, such as forward and backward chaining, to solve problems and make decisions. The reasoning and problem solving capabilities of an ES are what set it apart from traditional software systems. Languages like Prolog are commonly used to implement the logic and reasoning components of an ES."
-  },
-  {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#applications-of-expert-systems",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html#applications-of-expert-systems",
-    "title": "Play with Prolog",
-    "section": "Applications of Expert Systems",
-    "text": "Applications of Expert Systems\nExpert Systems have been applied in various domains and industries, including healthcare, finance, manufacturing, and customer service. ESs can help diagnose diseases, recommend treatments, and guide patient care. ESs can monitor production processes, detect defects, and recommend quality improvements. ESs can provide customer support, answer frequently asked questions, and route complex issues to human representatives."
-  },
-  {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#limitations-of-expert-systems",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html#limitations-of-expert-systems",
-    "title": "Play with Prolog",
-    "section": "Limitations of Expert Systems",
-    "text": "Limitations of Expert Systems\nWhile Expert Systems have shown significant promise, they also have some limitations. Building an ES requires a significant amount of knowledge acquisition, which can be time-consuming and costly. The knowledge base must be accurately represented and organized to ensure effective reasoning and problem-solving. ESs require ongoing maintenance to keep their knowledge base up-to-date and ensure they remain effective. ESs may struggle with complex, ambiguous, or uncertain problems that require human intuition or creativity. Because ESs rely on predefined rules and logic, they may not adapt well to new or unexpected situations such as additional symptoms, tests, or rare conditions not accounted for when the system was built."
-  },
-  {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#using-chatgpt-or-claude-to-understand-expert-systems",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html#using-chatgpt-or-claude-to-understand-expert-systems",
-    "title": "Play with Prolog",
-    "section": "Using ChatGPT (or Claude) to understand Expert Systems",
-    "text": "Using ChatGPT (or Claude) to understand Expert Systems\nBefore we dive into the actual exercise, ask ChatGPT (or Claude) a few questions to understand the concept of Expert Systems better. Some examples might include:\n\nWhat is an Expert System?\nHow do Expert Systems work?\nWhat are the components of an Expert System?\nWhat are some applications of Expert Systems?\nWhat are the limitations of Expert Systems?\nHow are Expert Systems different from traditional software systems?\nHow do expert systems compare to machine learning systems?\nWhat are some examples of Expert Systems in healthcare?"
-  },
-  {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#key-features-of-prolog",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html#key-features-of-prolog",
-    "title": "Play with Prolog",
-    "section": "Key features of Prolog",
-    "text": "Key features of Prolog\n\nDeclarative Approach: Prolog focuses on what needs to be solved rather than how to solve it. Think of it like giving a set of rules and facts, and then letting the computer figure out the solution on its own, rather than telling it step-by-step how to get there.\nLogical Reasoning: Prolog is built on logic. It uses logical thinking to figure things out, much like how we reason through problems in everyday life. For example, if you tell it certain facts like “All humans are mortal” and “Socrates is a human,” Prolog can figure out that “Socrates is mortal.”\nFacts, Rules, and Questions: Prolog programs are made up of facts (like “Socrates is a human”), rules (like “all humans are mortal”), and questions (like “is Socrates mortal?”). You give Prolog the facts and rules, and then you can ask it questions. It works to find the answers using the information you’ve provided.\n\nIn short, Prolog is like a puzzle solver that uses logic and rules to find solutions, and you don’t have to tell it every step—it figures that part out by itself!"
-  },
-  {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#role-in-ai",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html#role-in-ai",
-    "title": "Play with Prolog",
-    "section": "Role in AI",
-    "text": "Role in AI\nProlog has played a significant role in the history of AI and has been used in various AI applications. Some of the key areas where Prolog has been applied include:\n\nExpert Systems: In the 1980s, Prolog was widely used to develop expert systems, which rely on predefined knowledge and logical rules to provide decision-making capabilities.\nNatural Language Processing (NLP): Prolog’s strengths in pattern matching and symbolic reasoning made it a good choice for early NLP research and applications, as it could model syntactic and semantic relationships in language.\nAutomated Theorem Proving: Due to its foundation in formal logic, Prolog was used in AI systems aimed at proving theorems and solving puzzles."
-  },
-  {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#historical-significance",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html#historical-significance",
-    "title": "Play with Prolog",
-    "section": "Historical Significance",
-    "text": "Historical Significance\nProlog played a crucial role in early AI research. It was one of the key languages, alongside LISP, that shaped the development of AI methodologies, particularly in areas such as knowledge representation, reasoning, and machine learning. In the 1980s, Prolog gained popularity when it was adopted by the Japanese Fifth Generation Computer Systems (FGCS) project, which aimed to develop intelligent computers. Although the project did not meet all of its goals, it contributed to Prolog’s international prominence."
-  },
-  {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#current-usage",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html#current-usage",
-    "title": "Play with Prolog",
-    "section": "Current Usage",
-    "text": "Current Usage\nProlog is not as widely used today as mainstream languages like Python or Java, particularly in AI development. However, it still has a niche role in certain areas of AI, particularly in research and specialized fields like automated reasoning, logic programming, and computational linguistics. Prolog continues to be taught in some academic settings as a tool for understanding logic programming and the fundamentals of AI.\nProlog remains an important historical pillar in AI, particularly for its contributions to logical reasoning, knowledge representation, and expert systems."
-  },
-  {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#an-example-prolog-program",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html#an-example-prolog-program",
-    "title": "Play with Prolog",
-    "section": "An example Prolog program",
-    "text": "An example Prolog program\nThis example illustrates a simple Prolog program that defines facts, rules, and queries. The program is designed to answer the question of whether Socrates is mortal based on the fact that he is human. In practice, Prolog programs can be much more complex, with many facts, rules, and queries that define a domain of interest.\nIn the code below, everything in a line after a ‘%’ is a comment that explains what the code is doing. Comments are not part of the program itself but are there to help you understand the code.\n% Facts\nhuman(socrates).\n\n% Rules\nmortal(X) :- human(X). \n\n% Queries\n?- mortal(socrates).\n\nExplanation:\n\nFacts:\nIn Prolog, facts are basic statements about things we know to be true. In this case, the fact human(socrates). means that Socrates is a human. This is a piece of information we’re giving to the program. In a medical context, we might have facts like symptom(fever). or history_of(cancer). that represent information about patients.\nRules:\nRules in Prolog define relationships between facts. Here, we have the rule mortal(X) :- human(X)., which means “X is mortal if X is human.” “Variables” in prolog begin with capital letters, so X is a variable. In Prolog, the :- symbol can be read as “if.” So, this rule is saying, “if X is human, then X is mortal.” This is a simple logical relationship that Prolog can use to make inferences.\nQueries:\nWhen we want to ask Prolog a question (or query), we do so by providing a query. For example, the query ?- mortal(socrates). is asking, “Is Socrates mortal?” Prolog will use the facts and rules we’ve provided to answer this question.\nIn this case, it looks at the rule mortal(X) :- human(X). and sees that since Socrates is a human (from the fact human(socrates).), he must also be mortal. So, Prolog will respond with “Yes” or true.\n\n\n\nHow It Works:\n\nhuman(socrates).: This is a fact we already know—Socrates is human.\nmortal(X) :- human(X).: This is a rule that says any human is mortal.\n?- mortal(socrates).: This is the query we ask, and Prolog checks the facts and rules to conclude that Socrates is mortal because he is human.\n\nIn summary, this small Prolog program uses logic to infer that Socrates is mortal based on the information that he’s human. It reflects how Prolog works by defining facts, applying rules, and answering queries logically."
-  },
-  {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#knowledge-base",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html#knowledge-base",
-    "title": "Play with Prolog",
-    "section": "Knowledge Base",
-    "text": "Knowledge Base\nThe first step in building an expert system is to define the knowledge base. This knowledge base will contain the facts and rules that the system will use to reason and make decisions. In our case, we are going to build an expert system that can diagnose common conditions like colds, flu, and allergies based on a set of symptoms.\nWe are going to limit our facts to the following symptoms:\n\nrunny nose\nsneezing\nfever\nfatigue\n\nThese are common symptoms that can help differentiate between colds, flu, and allergies. For this exercise, lets assume that the following rules apply:\n\nIf a patient has a runny nose and sneezing with or without a fever, they likely have a common cold.\nIf a patient has a fever, sore throat, and runny nose, they likely have the flu.\nIf a patient has sneezing and a runny nose but no fever, they likely have allergies.\n\nWe can define these symptoms as facts in Prolog, like this:\n\n\n\nSymptom\nProlog Fact Representation\n\n\n\n\nRunny Nose\nsymptom(runny_nose).\n\n\nSneezing\nsymptom(sneezing).\n\n\nFever\nsymptom(fever).\n\n\nFatigue\nsymptom(fatigue).\n\n\nItchy Eyes\nsymptom(itchy_eyes).\n\n\n\nWe are going to simplify the rules for the sake of this exercise, but in a real-world scenario, the rules would be more complex and based on a larger set of symptoms and diagnostic criteria. In this case, we’ll assume that the presence or absence of these symptoms is enough to differentiate between the conditions.\nFor the common cold, we’ll use the following rule:\n\nIf a patient has a runny nose and sneezing but no fever, they likely have a common cold.\nTreatment: Rest, drink fluids, consider over-the-counter cold medicine.\n\nFor the flu, we’ll use the following rule:\n\nIf a patient has a fever, fatigue, and runny nose, they likely have the flu.\nTreatment: Rest, stay hydrated, take anti-fever medication, see a doctor if symptoms worsen.\n\nFor allergies, we’ll use the following rule:\n\nIf a patient has sneezing, a runny nose, and itchy eyes, they likely have allergies.\nTreatment: Avoid allergens, use antihistamines, consult an allergist if needed."
-  },
-  {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#visualizing-the-expert-system",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html#visualizing-the-expert-system",
-    "title": "Play with Prolog",
-    "section": "Visualizing the Expert System",
-    "text": "Visualizing the Expert System\nBefore we dive into the Prolog code, let’s visualize the expert system using a flowchart. This will help us understand the logic and decision-making process that the system will follow. The flowchart will show how the system will diagnose patients based on their symptoms and recommend appropriate treatments.\n\n\n\n\n\ngraph TD\n    A[Start] --&gt; B{Runny nose?}\n    B --&gt;|No| Z[No diagnosis]\n\n    subgraph Symptom_Check\n        B --&gt;|Yes| C{Sneezing?}\n        C --&gt;|No| Z\n        C --&gt;|Yes| D{Fever?}\n        D --&gt;|Yes| E[Flu]\n        D --&gt;|No| F{Itchy eyes?}\n        F --&gt;|Yes| G[Allergies]\n        F --&gt;|No| H[Common Cold]\n    end\n\n    subgraph Diagnosis\n        E --&gt; I[Diagnosis: Flu]\n        G --&gt; J[Diagnosis: Allergies]\n        H --&gt; K[Diagnosis: Common Cold]\n    end\n\n    subgraph Treatment\n        I --&gt; L[Treatment: Rest, stay hydrated, take anti-fever medication, see doctor if symptoms worsen]\n        J --&gt; M[Treatment: Avoid allergens, use antihistamines, consult allergist if needed]\n        K --&gt; N[Treatment: Rest, drink fluids, consider over-the-counter cold medicine]\n    end"
-  },
-  {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#reasoning-engine",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html#reasoning-engine",
-    "title": "Play with Prolog",
-    "section": "Reasoning engine",
-    "text": "Reasoning engine\nOnce we have defined our knowledge base, we need some kind of “reaoning” or “inference” engine to process the information and draw conclusions. This is where the Prolog programming language comes in. Prolog is a logic programming language that is well-suited for representing and reasoning with complex knowledge and rules. It uses a declarative syntax that allows you to define relationships, rules, and facts in a concise and intuitive way.\nProlog programs consist of a set of facts and rules that define the relationships between different entities in the system. The Prolog interpreter uses these facts and rules to answer queries and make inferences based on the input data.\nHere are some facts that we might include in our Prolog program based on some symptoms that a patient might present with:\n% Facts\nsymptom(fever).\nsymptom(fatigue).\nsymptom(runny_nose).\nsymptom(sneezing).\nsymptom(itchy_eyes).\nWhen we want to use Prolog, we tell the system what we know (facts) and what we want to know (queries). The system then uses the rules and facts to answer our queries.\nAnd here are some rules that we might include in our Prolog program based on the diagnostic criteria for different conditions:\n% Rules for diagnossis\n% Diagnosis rules\ndiagnose(common_cold) :-\n    symptom(runny_nose),\n    symptom(sneezing),\n    \\+ symptom(fever),\n    write('Diagnosis: Common Cold'), nl.\n\ndiagnose(flu) :-\n    symptom(fever),\n    symptom(fatigue),\n    symptom(runny_nose),\n    write('Diagnosis: Flu'), nl.\n\ndiagnose(allergies) :-\n    symptom(sneezing),\n    symptom(runny_nose),\n    symptom(itchy_eyes),\n    write('Diagnosis: Allergies'), nl.\nAnd we can do the same for the treatment recommendations:\n% Rules for treatment\ntreatment(common_cold) :-\n    write('Treatment: Rest, drink plenty of fluids, and consider over-the-counter cold medicine.'), nl.\n\ntreatment(flu) :-\n    write('Treatment: Rest, stay hydrated, take anti-fever medication, and see a doctor if symptoms worsen.'), nl.\n\ntreatment(allergies) :-\n    write('Treatment: Avoid allergens, use antihistamines, and consult an allergist if needed.'), nl.\nFinally, we can put it all together in a Prolog program that checks the symptoms, makes a diagnosis, and provides treatment recommendations:\n% Rule to check diagnosis and apply treatment\ncheck_diagnosis_and_treatment :-\n    diagnose(Disease),\n    treatment(Disease)."
-  },
-  {
-    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#footnotes",
-    "href": "Exercises/aom-expert-system/play-with-prolog.html#footnotes",
-    "title": "Play with Prolog",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nSee https://www.datacamp.com/blog/what-is-narrow-ai for more information on narrow AI.↩︎"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IDPT-8079: Frontier of AI in Medicine",
+    "objectID": "r_basics.html#the-r-user-interface",
+    "href": "r_basics.html#the-r-user-interface",
+    "title": "Up and Running with R",
     "section": "",
-    "text": "This is a collection of talks on various topics in machine learning and artificial intelligence. It also includes some exercises and interactive demos."
+    "text": "The RStudio interface is simple. You type R code into the bottom line of the RStudio console pane and then click Enter to run it. The code you type is called a command, because it will command your computer to do something for you. The line you type it into is called the command line.\n\n\n\n\n\n\nFigure 1: Your computer does your bidding when you type R commands at the prompt in the bottom line of the console pane. Don’t forget to hit the Enter key. When you first open RStudio, the console appears in the pane on your left, but you can change this with File &gt; Tools &gt; Global Options in the menu bar.\n\n\n\nWhen you type a command at the prompt and hit Enter, your computer executes the command and shows you the results. Then RStudio displays a fresh prompt for your next command. For example, if you type 1 + 1 and hit Enter, RStudio will display:\n&gt; 1 + 1\n[1] 2\n&gt;\nYou’ll notice that a [1] appears next to your result. R is just letting you know that this line begins with the first value in your result. Some commands return more than one value, and their results may fill up multiple lines. For example, the command 100:130 returns 31 values; it creates a sequence of integers from 100 to 130. Notice that new bracketed numbers appear at the start of the second and third lines of output. These numbers just mean that the second line begins with the 14th value in the result, and the third line begins with the 25th value. You can mostly ignore the numbers that appear in brackets:\n&gt; 100:130\n [1] 100 101 102 103 104 105 106 107 108 109 110 111 112\n[14] 113 114 115 116 117 118 119 120 121 122 123 124 125\n[25] 126 127 128 129 130\n\n\n\n\n\n\nTip\n\n\n\nThe colon operator (:) returns every integer between two integers. It is an easy way to create a sequence of numbers.\n\n\n\n\n\n\n\n\nWhen do we compile?\n\n\n\nIn some languages, like C, Java, and FORTRAN, you have to compile your human-readable code into machine-readable code (often 1s and 0s) before you can run it. If you’ve programmed in such a language before, you may wonder whether you have to compile your R code before you can use it. The answer is no. R is a dynamic programming language, which means R automatically interprets your code as you run it.\n\n\nIf you type an incomplete command and press Enter, R will display a + prompt, which means R is waiting for you to type the rest of your command. Either finish the command or hit Escape to start over:\n&gt; 5 -\n+\n+ 1\n[1] 4\nIf you type a command that R doesn’t recognize, R will return an error message. If you ever see an error message, don’t panic. R is just telling you that your computer couldn’t understand or do what you asked it to do. You can then try a different command at the next prompt:\n&gt; 3 % 5\nError: unexpected input in \"3 % 5\"\n&gt;\n\n\n\n\n\n\nTip\n\n\n\nWhenever you get an error message in R, consider googling the error message. You’ll often find that someone else has had the same problem and has posted a solution online. Simply cutting-and-pasting the error message into a search engine will often work\n\n\nOnce you get the hang of the command line, you can easily do anything in R that you would do with a calculator. For example, you could do some basic arithmetic:\n\n2 * 3   \n\n[1] 6\n\n4 - 1   \n\n[1] 3\n\n# this obeys order-of-operations\n6 / (4 - 1)   \n\n[1] 2\n\n\n\n\n\n\n\n\nTip\n\n\n\nR treats the hashtag character, #, in a special way; R will not run anything that follows a hashtag on a line. This makes hashtags very useful for adding comments and annotations to your code. Humans will be able to read the comments, but your computer will pass over them. The hashtag is known as the commenting symbol in R.\n\n\n\n\n\n\n\n\nCancelling commands\n\n\n\nSome R commands may take a long time to run. You can cancel a command once it has begun by pressing ctrl + c or by clicking the “stop sign” if it is available in Rstudio. Note that it may also take R a long time to cancel the command.\n\n\n\n\nThat’s the basic interface for executing R code in RStudio. Think you have it? If so, try doing these simple tasks. If you execute everything correctly, you should end up with the same number that you started with:\n\nChoose any number and add 2 to it.\nMultiply the result by 3.\nSubtract 6 from the answer.\nDivide what you get by 3.\n\n\n10 + 2\n\n[1] 12\n\n12 * 3\n\n[1] 36\n\n36 - 6\n\n[1] 30\n\n30 / 3\n\n[1] 10"
   },
   {
-    "objectID": "index.html#exercises",
-    "href": "index.html#exercises",
-    "title": "IDPT-8079: Frontier of AI in Medicine",
-    "section": "Exercises",
-    "text": "Exercises\n\nBuild an expert system using Prolog"
+    "objectID": "r_basics.html#objects",
+    "href": "r_basics.html#objects",
+    "title": "Up and Running with R",
+    "section": "",
+    "text": "Now that you know how to use R, let’s use it to make a virtual die. The : operator from a couple of pages ago gives you a nice way to create a group of numbers from one to six. The : operator returns its results as a vector (we are going to work with vectors in more detail), a one-dimensional set of numbers:\n1:6\n## 1 2 3 4 5 6\nThat’s all there is to how a virtual die looks! But you are not done yet. Running 1:6 generated a vector of numbers for you to see, but it didn’t save that vector anywhere for later use. If we want to use those numbers again, we’ll have to ask your computer to save them somewhere. You can do that by creating an R object.\nR lets you save data by storing it inside an R object. What is an object? Just a name that you can use to call up stored data. For example, you can save data into an object like a or b. Wherever R encounters the object, it will replace it with the data saved inside, like so:\n\na &lt;- 1\na\n\n[1] 1\n\n\n\na + 2\n\n[1] 3\n\n\n\n\n\n\n\n\nWhat just happened?\n\n\n\n\nTo create an R object, choose a name and then use the less-than symbol, &lt;, followed by a minus sign, -, to save data into it. This combination looks like an arrow, &lt;-. R will make an object, give it your name, and store in it whatever follows the arrow. So a &lt;- 1 stores 1 in an object named a.\nWhen you ask R what’s in a, R tells you on the next line.\nYou can use your object in new R commands, too. Since a previously stored the value of 1, you’re now adding 1 to 2.\n\n\n\n\n\n\n\n\n\nAssignment vs expressions\n\n\n\nEverything that you type into the R console can be assigned to one of two categories:\n\nAssignments\nExpressions\n\nAn expression is a command that tells R to do something. For example, 1 + 2 is an expression that tells R to add 1 and 2. When you type an expression into the R console, R will evaluate the expression and return the result. For example, if you type 1 + 2 into the R console, R will return 3. Expressions can have “side effects” but they don’t explicitly result in anything being added to R memory.\n\n5 + 2\n\n[1] 7\n\n28 %% 3\n\n[1] 1\n\n3^2\n\n[1] 9\n\n5 + 4 * 4 + 4 ^ 4 / 10\n\n[1] 46.6\n\n\nWhile using R as a calculator is interesting, to do useful and interesting things, we need to assign values to objects. To create objects, we need to give it a name followed by the assignment operator &lt;- (or, entirely equivalently, =) and the value we want to give it:\n\nweight_kg &lt;- 55\n\n\n\nSo, for another example, the following code would create an object named die that contains the numbers one through six. To see what is stored in an object, just type the object’s name by itself:\n\ndie &lt;- 1:6\ndie\n\n[1] 1 2 3 4 5 6\n\n\nWhen you create an object, the object will appear in the environment pane of RStudio, as shown in Figure 2. This pane will show you all of the objects you’ve created since opening RStudio.\n\n\n\n\n\n\nFigure 2: Assignment creates an object in the environment pane.\n\n\n\nYou can name an object in R almost anything you want, but there are a few rules. First, a name cannot start with a number. Second, a name cannot use some special symbols, like ^, !, $, @, +, -, /, or *:\n\n\n\nGood names\nNames that cause errors\n\n\n\n\na\n1trial\n\n\nb\n$\n\n\nFOO\n^mean\n\n\nmy_var\n2nd\n\n\n.day\n!bad\n\n\n\n\n\n\n\n\n\nCapitalization matters\n\n\n\nR is case-sensitive, so name and Name will refer to different objects:\n&gt; Name = 0\n&gt; Name + 1\n[1] 1\n&gt; name + 1\nError: object 'name' not found\nThe error above is a common one!\n\n\nFinally, R will overwrite any previous information stored in an object without asking you for permission. So, it is a good idea to not use names that are already taken:\n\nmy_number &lt;- 1\nmy_number \n\n[1] 1\n\n\n\nmy_number &lt;- 999\nmy_number\n\n[1] 999\n\n\nYou can see which object names you have already used with the function ls:\nls()\nYour environment will contain different names than mine, because you have probably created different objects.\nYou can also see which names you have used by examining RStudio’s environment pane.\nWe now have a virtual die that is stored in the computer’s memory and which has a name that we can use to refer to it. You can access it whenever you like by typing the word die.\nSo what can you do with this die? Quite a lot. R will replace an object with its contents whenever the object’s name appears in a command. So, for example, you can do all sorts of math with the die. Math isn’t so helpful for rolling dice, but manipulating sets of numbers will be your stock and trade as a data scientist. So let’s take a look at how to do that:\n\ndie - 1\n\n[1] 0 1 2 3 4 5\n\ndie / 2\n\n[1] 0.5 1.0 1.5 2.0 2.5 3.0\n\ndie * die\n\n[1]  1  4  9 16 25 36\n\n\nR uses element-wise execution when working with a vector like die. When you manipulate a set of numbers, R will apply the same operation to each element in the set. So for example, when you run die - 1, R subtracts one from each element of die.\nWhen you use two or more vectors in an operation, R will line up the vectors and perform a sequence of individual operations. For example, when you run die * die, R lines up the two die vectors and then multiplies the first element of vector 1 by the first element of vector 2. R then multiplies the second element of vector 1 by the second element of vector 2, and so on, until every element has been multiplied. The result will be a new vector the same length as the first two {Figure 3}.\n\n\n\n\n\n\nFigure 3: “When R performs element-wise execution, it matches up vectors and then manipulates each pair of elements independently.”\n\n\n\nIf you give R two vectors of unequal lengths, R will repeat the shorter vector until it is as long as the longer vector, and then do the math, as shown in Figure 4. This isn’t a permanent change–the shorter vector will be its original size after R does the math. If the length of the short vector does not divide evenly into the length of the long vector, R will return a warning message. This behavior is known as vector recycling, and it helps R do element-wise operations:\n\n1:2\n\n[1] 1 2\n\n1:4\n\n[1] 1 2 3 4\n\ndie\n\n[1] 1 2 3 4 5 6\n\ndie + 1:2\n\n[1] 2 4 4 6 6 8\n\ndie + 1:4\n\nWarning in die + 1:4: longer object length is not a multiple of shorter object\nlength\n\n\n[1] 2 4 6 8 6 8\n\n\n\n\n\n\n\n\nFigure 4: “R will repeat a short vector to do element-wise operations with two vectors of uneven lengths.”\n\n\n\nElement-wise operations are a very useful feature in R because they manipulate groups of values in an orderly way. When you start working with data sets, element-wise operations will ensure that values from one observation or case are only paired with values from the same observation or case. Element-wise operations also make it easier to write your own programs and functions in R.\n\n\n\n\n\n\nElement-wise operations are not matrix operations\n\n\n\nIt is important to know that operations with vectors are not the same that you might expect if you are expecting R to perform “matrix” operations. R can do inner multiplication with the %*% operator and outer multiplication with the %o% operator:\n# Inner product (1*1 + 2*2 + 3*3 + 4*4 + 5*5 + 6*6)\ndie %*% die\n# Outer product\ndie %o% die\n\n\nNow that you can do math with your die object, let’s look at how you could “roll” it. Rolling your die will require something more sophisticated than basic arithmetic; you’ll need to randomly select one of the die’s values. And for that, you will need a function."
   },
   {
-    "objectID": "index.html#talks",
-    "href": "index.html#talks",
-    "title": "IDPT-8079: Frontier of AI in Medicine",
-    "section": "Talks",
-    "text": "Talks\n\nAI History\nIntroduction to Artificial Intelligence and Machine Learning"
+    "objectID": "r_basics.html#functions",
+    "href": "r_basics.html#functions",
+    "title": "Up and Running with R",
+    "section": "",
+    "text": "R has many functions and puts them all at our disposal. We can use functions to do simple and sophisticated tasks. For example, we can round a number with the round function, or calculate its factorial with the factorial function. Using a function is pretty simple. Just write the name of the function and then the data you want the function to operate on in parentheses:\n\nround(3.1415)\n\n[1] 3\n\nfactorial(3)\n\n[1] 6\n\n\nThe data that you pass into the function is called the function’s argument. The argument can be raw data, an R object, or even the results of another R function. In this last case, R will work from the innermost function to the outermost Figure 5.\n\nmean(1:6)\n\n[1] 3.5\n\nmean(die)\n\n[1] 3.5\n\nround(mean(die))\n\n[1] 4\n\n\n\n\n\n\n\n\nFigure 5: “When you link functions together, R will resolve them from the innermost operation to the outermost. Here R first looks up die, then calculates the mean of one through six, then rounds the mean.”\n\n\n\nReturning to our die, we can use the sample function to randomly select one of the die’s values; in other words, the sample function can simulate rolling the die.\nThe sample function takes two arguments: a vector named x and a number named size. sample will return size elements from the vector:\n\nsample(x = 1:4, size = 2)\n\n[1] 2 1\n\n\nTo roll your die and get a number back, set x to die and sample one element from it. You’ll get a new (maybe different) number each time you roll it:\n\nsample(x = die, size = 1)\n\n[1] 1\n\nsample(x = die, size = 1)\n\n[1] 1\n\nsample(x = die, size = 1)\n\n[1] 5\n\n\nMany R functions take multiple arguments that help them do their job. You can give a function as many arguments as you like as long as you separate each argument with a comma.\nYou may have noticed that I set die and 1 equal to the names of the arguments in sample, x and size. Every argument in every R function has a name. You can specify which data should be assigned to which argument by setting a name equal to data, as in the preceding code. This becomes important as you begin to pass multiple arguments to the same function; names help you avoid passing the wrong data to the wrong argument. However, using names is optional. You will notice that R users do not often use the name of the first argument in a function. So you might see the previous code written as:\n\nsample(die, size = 1)\n\n[1] 1\n\n\nOften, the name of the first argument is not very descriptive, and it is usually obvious what the first piece of data refers to anyways.\nBut how do you know which argument names to use? If you try to use a name that a function does not expect, you will likely get an error:\nround(3.1415, corners = 2)\n## Error in round(3.1415, corners = 2) : unused argument(s) (corners = 2)\nIf you’re not sure which names to use with a function, you can look up the function’s arguments with args. To do this, place the name of the function in the parentheses behind args. For example, you can see that the round function takes two arguments, one named x and one named digits:\n\nargs(round)\n\nfunction (x, digits = 0, ...) \nNULL\n\n\nDid you notice that args shows that the digits argument of round is already set to 0? Frequently, an R function will take optional arguments like digits. These arguments are considered optional because they come with a default value. You can pass a new value to an optional argument if you want, and R will use the default value if you do not. For example, round will round your number to 0 digits past the decimal point by default. To override the default, supply your own value for digits:\n\nround(3.1415)\n\n[1] 3\n\nround(3.1415, digits = 2)\n\n[1] 3.14\n\n# pi happens to be a built-in value in R\npi\n\n[1] 3.141593\n\nround(pi)\n\n[1] 3\n\n\nYou should write out the names of each argument after the first one or two when you call a function with multiple arguments. Why? First, this will help you and others understand your code. It is usually obvious which argument your first input refers to (and sometimes the second input as well). However, you’d need a large memory to remember the third and fourth arguments of every R function. Second, and more importantly, writing out argument names prevents errors.\nIf you do not write out the names of your arguments, R will match your values to the arguments in your function by order. For example, in the following code, the first value, die, will be matched to the first argument of sample, which is named x. The next value, 1, will be matched to the next argument, size:\n\nsample(die, 1)\n\n[1] 3\n\n\nAs you provide more arguments, it becomes more likely that your order and R’s order may not align. As a result, values may get passed to the wrong argument. Argument names prevent this. R will always match a value to its argument name, no matter where it appears in the order of arguments:\n\nsample(size = 1, x = die)\n\n[1] 1\n\n\n\n\nIf you set size = 2, you can almost simulate a pair of dice. Before we run that code, think for a minute why that might be the case. sample will return two numbers, one for each die:\n\nsample(die, size = 2)\n\n[1] 5 3\n\n\nI said this “almost” works because this method does something funny. If you use it many times, you’ll notice that the second die never has the same value as the first die, which means you’ll never roll something like a pair of threes or snake eyes. What is going on?\nBy default, sample builds a sample without replacement. To see what this means, imagine that sample places all of the values of die in a jar or urn. Then imagine that sample reaches into the jar and pulls out values one by one to build its sample. Once a value has been drawn from the jar, sample sets it aside. The value doesn’t go back into the jar, so it cannot be drawn again. So if sample selects a six on its first draw, it will not be able to select a six on the second draw; six is no longer in the jar to be selected. Although sample creates its sample electronically, it follows this seemingly physical behavior.\nOne side effect of this behavior is that each draw depends on the draws that come before it. In the real world, however, when you roll a pair of dice, each die is independent of the other. If the first die comes up six, it does not prevent the second die from coming up six. In fact, it doesn’t influence the second die in any way whatsoever. You can recreate this behavior in sample by adding the argument replace = TRUE:\n\nsample(die, size = 2, replace = TRUE)\n\n[1] 1 1\n\n\nThe argument replace = TRUE causes sample to sample with replacement. Our jar example provides a good way to understand the difference between sampling with replacement and without. When sample uses replacement, it draws a value from the jar and records the value. Then it puts the value back into the jar. In other words, sample replaces each value after each draw. As a result, sample may select the same value on the second draw. Each value has a chance of being selected each time. It is as if every draw were the first draw.\nSampling with replacement is an easy way to create independent random samples. Each value in your sample will be a sample of size one that is independent of the other values. This is the correct way to simulate a pair of dice:\n\nsample(die, size = 2, replace = TRUE)\n\n[1] 5 4\n\n\nCongratulate yourself; you’ve just run your first simulation in R! You now have a method for simulating the result of rolling a pair of dice. If you want to add up the dice, you can feed your result straight into the sum function:\n\ndice &lt;- sample(die, size = 2, replace = TRUE)\ndice\n\n[1] 6 1\n\nsum(dice)\n\n[1] 7\n\n\nWhat would happen if you call dice multiple times? Would R generate a new pair of dice values each time? Let’s give it a try:\n\ndice\n\n[1] 6 1\n\ndice\n\n[1] 6 1\n\ndice\n\n[1] 6 1\n\n\nThe name dice refers to a vector of two numbers. Calling more than once does not change the favlue. Each time you call dice, R will show you the result of that one time you called sample and saved the output to dice. R won’t rerun sample(die, 2, replace = TRUE) to create a new roll of the dice. Once you save a set of results to an R object, those results do not change.\nHowever, it would be convenient to have an object that can re-roll the dice whenever you call it. You can make such an object by writing your own R function."
   },
   {
-    "objectID": "talks/ml-intro/index.html#outline",
-    "href": "talks/ml-intro/index.html#outline",
+    "objectID": "r_basics.html#write-functions",
+    "href": "r_basics.html#write-functions",
+    "title": "Up and Running with R",
+    "section": "",
+    "text": "To recap, you already have working R code that simulates rolling a pair of dice:\n\ndie &lt;- 1:6\ndice &lt;- sample(die, size = 2, replace = TRUE)\nsum(dice)\n\n[1] 8\n\n\nYou can retype this code into the console anytime you want to re-roll your dice. However, this is an awkward way to work with the code. It would be easier to use your code if you wrapped it into its own function, which is exactly what we’ll do now. We’re going to write a function named roll that you can use to roll your virtual dice. When you’re finished, the function will work like this: each time you call roll(), R will return the sum of rolling two dice:\nroll()\n## 8 \n\nroll()\n## 3\n\nroll()\n## 7\nFunctions may seem mysterious or fancy, but they are just another type of R object. Instead of containing data, they contain code. This code is stored in a special format that makes it easy to reuse the code in new situations. You can write your own functions by recreating this format.\n\n\nEvery function in R has three basic parts: a name, a body of code, and a set of arguments. To make your own function, you need to replicate these parts and store them in an R object, which you can do with the function function. To do this, call function() and follow it with a pair of braces, {}:\n\nmy_function &lt;- function() {}\n\nThis function, as written, doesn’t do anything (yet). However, it is a valid function. You can call it by typing its name followed by an open and closed parenthesis:\n\nmy_function()\n\nNULL\n\n\nfunction will build a function out of whatever R code you place between the braces. For example, you can turn your dice code into a function by calling:\n\nroll &lt;- function() {\n  die &lt;- 1:6\n  dice &lt;- sample(die, size = 2, replace = TRUE)\n  sum(dice)\n}\n\n\n\n\n\n\n\nIndentation and readability\n\n\n\nNotice each line of code between the braces is indented. This makes the code easier to read but has no impact on how the code runs. R ignores spaces and line breaks and executes one complete expression at a time. Note that in other languages like python, spacing is extremely important and part of the language.\n\n\nJust hit the Enter key between each line after the first brace, {. R will wait for you to type the last brace, }, before it responds.\nDon’t forget to save the output of function to an R object. This object will become your new function. To use it, write the object’s name followed by an open and closed parenthesis:\n\nroll()\n\n[1] 6\n\n\nYou can think of the parentheses as the “trigger” that causes R to run the function. If you type in a function’s name without the parentheses, R will show you the code that is stored inside the function. If you type in the name with the parentheses, R will run that code:\n\nroll\n\nfunction() {\n  die &lt;- 1:6\n  dice &lt;- sample(die, size = 2, replace = TRUE)\n  sum(dice)\n}\n\nroll()\n\n[1] 4\n\n\nThe code that you place inside your function is known as the body of the function. When you run a function in R, R will execute all of the code in the body and then return the result of the last line of code. If the last line of code doesn’t return a value, neither will your function, so you want to ensure that your final line of code returns a value. One way to check this is to think about what would happen if you ran the body of code line by line in the command line. Would R display a result after the last line, or would it not?\nHere’s some code that would display a result:\ndice\n1 + 1\nsqrt(2)\nAnd here’s some code that would not:\ndice &lt;- sample(die, size = 2, replace = TRUE)\ntwo &lt;- 1 + 1\na &lt;- sqrt(2)\nAgain, this is just showing the distinction between expressions and assignments."
+  },
+  {
+    "objectID": "r_basics.html#arguments",
+    "href": "r_basics.html#arguments",
+    "title": "Up and Running with R",
+    "section": "",
+    "text": "What if we removed one line of code from our function and changed the name die to bones (just a name–don’t think of it as important), like this?\n\nroll2 &lt;- function() {\n  dice &lt;- sample(bones, size = 2, replace = TRUE)\n  sum(dice)\n}\n\nNow I’ll get an error when I run the function. The function needs the object bones to do its job, but there is no object named bones to be found (you can check by typing ls() which will show you the names in the environment, or memory).\nroll2()\n## Error in sample(bones, size = 2, replace = TRUE) : \n##   object 'bones' not found\nYou can supply bones when you call roll2 if you make bones an argument of the function. To do this, put the name bones in the parentheses that follow function when you define roll2:\n\nroll2 &lt;- function(bones) {\n  dice &lt;- sample(bones, size = 2, replace = TRUE)\n  sum(dice)\n}\n\nNow roll2 will work as long as you supply bones when you call the function. You can take advantage of this to roll different types of dice each time you call roll2.\nRemember, we’re rolling pairs of dice:\n\nroll2(bones = 1:4)\n\n[1] 5\n\nroll2(bones = 1:6)\n\n[1] 7\n\nroll2(1:20)\n\n[1] 23\n\n\nNotice that roll2 will still give an error if you do not supply a value for the bones argument when you call roll2:\nroll2()\n## Error in sample(bones, size = 2, replace = TRUE) : \n##   argument \"bones\" is missing, with no default\nYou can prevent this error by giving the bones argument a default value. To do this, set bones equal to a value when you define roll2:\n\nroll2 &lt;- function(bones = 1:6) {\n  dice &lt;- sample(bones, size = 2, replace = TRUE)\n  sum(dice)\n}\n\nNow you can supply a new value for bones if you like, and roll2 will use the default if you do not:\n\nroll2()\n\n[1] 6\n\n\nYou can give your functions as many arguments as you like. Just list their names, separated by commas, in the parentheses that follow function. When the function is run, R will replace each argument name in the function body with the value that the user supplies for the argument. If the user does not supply a value, R will replace the argument name with the argument’s default value (if you defined one).\nTo summarize, function helps you construct your own R functions. You create a body of code for your function to run by writing code between the braces that follow function. You create arguments for your function to use by supplying their names in the parentheses that follow function. Finally, you give your function a name by saving its output to an R object, as shown in Figure 6.\nOnce you’ve created your function, R will treat it like every other function in R. Think about how useful this is. Have you ever tried to create a new Excel option and add it to Microsoft’s menu bar? Or a new slide animation and add it to Powerpoint’s options? When you work with a programming language, you can do these types of things. As you learn to program in R, you will be able to create new, customized, reproducible tools for yourself whenever you like.\n\n\n\n\n\n\nFigure 6: “Every function in R has the same parts, and you can use function to create these parts. Assign the result to a name, so you can call the function later.”"
+  },
+  {
+    "objectID": "r_basics.html#scripts",
+    "href": "r_basics.html#scripts",
+    "title": "Up and Running with R",
+    "section": "",
+    "text": "Scripts are code that are saved for later reuse or editing. An R script is just a plain text file that you save R code in. You can open an R script in RStudio by going to File &gt; New File &gt; R script in the menu bar. RStudio will then open a fresh script above your console pane, as shown in Figure 7.\nI strongly encourage you to write and edit all of your R code in a script before you run it in the console. Why? This habit creates a reproducible record of your work. When you’re finished for the day, you can save your script and then use it to rerun your entire analysis the next day. Scripts are also very handy for editing and proofreading your code, and they make a nice copy of your work to share with others. To save a script, click the scripts pane, and then go to File &gt; Save As in the menu bar.\n\n\n\n\n\n\nFigure 7: “When you open an R Script (File &gt; New File &gt; R Script in the menu bar), RStudio creates a fourth pane (or puts a new tab in the existing pane) above the console where you can write and edit your code.”\n\n\n\nRStudio comes with many built-in features that make it easy to work with scripts. First, you can automatically execute a line of code in a script by clicking the Run button at the top of the editor panel.\nR will run whichever line of code your cursor is on. If you have a whole section highlighted, R will run the highlighted code. Alternatively, you can run the entire script by clicking the Source button. Don’t like clicking buttons? You can use Control + Return as a shortcut for the Run button. On Macs, that would be Command + Return.\nIf you’re not convinced about scripts, you soon will be. It becomes a pain to write multi-line code in the console’s single-line command line. Let’s avoid that headache and open your first script now before we move to the next chapter.\n\n\n\n\n\n\nTip\n\n\n\nExtract function\nRStudio comes with a tool that can help you build functions. To use it, highlight the lines of code in your R script that you want to turn into a function. Then click Code &gt; Extract Function in the menu bar. RStudio will ask you for a function name to use and then wrap your code in a function call. It will scan the code for undefined variables and use these as arguments.\nYou may want to double-check RStudio’s work. It assumes that your code is correct, so if it does something surprising, you may have a problem in your code."
+  },
+  {
+    "objectID": "r_basics.html#summary",
+    "href": "r_basics.html#summary",
+    "title": "Up and Running with R",
+    "section": "",
+    "text": "We’ve covered a lot of ground already. You now have a virtual die stored in your computer’s memory, as well as your own R function that rolls a pair of dice. You’ve also begun speaking the R language.\nThe two most important components of the R language are objects, which store data, and functions, which manipulate data. R also uses a host of operators like +, -, *, /, and &lt;- to do basic tasks. As a data scientist, you will use R objects to store data in your computer’s memory, and you will use functions to automate tasks and do complicated calculations."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "talks/ml-intro/index2.html#outline",
+    "href": "talks/ml-intro/index2.html#outline",
     "title": "Introduction to Machine Learning",
     "section": "Outline",
-    "text": "Outline\n\nRelationship between AI and ML\nTypes of Machine Learning\nA little about data\nSupervised Learning\nUnsupervised Learning"
+    "text": "Outline\n\nRelationship between AI and ML\nMachine Learning Uses\nTypes of Machine Learning\nTraining and Testing\nGeneralizability\nBias and Variance\nKey Concepts in ML\nChallenges and Future Directions"
   },
   {
-    "objectID": "talks/ml-intro/index.html#an-ontology-of-ai",
-    "href": "talks/ml-intro/index.html#an-ontology-of-ai",
+    "objectID": "talks/ml-intro/index2.html#an-ontology-of-ai",
+    "href": "talks/ml-intro/index2.html#an-ontology-of-ai",
     "title": "Introduction to Machine Learning",
     "section": "An Ontology of AI",
     "text": "An Ontology of AI"
   },
   {
-    "objectID": "talks/ml-intro/index.html#what-is-machine-learning",
-    "href": "talks/ml-intro/index.html#what-is-machine-learning",
+    "objectID": "talks/ml-intro/index2.html#what-is-machine-learning",
+    "href": "talks/ml-intro/index2.html#what-is-machine-learning",
     "title": "Introduction to Machine Learning",
     "section": "What is Machine Learning?",
     "text": "What is Machine Learning?\nThe study of computer algorithms that improve automatically through experience. It is seen as a subset of artificial intelligence. Machine learning systems give the computer the ability to learn without being explicitly programmed rules."
   },
   {
-    "objectID": "talks/ml-intro/index.html#what-is-deep-learning",
-    "href": "talks/ml-intro/index.html#what-is-deep-learning",
+    "objectID": "talks/ml-intro/index2.html#what-is-deep-learning",
+    "href": "talks/ml-intro/index2.html#what-is-deep-learning",
     "title": "Introduction to Machine Learning",
     "section": "What is Deep Learning?",
     "text": "What is Deep Learning?\nMachine learning algorithms that are inspired by the structure and function of the brain. Deep learning is a subset of machine learning in artificial intelligence that has networks capable of learning unsupervised from data that is often unstructured (i.e., text or images)."
   },
   {
-    "objectID": "talks/ml-intro/index.html#ai-vs.-ml-vs.-deep-learning",
-    "href": "talks/ml-intro/index.html#ai-vs.-ml-vs.-deep-learning",
+    "objectID": "talks/ml-intro/index2.html#ai-vs.-ml-vs.-deep-learning",
+    "href": "talks/ml-intro/index2.html#ai-vs.-ml-vs.-deep-learning",
     "title": "Introduction to Machine Learning",
     "section": "AI vs. ML vs. Deep Learning",
     "text": "AI vs. ML vs. Deep Learning\n\n\nArtificialIntelligence\n\n\nMachineLearning\n\n\nDeepLearning"
   },
   {
-    "objectID": "talks/ml-intro/index.html#ai-vs.-ml-vs.-deep-learning-1",
-    "href": "talks/ml-intro/index.html#ai-vs.-ml-vs.-deep-learning-1",
+    "objectID": "talks/ml-intro/index2.html#ai-vs.-ml-vs.-deep-learning-1",
+    "href": "talks/ml-intro/index2.html#ai-vs.-ml-vs.-deep-learning-1",
     "title": "Introduction to Machine Learning",
     "section": "AI vs. ML vs. Deep Learning",
     "text": "AI vs. ML vs. Deep Learning\n\n\nArtificialIntelligence\n\n\nMachineLearning\n\n\nDeepLearning"
   },
   {
-    "objectID": "talks/ml-intro/index.html#an-ontology-of-data",
-    "href": "talks/ml-intro/index.html#an-ontology-of-data",
+    "objectID": "talks/ml-intro/index2.html#an-ontology-of-data",
+    "href": "talks/ml-intro/index2.html#an-ontology-of-data",
     "title": "Introduction to Machine Learning",
     "section": "An ontology of Data",
     "text": "An ontology of Data\n\n\n\n\nOne way to think about different classes of data."
   },
   {
-    "objectID": "talks/ml-intro/index.html#structured-data-vs-unstructured-data",
-    "href": "talks/ml-intro/index.html#structured-data-vs-unstructured-data",
+    "objectID": "talks/ml-intro/index2.html#structured-data-vs-unstructured-data",
+    "href": "talks/ml-intro/index2.html#structured-data-vs-unstructured-data",
     "title": "Introduction to Machine Learning",
     "section": "Structured Data vs Unstructured Data",
     "text": "Structured Data vs Unstructured Data\n\n\n\n\n\n\n\n\n\nStructured data\nUnstructured data\n\n\n\n\nWhat is it?\nData that fits in a predefined data model or schema.\nData without an underlying model to discern attributes.\n\n\nBasic example\nAn Excel table.\nA collection of video files.\n\n\nBest for\nA set of predefined observations or characteristics (columns) on a collection of things (rows)\nAn associated collection of data, objects, or files where the attributes change or are unknown.\n\n\nCommon formats\nCSV, TSV, Excel, SQL databases.\nImages, audio, video, text."
   },
   {
-    "objectID": "talks/ml-intro/index.html#tabular-data",
-    "href": "talks/ml-intro/index.html#tabular-data",
-    "title": "Introduction to Machine Learning",
-    "section": "Tabular Data",
-    "text": "Tabular Data\n\nRows and columns\nEach column has a specific data type\nEach row represents an observation on a subject (e.g., patient, sample)\n\nTerminology:\n\nFeature: A column in the dataset\nTarget: The variable you are trying to predict\nObservation: A row in the dataset\nDimension: The number of features in the dataset (sometimes represented by \\(p\\))\nSample: A single row in the dataset (usually represented by \\(n\\))"
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#classes-of-machine-learning",
-    "href": "talks/ml-intro/index.html#classes-of-machine-learning",
+    "objectID": "talks/ml-intro/index2.html#classes-of-machine-learning",
+    "href": "talks/ml-intro/index2.html#classes-of-machine-learning",
     "title": "Introduction to Machine Learning",
     "section": "Classes of Machine Learning",
     "text": "Classes of Machine Learning\n\nBroad classes of machine learning."
   },
   {
-    "objectID": "talks/ml-intro/index.html#types-of-machine-learning",
-    "href": "talks/ml-intro/index.html#types-of-machine-learning",
+    "objectID": "talks/ml-intro/index2.html#types-of-machine-learning",
+    "href": "talks/ml-intro/index2.html#types-of-machine-learning",
     "title": "Introduction to Machine Learning",
     "section": "Types of Machine Learning",
     "text": "Types of Machine Learning\n\nSupervised Learning\n\nClassification\nRegression\n\nUnsupervised Learning\n\nClustering\nDimensionality Reduction\n\nReinforcement Learning"
   },
   {
-    "objectID": "talks/ml-intro/index.html#reinforecement-learning",
-    "href": "talks/ml-intro/index.html#reinforecement-learning",
+    "objectID": "talks/ml-intro/index2.html#reinforecement-learning",
+    "href": "talks/ml-intro/index2.html#reinforecement-learning",
     "title": "Introduction to Machine Learning",
     "section": "Reinforecement Learning",
     "text": "Reinforecement Learning\n\nLearning through interaction: Unlike supervised learning where you have labeled data, RL agents learn by interacting with an environment.\nDelayed rewards: The agent doesn’t receive immediate feedback about the optimal action, but rather must learn which actions lead to better cumulative rewards over time.\nExploration vs. exploitation: The agent must balance exploring new actions versus exploiting known good actions.\nSequential decision making: RL deals with sequences of decisions rather than one-time predictions.\n\n\nExamples\n\n\n\nGame playing (e.g., AlphaGo, OpenAI Five)\nRobotics control\n\n\n\nAutonomous driving\nTrading strategies"
   },
   {
-    "objectID": "talks/ml-intro/index.html#a-map-of-machine-learning-approaches",
-    "href": "talks/ml-intro/index.html#a-map-of-machine-learning-approaches",
+    "objectID": "talks/ml-intro/index2.html#a-map-of-machine-learning-approaches",
+    "href": "talks/ml-intro/index2.html#a-map-of-machine-learning-approaches",
     "title": "Introduction to Machine Learning",
     "section": "A map of machine learning approaches",
     "text": "A map of machine learning approaches\n\n\nhttps://scikit-learn.org/stable/tutorial/machine_learning_map/index.html"
   },
   {
-    "objectID": "talks/ml-intro/index.html#supervised-learning-1",
-    "href": "talks/ml-intro/index.html#supervised-learning-1",
+    "objectID": "talks/ml-intro/index2.html#supervised-learning-1",
+    "href": "talks/ml-intro/index2.html#supervised-learning-1",
     "title": "Introduction to Machine Learning",
     "section": "Supervised Learning",
-    "text": "Supervised Learning\n\nGiven a dataset of input-output pairs: \\(\\{(x_1, y_1), (x_2, y_2), \\ldots, (x_n, y_n)\\}\\)\nLearn a function \\(f\\) with parameters \\(\\theta\\) that maps inputs \\(x\\) to outputs \\(y\\) \\[y = f(x; \\theta) + \\epsilon\\]\nObjective: Choose parameters \\(\\theta\\) to minimize the prediction error \\(\\epsilon\\)"
+    "text": "Supervised Learning\n\nGiven a dataset of input-output pairs: \\(\\{(x_1, y_1), (x_2, y_2), \\ldots, (x_n, y_n)\\}\\)\nLearn a function \\(f\\) with parameters \\(\\theta\\) that maps inputs \\(x\\) to outputs \\(y\\) \\[y = f(x; \\theta) + \\epsilon\\]\nObjective: Choose parameters \\(\\theta\\) to minimize the prediction error \\(\\epsilon\\)\n\nWhen \\(y\\) is a continuous variable (e.g., house prices), it’s a regression problem.\nWhen \\(y\\) is a discrete variable (e.g., spam or not spam), it’s a classification problem."
   },
   {
-    "objectID": "talks/ml-intro/index.html#supervised-learning-2",
-    "href": "talks/ml-intro/index.html#supervised-learning-2",
-    "title": "Introduction to Machine Learning",
-    "section": "Supervised Learning",
-    "text": "Supervised Learning\nWhen \\(y\\) is a continuous variable (e.g., house prices), it’s a regression problem.\nWhen \\(y\\) is a discrete variable (e.g., spam or not spam), it’s a classification problem.\n\nIt is not a concidence that the same terms are used in statistics! Many machine learning algorithms are based on statistical principles or are generalizations of statistical methods."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#classification",
-    "href": "talks/ml-intro/index.html#classification",
+    "objectID": "talks/ml-intro/index2.html#classification",
+    "href": "talks/ml-intro/index2.html#classification",
     "title": "Introduction to Machine Learning",
     "section": "Classification",
     "text": "Classification"
   },
   {
-    "objectID": "talks/ml-intro/index.html#regression",
-    "href": "talks/ml-intro/index.html#regression",
+    "objectID": "talks/ml-intro/index2.html#regression",
+    "href": "talks/ml-intro/index2.html#regression",
     "title": "Introduction to Machine Learning",
     "section": "Regression",
     "text": "Regression\n\nNot all regression is linear…."
   },
   {
-    "objectID": "talks/ml-intro/index.html#classification-example",
-    "href": "talks/ml-intro/index.html#classification-example",
+    "objectID": "talks/ml-intro/index2.html#classification-example",
+    "href": "talks/ml-intro/index2.html#classification-example",
     "title": "Introduction to Machine Learning",
     "section": "Classification Example",
     "text": "Classification Example\n\nThe classic iris"
   },
   {
-    "objectID": "talks/ml-intro/index.html#classification-example-1",
-    "href": "talks/ml-intro/index.html#classification-example-1",
+    "objectID": "talks/ml-intro/index2.html#classification-example-1",
+    "href": "talks/ml-intro/index2.html#classification-example-1",
     "title": "Introduction to Machine Learning",
     "section": "Classification Example",
     "text": "Classification Example\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n\n6.2\n2.8\n4.8\n1.8\nvirginica\n\n\n4.8\n3.4\n1.6\n0.2\nsetosa\n\n\n5.0\n3.4\n1.5\n0.2\nsetosa\n\n\n5.9\n3.2\n4.8\n1.8\nversicolor\n\n\n5.8\n4.0\n1.2\n0.2\nsetosa\n\n\n5.8\n2.7\n3.9\n1.2\nversicolor\n\n\n6.7\n3.1\n4.7\n1.5\nversicolor\n\n\n5.6\n2.8\n4.9\n2.0\nvirginica\n\n\n6.3\n2.8\n5.1\n1.5\nvirginica\n\n\n6.3\n2.5\n5.0\n1.9\nvirginica\n\n\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n5.5\n2.4\n3.8\n1.1\nversicolor\n\n\n6.5\n3.0\n5.2\n2.0\nvirginica\n\n\n5.6\n3.0\n4.5\n1.5\nversicolor\n\n\n7.3\n2.9\n6.3\n1.8\nvirginica\n\n\n6.1\n3.0\n4.9\n1.8\nvirginica\n\n\n4.3\n3.0\n1.1\n0.1\nsetosa\n\n\n6.4\n3.2\n5.3\n2.3\nvirginica\n\n\n4.8\n3.0\n1.4\n0.3\nsetosa\n\n\n6.1\n2.9\n4.7\n1.4\nversicolor"
   },
   {
-    "objectID": "talks/ml-intro/index.html#classification-example-2",
-    "href": "talks/ml-intro/index.html#classification-example-2",
+    "objectID": "talks/ml-intro/index2.html#classification-example-2",
+    "href": "talks/ml-intro/index2.html#classification-example-2",
     "title": "Introduction to Machine Learning",
     "section": "Classification Example",
     "text": "Classification Example"
   },
   {
-    "objectID": "talks/ml-intro/index.html#training-and-testing",
-    "href": "talks/ml-intro/index.html#training-and-testing",
+    "objectID": "talks/ml-intro/index2.html#classification-1",
+    "href": "talks/ml-intro/index2.html#classification-1",
+    "title": "Introduction to Machine Learning",
+    "section": "Classification",
+    "text": "Classification"
+  },
+  {
+    "objectID": "talks/ml-intro/index2.html#training-and-testing",
+    "href": "talks/ml-intro/index2.html#training-and-testing",
     "title": "Introduction to Machine Learning",
     "section": "Training and Testing",
     "text": "Training and Testing\n\n\nTraining Data: Used to teach the model. It consists of input-output pairs for a supervised learning task.\nTesting Data: Used to evaluate the model’s performance. It should be separate from the training data, but come from the same distribution or population.\nValidation Data: Used for tuning hyperparameters. Hyperparameters are settings that control the learning process (e.g., k in k-NN, learning rate in neural networks)."
   },
   {
-    "objectID": "talks/ml-intro/index.html#generalizability",
-    "href": "talks/ml-intro/index.html#generalizability",
+    "objectID": "talks/ml-intro/index2.html#generalizability",
+    "href": "talks/ml-intro/index2.html#generalizability",
     "title": "Introduction to Machine Learning",
     "section": "Generalizability",
     "text": "Generalizability\n\nThe ability of a model to perform well on unseen data\n\nThis table shows the relationship between training error, testing error, and overfitting, good fit, and underfitting.\n\n\n\nTraining Error\nTesting Error\nModel Fit\n\n\n\n\nLow\nHigh\nOverfit\n\n\nLow\nLow\nGood Fit\n\n\nHigh\nHigh\nUnderfit (poor performance)"
   },
   {
-    "objectID": "talks/ml-intro/index.html#bias-and-variance",
-    "href": "talks/ml-intro/index.html#bias-and-variance",
+    "objectID": "talks/ml-intro/index2.html#bias-and-variance",
+    "href": "talks/ml-intro/index2.html#bias-and-variance",
     "title": "Introduction to Machine Learning",
     "section": "Bias and Variance",
     "text": "Bias and Variance\n\nBias: Error from incorrect assumptions in the learning algorithm\nVariance: Error from sensitivity to small fluctuations in the training set\nBias-Variance Tradeoff: The conflict in trying to simultaneously minimize these two sources of error"
   },
   {
-    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning",
-    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning",
+    "objectID": "talks/ml-intro/index2.html#key-concepts-in-ml",
+    "href": "talks/ml-intro/index2.html#key-concepts-in-ml",
     "title": "Introduction to Machine Learning",
-    "section": "Algorithms for Supervised Learning",
-    "text": "Algorithms for Supervised Learning\n\n\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-24.5356  -5.5236  -0.3462   6.4850  20.9487 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.36404    1.84287  -0.198    0.844    \nx            2.02511    0.03168  63.920   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.145 on 98 degrees of freedom\nMultiple R-squared:  0.9766,    Adjusted R-squared:  0.9763 \nF-statistic:  4086 on 1 and 98 DF,  p-value: &lt; 2.2e-16"
+    "section": "Key Concepts in ML",
+    "text": "Key Concepts in ML\n\nFeature Engineering\nModel Selection\nHyperparameter Tuning\nEnsemble Methods\nCross-Validation\nEvaluation Metrics\n\n\nBriefly explain each concept: 1. Feature Engineering: Creating new features or transforming existing ones to improve model performance 2. Model Selection: Choosing the appropriate algorithm for your problem 3. Hyperparameter Tuning: Optimizing model parameters that are not learned from data 4. Ensemble Methods: Combining multiple models to improve performance 5. Cross-Validation: Technique for assessing how the model will generalize to an independent dataset 6. Evaluation Metrics: Different ways to measure model performance (accuracy, precision, recall, F1-score, ROC curve, etc.)"
   },
   {
-    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-1",
-    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-1",
-    "title": "Introduction to Machine Learning",
-    "section": "Algorithms for Supervised Learning",
-    "text": "Algorithms for Supervised Learning\n\nAnscombe’s Quartet\nhttps://en.wikipedia.org/wiki/Anscombe%27s_quartet"
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-2",
-    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-2",
-    "title": "Introduction to Machine Learning",
-    "section": "Algorithms for Supervised Learning",
-    "text": "Algorithms for Supervised Learning\n\nK-nearest neighbor (kNN) algorithm."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-3",
-    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-3",
-    "title": "Introduction to Machine Learning",
-    "section": "Algorithms for Supervised Learning",
-    "text": "Algorithms for Supervised Learning\n\nClassification and Regression Trees (CART)."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-4",
-    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-4",
-    "title": "Introduction to Machine Learning",
-    "section": "Algorithms for Supervised Learning",
-    "text": "Algorithms for Supervised Learning\n\nRandom Forests."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-5",
-    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-5",
-    "title": "Introduction to Machine Learning",
-    "section": "Algorithms for Supervised Learning",
-    "text": "Algorithms for Supervised Learning\n\nDeep learning."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#applying-supervised-learning-algorithms",
-    "href": "talks/ml-intro/index.html#applying-supervised-learning-algorithms",
-    "title": "Introduction to Machine Learning",
-    "section": "Applying Supervised Learning Algorithms",
-    "text": "Applying Supervised Learning Algorithms\n\nThe mlr3 ecosystem in R."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#key-concepts-in-supervised-learning",
-    "href": "talks/ml-intro/index.html#key-concepts-in-supervised-learning",
-    "title": "Introduction to Machine Learning",
-    "section": "Key Concepts in Supervised Learning",
-    "text": "Key Concepts in Supervised Learning\n\nFeature Engineering\nModel Selection\nHyperparameter Tuning\nEnsemble Methods\nCross-Validation\nEvaluation Metrics\n\n\nBriefly explain each concept: 1. Feature Engineering: Creating new features or transforming existing ones to improve model performance 2. Model Selection: Choosing the appropriate algorithm for your problem 3. Hyperparameter Tuning: Optimizing model parameters that are not learned from data 4. Ensemble Methods: Combining multiple models to improve performance 5. Cross-Validation: Technique for assessing how the model will generalize to an independent dataset 6. Evaluation Metrics: Different ways to measure model performance (accuracy, precision, recall, F1-score, ROC curve, etc.)"
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#challenges-in-machine-learning",
-    "href": "talks/ml-intro/index.html#challenges-in-machine-learning",
+    "objectID": "talks/ml-intro/index2.html#challenges-in-machine-learning",
+    "href": "talks/ml-intro/index2.html#challenges-in-machine-learning",
     "title": "Introduction to Machine Learning",
     "section": "Challenges in Machine Learning",
     "text": "Challenges in Machine Learning\n\nData Quality and Quantity\nInterpretability vs Performance\nEthical Considerations and Bias\nComputational Resources\nModel Deployment and Maintenance\n\n\nDiscuss each challenge: 1. The importance of good, representative data and the challenges of data collection and cleaning 2. The tradeoff between complex, high-performing models and simpler, more interpretable ones 3. The risk of perpetuating or amplifying societal biases through ML models 4. The need for significant computational power, especially for deep learning models 5. The challenges of deploying models in production environments and keeping them updated"
   },
   {
-    "objectID": "talks/ml-intro/index.html#clustering",
-    "href": "talks/ml-intro/index.html#clustering",
-    "title": "Introduction to Machine Learning",
-    "section": "Clustering",
-    "text": "Clustering\n\nGene expression measurements."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#classes-of-unsupervised-learning-algorithms",
-    "href": "talks/ml-intro/index.html#classes-of-unsupervised-learning-algorithms",
-    "title": "Introduction to Machine Learning",
-    "section": "Classes of unsupervised learning algorithms",
-    "text": "Classes of unsupervised learning algorithms\n\n\n\n\n\nClustering.\n\n\n\n\n\n\nDimensionality reduction."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#clustering-1",
-    "href": "talks/ml-intro/index.html#clustering-1",
-    "title": "Introduction to Machine Learning",
-    "section": "Clustering",
-    "text": "Clustering\n\nThinking about similarities and differences"
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#clustering-2",
-    "href": "talks/ml-intro/index.html#clustering-2",
-    "title": "Introduction to Machine Learning",
-    "section": "Clustering",
-    "text": "Clustering\n\nAlgorithm for hierarchical clustering"
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#clustering-3",
-    "href": "talks/ml-intro/index.html#clustering-3",
-    "title": "Introduction to Machine Learning",
-    "section": "Clustering",
-    "text": "Clustering\n\nAlgorithm for hierarchical clustering"
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#clustering-4",
-    "href": "talks/ml-intro/index.html#clustering-4",
-    "title": "Introduction to Machine Learning",
-    "section": "Clustering",
-    "text": "Clustering\n\nAlgorithm for hierarchical clustering"
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#dimensionality-reduction",
-    "href": "talks/ml-intro/index.html#dimensionality-reduction",
-    "title": "Introduction to Machine Learning",
-    "section": "Dimensionality Reduction",
-    "text": "Dimensionality Reduction\n\nSchematic PCA."
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#dimensionality-reduction-1",
-    "href": "talks/ml-intro/index.html#dimensionality-reduction-1",
-    "title": "Introduction to Machine Learning",
-    "section": "Dimensionality Reduction",
-    "text": "Dimensionality Reduction\n\nUsing dimensionality reduction to explore 22,000 dimensions of gene expression data on 280 samples.\nhttps://seandavi.github.io/ITR/geoquery_mds.html"
-  },
-  {
-    "objectID": "talks/ml-intro/index.html#future-directions-in-machine-learning",
-    "href": "talks/ml-intro/index.html#future-directions-in-machine-learning",
+    "objectID": "talks/ml-intro/index2.html#future-directions-in-machine-learning",
+    "href": "talks/ml-intro/index2.html#future-directions-in-machine-learning",
     "title": "Introduction to Machine Learning",
     "section": "Future Directions in Machine Learning",
-    "text": "Future Directions in Machine Learning\n\nAutoML: Automating the ML pipeline\nFederated Learning: Training models on decentralized data\nExplainable AI: Making black-box models more interpretable\nQuantum Machine Learning: Leveraging quantum computing for ML\nContinual Learning: Adapting to new data without forgetting old patterns"
+    "text": "Future Directions in Machine Learning\n\nAutoML: Automating the ML pipeline\nFederated Learning: Training models on decentralized data\nExplainable AI: Making black-box models more interpretable\nQuantum Machine Learning: Leveraging quantum computing for ML\nContinual Learning: Adapting to new data without forgetting old patterns\n\n\nBriefly explain each direction and its potential impact. Encourage students to think about how these developments might shape the future of ML and AI."
   },
   {
-    "objectID": "talks/ml-intro/index.html#conclusion",
-    "href": "talks/ml-intro/index.html#conclusion",
+    "objectID": "talks/ml-intro/index2.html#conclusion",
+    "href": "talks/ml-intro/index2.html#conclusion",
     "title": "Introduction to Machine Learning",
     "section": "Conclusion",
-    "text": "Conclusion\n\nSupervised learning: Predicting outcomes based on labeled data\n\nClassification: Assigning labels to data\nRegression: Predicting continuous values\n\nUnsupervised learning: Finding patterns in unlabeled data\n\nClustering: Grouping similar data points\nDimensionality reduction: Simplifying complex data by reducing dimensions\n\nReinforcement learning: Learning through interaction with an environment"
+    "text": "Conclusion\n\nMachine Learning is a powerful subset of AI\nIt has diverse applications across industries\nUnderstanding key concepts like generalizability, bias-variance tradeoff is crucial\nML comes with both exciting possibilities and important challenges\n\n\nRecap the main points of the lecture. Emphasize that ML is a rapidly evolving field with great potential, but also stress the importance of using ML responsibly and ethically."
   },
   {
-    "objectID": "talks/ml-intro/index.html#resources",
-    "href": "talks/ml-intro/index.html#resources",
+    "objectID": "talks/ml-intro/index2.html#questions",
+    "href": "talks/ml-intro/index2.html#questions",
     "title": "Introduction to Machine Learning",
-    "section": "Resources",
-    "text": "Resources\n\nRecent reviews\n\nMachine Learning in Genomic Medicine: A Review of Computational Problems and Data Sets\nOpportunities And Obstacles For Deep Learning In Biology And Medicine\n\nHands-on Tutorials\n\nhttps://seandavi.github.io/RBiocBook\nMany online courses and tutorials\n\nBlogs and online materials\n\nhttps://blog.recast.ai/machine-learning-algorithms/\nhttps://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A\nhttps://www.youtube.com/c/joshstarmer\n\nMachine Learning in R\n\nhttps://www.datacamp.com/community/tutorials/machine-learning-in-r\nhttps://daviddalpiaz.github.io/r4sl/"
+    "section": "Questions?",
+    "text": "Questions?\nThank you for your attention!\n\nEncourage questions from the audience. Be prepared to clarify any concepts that students found confusing. If possible, relate questions back to real-world applications of ML to reinforce the practical importance of these concepts."
+  },
+  {
+    "objectID": "talks/ml-intro/index2.html#additional-resources",
+    "href": "talks/ml-intro/index2.html#additional-resources",
+    "title": "Introduction to Machine Learning",
+    "section": "Additional Resources",
+    "text": "Additional Resources\n\nBooks: “Introduction to Machine Learning with Python” by Müller and Guido\nOnline Courses: Andrew Ng’s Machine Learning course on Coursera\nWebsites: Towards Data Science, KDnuggets\nLibraries: scikit-learn, TensorFlow, PyTorch\n\n\nProvide these resources for students who want to dive deeper into ML. Mention that hands-on practice is crucial for truly understanding ML concepts."
   },
   {
     "objectID": "talks/ai-history/index.html#introduction",
@@ -651,206 +490,493 @@
     "text": "References\n\n\n\n\nAsimov, Isaac. 1950. I, Robot. Bantam hardcover ed. (2). New York: Bantam Books.\n\n\nHerper, Matthew. n.d. “MD Anderson Benches IBM Watson In Setback For Artificial Intelligence In Medicine.” Forbes. Accessed October 2, 2024. https://www.forbes.com/sites/matthewherper/2017/02/19/md-anderson-benches-ibm-watson-in-setback-for-artificial-intelligence-in-medicine/.\n\n\nNorman, Jeremy. 2024. “History of Information.” https://www.historyofinformation.com/?cat=71.\n\n\nTuring, Alan. 1936. “On Computable Numbers, with an Application to the Entscheidungsproblem.” https://www.abelard.org/turpap2/tp2-ie.asp.\n\n\n———. 1950. “Computing Machinery and Intelligence.” Mind 59 (October): 433–60. https://doi.org/10.1093/mind/lix.236.433."
   },
   {
-    "objectID": "talks/ml-intro/index2.html#outline",
-    "href": "talks/ml-intro/index2.html#outline",
+    "objectID": "talks/ml-intro/index.html#outline",
+    "href": "talks/ml-intro/index.html#outline",
     "title": "Introduction to Machine Learning",
     "section": "Outline",
-    "text": "Outline\n\nRelationship between AI and ML\nMachine Learning Uses\nTypes of Machine Learning\nTraining and Testing\nGeneralizability\nBias and Variance\nKey Concepts in ML\nChallenges and Future Directions"
+    "text": "Outline\n\nRelationship between AI and ML\nTypes of Machine Learning\nA little about data\nSupervised Learning\nUnsupervised Learning"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#an-ontology-of-ai",
-    "href": "talks/ml-intro/index2.html#an-ontology-of-ai",
+    "objectID": "talks/ml-intro/index.html#an-ontology-of-ai",
+    "href": "talks/ml-intro/index.html#an-ontology-of-ai",
     "title": "Introduction to Machine Learning",
     "section": "An Ontology of AI",
     "text": "An Ontology of AI"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#what-is-machine-learning",
-    "href": "talks/ml-intro/index2.html#what-is-machine-learning",
+    "objectID": "talks/ml-intro/index.html#what-is-machine-learning",
+    "href": "talks/ml-intro/index.html#what-is-machine-learning",
     "title": "Introduction to Machine Learning",
     "section": "What is Machine Learning?",
     "text": "What is Machine Learning?\nThe study of computer algorithms that improve automatically through experience. It is seen as a subset of artificial intelligence. Machine learning systems give the computer the ability to learn without being explicitly programmed rules."
   },
   {
-    "objectID": "talks/ml-intro/index2.html#what-is-deep-learning",
-    "href": "talks/ml-intro/index2.html#what-is-deep-learning",
+    "objectID": "talks/ml-intro/index.html#what-is-deep-learning",
+    "href": "talks/ml-intro/index.html#what-is-deep-learning",
     "title": "Introduction to Machine Learning",
     "section": "What is Deep Learning?",
     "text": "What is Deep Learning?\nMachine learning algorithms that are inspired by the structure and function of the brain. Deep learning is a subset of machine learning in artificial intelligence that has networks capable of learning unsupervised from data that is often unstructured (i.e., text or images)."
   },
   {
-    "objectID": "talks/ml-intro/index2.html#ai-vs.-ml-vs.-deep-learning",
-    "href": "talks/ml-intro/index2.html#ai-vs.-ml-vs.-deep-learning",
+    "objectID": "talks/ml-intro/index.html#ai-vs.-ml-vs.-deep-learning",
+    "href": "talks/ml-intro/index.html#ai-vs.-ml-vs.-deep-learning",
     "title": "Introduction to Machine Learning",
     "section": "AI vs. ML vs. Deep Learning",
     "text": "AI vs. ML vs. Deep Learning\n\n\nArtificialIntelligence\n\n\nMachineLearning\n\n\nDeepLearning"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#ai-vs.-ml-vs.-deep-learning-1",
-    "href": "talks/ml-intro/index2.html#ai-vs.-ml-vs.-deep-learning-1",
+    "objectID": "talks/ml-intro/index.html#ai-vs.-ml-vs.-deep-learning-1",
+    "href": "talks/ml-intro/index.html#ai-vs.-ml-vs.-deep-learning-1",
     "title": "Introduction to Machine Learning",
     "section": "AI vs. ML vs. Deep Learning",
     "text": "AI vs. ML vs. Deep Learning\n\n\nArtificialIntelligence\n\n\nMachineLearning\n\n\nDeepLearning"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#an-ontology-of-data",
-    "href": "talks/ml-intro/index2.html#an-ontology-of-data",
+    "objectID": "talks/ml-intro/index.html#an-ontology-of-data",
+    "href": "talks/ml-intro/index.html#an-ontology-of-data",
     "title": "Introduction to Machine Learning",
     "section": "An ontology of Data",
     "text": "An ontology of Data\n\n\n\n\nOne way to think about different classes of data."
   },
   {
-    "objectID": "talks/ml-intro/index2.html#structured-data-vs-unstructured-data",
-    "href": "talks/ml-intro/index2.html#structured-data-vs-unstructured-data",
+    "objectID": "talks/ml-intro/index.html#structured-data-vs-unstructured-data",
+    "href": "talks/ml-intro/index.html#structured-data-vs-unstructured-data",
     "title": "Introduction to Machine Learning",
     "section": "Structured Data vs Unstructured Data",
     "text": "Structured Data vs Unstructured Data\n\n\n\n\n\n\n\n\n\nStructured data\nUnstructured data\n\n\n\n\nWhat is it?\nData that fits in a predefined data model or schema.\nData without an underlying model to discern attributes.\n\n\nBasic example\nAn Excel table.\nA collection of video files.\n\n\nBest for\nA set of predefined observations or characteristics (columns) on a collection of things (rows)\nAn associated collection of data, objects, or files where the attributes change or are unknown.\n\n\nCommon formats\nCSV, TSV, Excel, SQL databases.\nImages, audio, video, text."
   },
   {
-    "objectID": "talks/ml-intro/index2.html#classes-of-machine-learning",
-    "href": "talks/ml-intro/index2.html#classes-of-machine-learning",
+    "objectID": "talks/ml-intro/index.html#tabular-data",
+    "href": "talks/ml-intro/index.html#tabular-data",
+    "title": "Introduction to Machine Learning",
+    "section": "Tabular Data",
+    "text": "Tabular Data\n\nRows and columns\nEach column has a specific data type\nEach row represents an observation on a subject (e.g., patient, sample)\n\nTerminology:\n\nFeature: A column in the dataset\nTarget: The variable you are trying to predict\nObservation: A row in the dataset\nDimension: The number of features in the dataset (sometimes represented by \\(p\\))\nSample: A single row in the dataset (usually represented by \\(n\\))"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#classes-of-machine-learning",
+    "href": "talks/ml-intro/index.html#classes-of-machine-learning",
     "title": "Introduction to Machine Learning",
     "section": "Classes of Machine Learning",
     "text": "Classes of Machine Learning\n\nBroad classes of machine learning."
   },
   {
-    "objectID": "talks/ml-intro/index2.html#types-of-machine-learning",
-    "href": "talks/ml-intro/index2.html#types-of-machine-learning",
+    "objectID": "talks/ml-intro/index.html#types-of-machine-learning",
+    "href": "talks/ml-intro/index.html#types-of-machine-learning",
     "title": "Introduction to Machine Learning",
     "section": "Types of Machine Learning",
     "text": "Types of Machine Learning\n\nSupervised Learning\n\nClassification\nRegression\n\nUnsupervised Learning\n\nClustering\nDimensionality Reduction\n\nReinforcement Learning"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#reinforecement-learning",
-    "href": "talks/ml-intro/index2.html#reinforecement-learning",
+    "objectID": "talks/ml-intro/index.html#reinforecement-learning",
+    "href": "talks/ml-intro/index.html#reinforecement-learning",
     "title": "Introduction to Machine Learning",
     "section": "Reinforecement Learning",
     "text": "Reinforecement Learning\n\nLearning through interaction: Unlike supervised learning where you have labeled data, RL agents learn by interacting with an environment.\nDelayed rewards: The agent doesn’t receive immediate feedback about the optimal action, but rather must learn which actions lead to better cumulative rewards over time.\nExploration vs. exploitation: The agent must balance exploring new actions versus exploiting known good actions.\nSequential decision making: RL deals with sequences of decisions rather than one-time predictions.\n\n\nExamples\n\n\n\nGame playing (e.g., AlphaGo, OpenAI Five)\nRobotics control\n\n\n\nAutonomous driving\nTrading strategies"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#a-map-of-machine-learning-approaches",
-    "href": "talks/ml-intro/index2.html#a-map-of-machine-learning-approaches",
+    "objectID": "talks/ml-intro/index.html#a-map-of-machine-learning-approaches",
+    "href": "talks/ml-intro/index.html#a-map-of-machine-learning-approaches",
     "title": "Introduction to Machine Learning",
     "section": "A map of machine learning approaches",
     "text": "A map of machine learning approaches\n\n\nhttps://scikit-learn.org/stable/tutorial/machine_learning_map/index.html"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#supervised-learning-1",
-    "href": "talks/ml-intro/index2.html#supervised-learning-1",
+    "objectID": "talks/ml-intro/index.html#supervised-learning-1",
+    "href": "talks/ml-intro/index.html#supervised-learning-1",
     "title": "Introduction to Machine Learning",
     "section": "Supervised Learning",
-    "text": "Supervised Learning\n\nGiven a dataset of input-output pairs: \\(\\{(x_1, y_1), (x_2, y_2), \\ldots, (x_n, y_n)\\}\\)\nLearn a function \\(f\\) with parameters \\(\\theta\\) that maps inputs \\(x\\) to outputs \\(y\\) \\[y = f(x; \\theta) + \\epsilon\\]\nObjective: Choose parameters \\(\\theta\\) to minimize the prediction error \\(\\epsilon\\)\n\nWhen \\(y\\) is a continuous variable (e.g., house prices), it’s a regression problem.\nWhen \\(y\\) is a discrete variable (e.g., spam or not spam), it’s a classification problem."
+    "text": "Supervised Learning\n\nGiven a dataset of input-output pairs: \\(\\{(x_1, y_1), (x_2, y_2), \\ldots, (x_n, y_n)\\}\\)\nLearn a function \\(f\\) with parameters \\(\\theta\\) that maps inputs \\(x\\) to outputs \\(y\\) \\[y = f(x; \\theta) + \\epsilon\\]\nObjective: Choose parameters \\(\\theta\\) to minimize the prediction error \\(\\epsilon\\)"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#classification",
-    "href": "talks/ml-intro/index2.html#classification",
+    "objectID": "talks/ml-intro/index.html#supervised-learning-2",
+    "href": "talks/ml-intro/index.html#supervised-learning-2",
+    "title": "Introduction to Machine Learning",
+    "section": "Supervised Learning",
+    "text": "Supervised Learning\nWhen \\(y\\) is a continuous variable (e.g., house prices), it’s a regression problem.\nWhen \\(y\\) is a discrete variable (e.g., spam or not spam), it’s a classification problem.\n\nIt is not a concidence that the same terms are used in statistics! Many machine learning algorithms are based on statistical principles or are generalizations of statistical methods."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#classification",
+    "href": "talks/ml-intro/index.html#classification",
     "title": "Introduction to Machine Learning",
     "section": "Classification",
     "text": "Classification"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#regression",
-    "href": "talks/ml-intro/index2.html#regression",
+    "objectID": "talks/ml-intro/index.html#regression",
+    "href": "talks/ml-intro/index.html#regression",
     "title": "Introduction to Machine Learning",
     "section": "Regression",
     "text": "Regression\n\nNot all regression is linear…."
   },
   {
-    "objectID": "talks/ml-intro/index2.html#classification-example",
-    "href": "talks/ml-intro/index2.html#classification-example",
+    "objectID": "talks/ml-intro/index.html#classification-example",
+    "href": "talks/ml-intro/index.html#classification-example",
     "title": "Introduction to Machine Learning",
     "section": "Classification Example",
     "text": "Classification Example\n\nThe classic iris"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#classification-example-1",
-    "href": "talks/ml-intro/index2.html#classification-example-1",
+    "objectID": "talks/ml-intro/index.html#classification-example-1",
+    "href": "talks/ml-intro/index.html#classification-example-1",
     "title": "Introduction to Machine Learning",
     "section": "Classification Example",
     "text": "Classification Example\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n\n6.2\n2.8\n4.8\n1.8\nvirginica\n\n\n4.8\n3.4\n1.6\n0.2\nsetosa\n\n\n5.0\n3.4\n1.5\n0.2\nsetosa\n\n\n5.9\n3.2\n4.8\n1.8\nversicolor\n\n\n5.8\n4.0\n1.2\n0.2\nsetosa\n\n\n5.8\n2.7\n3.9\n1.2\nversicolor\n\n\n6.7\n3.1\n4.7\n1.5\nversicolor\n\n\n5.6\n2.8\n4.9\n2.0\nvirginica\n\n\n6.3\n2.8\n5.1\n1.5\nvirginica\n\n\n6.3\n2.5\n5.0\n1.9\nvirginica\n\n\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n5.5\n2.4\n3.8\n1.1\nversicolor\n\n\n6.5\n3.0\n5.2\n2.0\nvirginica\n\n\n5.6\n3.0\n4.5\n1.5\nversicolor\n\n\n7.3\n2.9\n6.3\n1.8\nvirginica\n\n\n6.1\n3.0\n4.9\n1.8\nvirginica\n\n\n4.3\n3.0\n1.1\n0.1\nsetosa\n\n\n6.4\n3.2\n5.3\n2.3\nvirginica\n\n\n4.8\n3.0\n1.4\n0.3\nsetosa\n\n\n6.1\n2.9\n4.7\n1.4\nversicolor"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#classification-example-2",
-    "href": "talks/ml-intro/index2.html#classification-example-2",
+    "objectID": "talks/ml-intro/index.html#classification-example-2",
+    "href": "talks/ml-intro/index.html#classification-example-2",
     "title": "Introduction to Machine Learning",
     "section": "Classification Example",
     "text": "Classification Example"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#classification-1",
-    "href": "talks/ml-intro/index2.html#classification-1",
-    "title": "Introduction to Machine Learning",
-    "section": "Classification",
-    "text": "Classification"
-  },
-  {
-    "objectID": "talks/ml-intro/index2.html#training-and-testing",
-    "href": "talks/ml-intro/index2.html#training-and-testing",
+    "objectID": "talks/ml-intro/index.html#training-and-testing",
+    "href": "talks/ml-intro/index.html#training-and-testing",
     "title": "Introduction to Machine Learning",
     "section": "Training and Testing",
     "text": "Training and Testing\n\n\nTraining Data: Used to teach the model. It consists of input-output pairs for a supervised learning task.\nTesting Data: Used to evaluate the model’s performance. It should be separate from the training data, but come from the same distribution or population.\nValidation Data: Used for tuning hyperparameters. Hyperparameters are settings that control the learning process (e.g., k in k-NN, learning rate in neural networks)."
   },
   {
-    "objectID": "talks/ml-intro/index2.html#generalizability",
-    "href": "talks/ml-intro/index2.html#generalizability",
+    "objectID": "talks/ml-intro/index.html#generalizability",
+    "href": "talks/ml-intro/index.html#generalizability",
     "title": "Introduction to Machine Learning",
     "section": "Generalizability",
     "text": "Generalizability\n\nThe ability of a model to perform well on unseen data\n\nThis table shows the relationship between training error, testing error, and overfitting, good fit, and underfitting.\n\n\n\nTraining Error\nTesting Error\nModel Fit\n\n\n\n\nLow\nHigh\nOverfit\n\n\nLow\nLow\nGood Fit\n\n\nHigh\nHigh\nUnderfit (poor performance)"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#bias-and-variance",
-    "href": "talks/ml-intro/index2.html#bias-and-variance",
+    "objectID": "talks/ml-intro/index.html#bias-and-variance",
+    "href": "talks/ml-intro/index.html#bias-and-variance",
     "title": "Introduction to Machine Learning",
     "section": "Bias and Variance",
     "text": "Bias and Variance\n\nBias: Error from incorrect assumptions in the learning algorithm\nVariance: Error from sensitivity to small fluctuations in the training set\nBias-Variance Tradeoff: The conflict in trying to simultaneously minimize these two sources of error"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#key-concepts-in-ml",
-    "href": "talks/ml-intro/index2.html#key-concepts-in-ml",
+    "objectID": "talks/ml-intro/index.html#classification-example-3",
+    "href": "talks/ml-intro/index.html#classification-example-3",
     "title": "Introduction to Machine Learning",
-    "section": "Key Concepts in ML",
-    "text": "Key Concepts in ML\n\nFeature Engineering\nModel Selection\nHyperparameter Tuning\nEnsemble Methods\nCross-Validation\nEvaluation Metrics\n\n\nBriefly explain each concept: 1. Feature Engineering: Creating new features or transforming existing ones to improve model performance 2. Model Selection: Choosing the appropriate algorithm for your problem 3. Hyperparameter Tuning: Optimizing model parameters that are not learned from data 4. Ensemble Methods: Combining multiple models to improve performance 5. Cross-Validation: Technique for assessing how the model will generalize to an independent dataset 6. Evaluation Metrics: Different ways to measure model performance (accuracy, precision, recall, F1-score, ROC curve, etc.)"
+    "section": "Classification Example",
+    "text": "Classification Example"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#challenges-in-machine-learning",
-    "href": "talks/ml-intro/index2.html#challenges-in-machine-learning",
+    "objectID": "talks/ml-intro/index.html#classification-example-4",
+    "href": "talks/ml-intro/index.html#classification-example-4",
+    "title": "Introduction to Machine Learning",
+    "section": "Classification Example",
+    "text": "Classification Example"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#classification-example-5",
+    "href": "talks/ml-intro/index.html#classification-example-5",
+    "title": "Introduction to Machine Learning",
+    "section": "Classification Example",
+    "text": "Classification Example"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#regression-example",
+    "href": "talks/ml-intro/index.html#regression-example",
+    "title": "Introduction to Machine Learning",
+    "section": "Regression Example",
+    "text": "Regression Example\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-49.071 -11.047  -0.692  12.970  41.897 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.72808    3.68575  -0.198    0.844    \nx            2.05022    0.06336  32.356   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 18.29 on 98 degrees of freedom\nMultiple R-squared:  0.9144,    Adjusted R-squared:  0.9135 \nF-statistic:  1047 on 1 and 98 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#regression-example-1",
+    "href": "talks/ml-intro/index.html#regression-example-1",
+    "title": "Introduction to Machine Learning",
+    "section": "Regression Example",
+    "text": "Regression Example\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-98.143 -22.095  -1.385  25.940  83.795 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -1.4562     7.3715  -0.198    0.844    \nx             2.1004     0.1267  16.574   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 36.58 on 98 degrees of freedom\nMultiple R-squared:  0.7371,    Adjusted R-squared:  0.7344 \nF-statistic: 274.7 on 1 and 98 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#regression-example-2",
+    "href": "talks/ml-intro/index.html#regression-example-2",
+    "title": "Introduction to Machine Learning",
+    "section": "Regression Example",
+    "text": "Regression Example\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-171.749  -38.665   -2.423   45.395  146.641 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -2.5483    12.9001  -0.198    0.844    \nx             2.1758     0.2218   9.811 3.12e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 64.02 on 98 degrees of freedom\nMultiple R-squared:  0.4955,    Adjusted R-squared:  0.4904 \nF-statistic: 96.25 on 1 and 98 DF,  p-value: 3.116e-16"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#more-complex-regression-example",
+    "href": "talks/ml-intro/index.html#more-complex-regression-example",
+    "title": "Introduction to Machine Learning",
+    "section": "More Complex Regression Example",
+    "text": "More Complex Regression Example\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nage\nsex\nbmi\nchildren\nsmoker\nregion\ncharges\nobese\n\n\n\n\n19\nfemale\n27.900\n0\nyes\nsouthwest\n16884.924\nnot obese\n\n\n18\nmale\n33.770\n1\nno\nsoutheast\n1725.552\nobese\n\n\n28\nmale\n33.000\n3\nno\nsoutheast\n4449.462\nobese\n\n\n33\nmale\n22.705\n0\nno\nnorthwest\n21984.471\nnot obese\n\n\n32\nmale\n28.880\n0\nno\nnorthwest\n3866.855\nnot obese\n\n\n31\nfemale\n25.740\n0\nno\nsoutheast\n3756.622\nnot obese\n\n\n46\nfemale\n33.440\n1\nno\nsoutheast\n8240.590\nobese\n\n\n37\nfemale\n27.740\n3\nno\nnorthwest\n7281.506\nnot obese\n\n\n37\nmale\n29.830\n2\nno\nnortheast\n6406.411\nnot obese\n\n\n60\nfemale\n25.840\n0\nno\nnorthwest\n28923.137\nnot obese"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#more-complex-regression-example-1",
+    "href": "talks/ml-intro/index.html#more-complex-regression-example-1",
+    "title": "Introduction to Machine Learning",
+    "section": "More Complex Regression Example",
+    "text": "More Complex Regression Example\n\nWhat do you think about the relationship between age and insurance charges?"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#more-complex-regression-example-2",
+    "href": "talks/ml-intro/index.html#more-complex-regression-example-2",
+    "title": "Introduction to Machine Learning",
+    "section": "More Complex Regression Example",
+    "text": "More Complex Regression Example"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#more-complex-regression-example-3",
+    "href": "talks/ml-intro/index.html#more-complex-regression-example-3",
+    "title": "Introduction to Machine Learning",
+    "section": "More Complex Regression Example",
+    "text": "More Complex Regression Example\n\n\n\nCall:\nlm(formula = charges ~ age + smoker + sex + obese, data = insurance)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-13821.5  -3647.0   -225.8   1491.3  26884.1 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -4051.16     542.42  -7.469 1.46e-13 ***\nage           261.73      11.82  22.149  &lt; 2e-16 ***\nsmokeryes   23861.89     410.79  58.087  &lt; 2e-16 ***\nsexmale      -114.30     331.89  -0.344    0.731    \nobeseobese   4234.44     332.58  12.732  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 6044 on 1333 degrees of freedom\nMultiple R-squared:  0.7516,    Adjusted R-squared:  0.7509 \nF-statistic:  1008 on 4 and 1333 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning",
+    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning",
+    "title": "Introduction to Machine Learning",
+    "section": "Algorithms for Supervised Learning",
+    "text": "Algorithms for Supervised Learning\n\n\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-24.5356  -5.5236  -0.3462   6.4850  20.9487 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.36404    1.84287  -0.198    0.844    \nx            2.02511    0.03168  63.920   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.145 on 98 degrees of freedom\nMultiple R-squared:  0.9766,    Adjusted R-squared:  0.9763 \nF-statistic:  4086 on 1 and 98 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-1",
+    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-1",
+    "title": "Introduction to Machine Learning",
+    "section": "Algorithms for Supervised Learning",
+    "text": "Algorithms for Supervised Learning\n\nAnscombe’s Quartet\nhttps://en.wikipedia.org/wiki/Anscombe%27s_quartet"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-2",
+    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-2",
+    "title": "Introduction to Machine Learning",
+    "section": "Algorithms for Supervised Learning",
+    "text": "Algorithms for Supervised Learning\n\nK-nearest neighbor (kNN) algorithm."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-3",
+    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-3",
+    "title": "Introduction to Machine Learning",
+    "section": "Algorithms for Supervised Learning",
+    "text": "Algorithms for Supervised Learning\n\nClassification and Regression Trees (CART)."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-4",
+    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-4",
+    "title": "Introduction to Machine Learning",
+    "section": "Algorithms for Supervised Learning",
+    "text": "Algorithms for Supervised Learning\n\nRandom Forests."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#algorithms-for-supervised-learning-5",
+    "href": "talks/ml-intro/index.html#algorithms-for-supervised-learning-5",
+    "title": "Introduction to Machine Learning",
+    "section": "Algorithms for Supervised Learning",
+    "text": "Algorithms for Supervised Learning\n\nDeep learning."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#applying-supervised-learning-algorithms",
+    "href": "talks/ml-intro/index.html#applying-supervised-learning-algorithms",
+    "title": "Introduction to Machine Learning",
+    "section": "Applying Supervised Learning Algorithms",
+    "text": "Applying Supervised Learning Algorithms\n\nThe mlr3 ecosystem in R."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#key-concepts-in-supervised-learning",
+    "href": "talks/ml-intro/index.html#key-concepts-in-supervised-learning",
+    "title": "Introduction to Machine Learning",
+    "section": "Key Concepts in Supervised Learning",
+    "text": "Key Concepts in Supervised Learning\n\nFeature Engineering\nModel Selection\nHyperparameter Tuning\nEnsemble Methods\nCross-Validation\nEvaluation Metrics\n\n\nBriefly explain each concept: 1. Feature Engineering: Creating new features or transforming existing ones to improve model performance 2. Model Selection: Choosing the appropriate algorithm for your problem 3. Hyperparameter Tuning: Optimizing model parameters that are not learned from data 4. Ensemble Methods: Combining multiple models to improve performance 5. Cross-Validation: Technique for assessing how the model will generalize to an independent dataset 6. Evaluation Metrics: Different ways to measure model performance (accuracy, precision, recall, F1-score, ROC curve, etc.)"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#challenges-in-machine-learning",
+    "href": "talks/ml-intro/index.html#challenges-in-machine-learning",
     "title": "Introduction to Machine Learning",
     "section": "Challenges in Machine Learning",
     "text": "Challenges in Machine Learning\n\nData Quality and Quantity\nInterpretability vs Performance\nEthical Considerations and Bias\nComputational Resources\nModel Deployment and Maintenance\n\n\nDiscuss each challenge: 1. The importance of good, representative data and the challenges of data collection and cleaning 2. The tradeoff between complex, high-performing models and simpler, more interpretable ones 3. The risk of perpetuating or amplifying societal biases through ML models 4. The need for significant computational power, especially for deep learning models 5. The challenges of deploying models in production environments and keeping them updated"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#future-directions-in-machine-learning",
-    "href": "talks/ml-intro/index2.html#future-directions-in-machine-learning",
+    "objectID": "talks/ml-intro/index.html#clustering",
+    "href": "talks/ml-intro/index.html#clustering",
+    "title": "Introduction to Machine Learning",
+    "section": "Clustering",
+    "text": "Clustering\n\nGene expression measurements."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#classes-of-unsupervised-learning-algorithms",
+    "href": "talks/ml-intro/index.html#classes-of-unsupervised-learning-algorithms",
+    "title": "Introduction to Machine Learning",
+    "section": "Classes of unsupervised learning algorithms",
+    "text": "Classes of unsupervised learning algorithms\n\n\n\n\n\nClustering.\n\n\n\n\n\n\nDimensionality reduction."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#clustering-1",
+    "href": "talks/ml-intro/index.html#clustering-1",
+    "title": "Introduction to Machine Learning",
+    "section": "Clustering",
+    "text": "Clustering\n\nThinking about similarities and differences"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#clustering-2",
+    "href": "talks/ml-intro/index.html#clustering-2",
+    "title": "Introduction to Machine Learning",
+    "section": "Clustering",
+    "text": "Clustering\n\nAlgorithm for hierarchical clustering"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#clustering-3",
+    "href": "talks/ml-intro/index.html#clustering-3",
+    "title": "Introduction to Machine Learning",
+    "section": "Clustering",
+    "text": "Clustering\n\nAlgorithm for hierarchical clustering"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#clustering-4",
+    "href": "talks/ml-intro/index.html#clustering-4",
+    "title": "Introduction to Machine Learning",
+    "section": "Clustering",
+    "text": "Clustering\n\nAlgorithm for hierarchical clustering"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#dimensionality-reduction",
+    "href": "talks/ml-intro/index.html#dimensionality-reduction",
+    "title": "Introduction to Machine Learning",
+    "section": "Dimensionality Reduction",
+    "text": "Dimensionality Reduction\n\nSchematic PCA."
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#dimensionality-reduction-1",
+    "href": "talks/ml-intro/index.html#dimensionality-reduction-1",
+    "title": "Introduction to Machine Learning",
+    "section": "Dimensionality Reduction",
+    "text": "Dimensionality Reduction\n\nUsing dimensionality reduction to explore 22,000 dimensions of gene expression data on 280 samples.\nhttps://seandavi.github.io/ITR/geoquery_mds.html"
+  },
+  {
+    "objectID": "talks/ml-intro/index.html#future-directions-in-machine-learning",
+    "href": "talks/ml-intro/index.html#future-directions-in-machine-learning",
     "title": "Introduction to Machine Learning",
     "section": "Future Directions in Machine Learning",
-    "text": "Future Directions in Machine Learning\n\nAutoML: Automating the ML pipeline\nFederated Learning: Training models on decentralized data\nExplainable AI: Making black-box models more interpretable\nQuantum Machine Learning: Leveraging quantum computing for ML\nContinual Learning: Adapting to new data without forgetting old patterns\n\n\nBriefly explain each direction and its potential impact. Encourage students to think about how these developments might shape the future of ML and AI."
+    "text": "Future Directions in Machine Learning\n\nAutoML: Automating the ML pipeline\nFederated Learning: Training models on decentralized data\nExplainable AI: Making black-box models more interpretable\nQuantum Machine Learning: Leveraging quantum computing for ML\nContinual Learning: Adapting to new data without forgetting old patterns"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#conclusion",
-    "href": "talks/ml-intro/index2.html#conclusion",
+    "objectID": "talks/ml-intro/index.html#conclusion",
+    "href": "talks/ml-intro/index.html#conclusion",
     "title": "Introduction to Machine Learning",
     "section": "Conclusion",
-    "text": "Conclusion\n\nMachine Learning is a powerful subset of AI\nIt has diverse applications across industries\nUnderstanding key concepts like generalizability, bias-variance tradeoff is crucial\nML comes with both exciting possibilities and important challenges\n\n\nRecap the main points of the lecture. Emphasize that ML is a rapidly evolving field with great potential, but also stress the importance of using ML responsibly and ethically."
+    "text": "Conclusion\n\nSupervised learning: Predicting outcomes based on labeled data\n\nClassification: Assigning labels to data\nRegression: Predicting continuous values\n\nUnsupervised learning: Finding patterns in unlabeled data\n\nClustering: Grouping similar data points\nDimensionality reduction: Simplifying complex data by reducing dimensions\n\nReinforcement learning: Learning through interaction with an environment"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#questions",
-    "href": "talks/ml-intro/index2.html#questions",
+    "objectID": "talks/ml-intro/index.html#resources",
+    "href": "talks/ml-intro/index.html#resources",
     "title": "Introduction to Machine Learning",
-    "section": "Questions?",
-    "text": "Questions?\nThank you for your attention!\n\nEncourage questions from the audience. Be prepared to clarify any concepts that students found confusing. If possible, relate questions back to real-world applications of ML to reinforce the practical importance of these concepts."
+    "section": "Resources",
+    "text": "Resources\n\nRecent reviews\n\nMachine Learning in Genomic Medicine: A Review of Computational Problems and Data Sets\nOpportunities And Obstacles For Deep Learning In Biology And Medicine\n\nHands-on Tutorials\n\nhttps://seandavi.github.io/RBiocBook\nMany online courses and tutorials\n\nBlogs and online materials\n\nhttps://blog.recast.ai/machine-learning-algorithms/\nhttps://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A\nhttps://www.youtube.com/c/joshstarmer\n\nMachine Learning in R\n\nhttps://www.datacamp.com/community/tutorials/machine-learning-in-r\nhttps://daviddalpiaz.github.io/r4sl/"
   },
   {
-    "objectID": "talks/ml-intro/index2.html#additional-resources",
-    "href": "talks/ml-intro/index2.html#additional-resources",
-    "title": "Introduction to Machine Learning",
-    "section": "Additional Resources",
-    "text": "Additional Resources\n\nBooks: “Introduction to Machine Learning with Python” by Müller and Guido\nOnline Courses: Andrew Ng’s Machine Learning course on Coursera\nWebsites: Towards Data Science, KDnuggets\nLibraries: scikit-learn, TensorFlow, PyTorch\n\n\nProvide these resources for students who want to dive deeper into ML. Mention that hands-on practice is crucial for truly understanding ML concepts."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IDPT-8079: Frontier of AI in Medicine",
     "section": "",
-    "text": "About this site"
+    "text": "This is a collection of talks on various topics in machine learning and artificial intelligence. It also includes some exercises and interactive demos."
+  },
+  {
+    "objectID": "index.html#exercises",
+    "href": "index.html#exercises",
+    "title": "IDPT-8079: Frontier of AI in Medicine",
+    "section": "Exercises",
+    "text": "Exercises\n\nBuild an expert system using Prolog"
+  },
+  {
+    "objectID": "index.html#talks",
+    "href": "index.html#talks",
+    "title": "IDPT-8079: Frontier of AI in Medicine",
+    "section": "Talks",
+    "text": "Talks\n\nAI History\nIntroduction to Artificial Intelligence and Machine Learning"
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html",
+    "title": "Play with Prolog",
+    "section": "",
+    "text": "Understand Expert Systems: Know what an expert system is, particularly as a narrow AI system.\nExplore Logic Programming: Learn the basic principles of logic programming and how Prolog is used to model complex decision-making processes.\nLearn to Implement an Expert System: Gain hands-on experience using programming to solve problems using logical rules and knowledge representation.\nDevelop Problem-Solving Skills: Implement a simple expert system in Prolog, mimicking the decision-making capabilities of a human expert.\nUnderstand limitations of Expert Systems: Explore the concept of narrow AI and its practical applications in specific domains through the use of expert systems."
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#components-of-an-expert-system",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html#components-of-an-expert-system",
+    "title": "Play with Prolog",
+    "section": "Components of an Expert System",
+    "text": "Components of an Expert System\nAn ES is built around a knowledge base that contains a vast amount of information, rules, and relationships specific to the domain it’s designed for. This knowledge is typically acquired from human experts, research papers, or other sources. The knowledge base is organized and structured to facilitate efficient reasoning and problem-solving. Think of this as the “rules” or “facts” that the system uses to make decisions. In a medical setting, gathering the knowledge base might involve reviewing textbooks, guidelines, and expert opinions to extract the key information needed to make diagnoses and treatment recommendations.\nThe inference engine is the “brain” of the ES. It uses the knowledge base to draw conclusions, make decisions, and solve problems. The engine applies logical rules and reasoning techniques to arrive at a solution. Note that the inference engine doesn’t “learn” in the traditional sense, but rather applies predefined rules to the input data. New rules can be added to the system to expand its capabilities, but the system doesn’t learn from experience like a neural network would.\nAn ES typically has a user-friendly interface that allows users to input queries, ask questions, or provide data. The system then uses this input to generate a response, provide recommendations, or solve a problem. The user interface can be text-based, graphical, or voice-activated, depending on the application.\nESs use various reasoning techniques, such as forward and backward chaining, to solve problems and make decisions. The reasoning and problem solving capabilities of an ES are what set it apart from traditional software systems. Languages like Prolog are commonly used to implement the logic and reasoning components of an ES."
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#applications-of-expert-systems",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html#applications-of-expert-systems",
+    "title": "Play with Prolog",
+    "section": "Applications of Expert Systems",
+    "text": "Applications of Expert Systems\nExpert Systems have been applied in various domains and industries, including healthcare, finance, manufacturing, and customer service. ESs can help diagnose diseases, recommend treatments, and guide patient care. ESs can monitor production processes, detect defects, and recommend quality improvements. ESs can provide customer support, answer frequently asked questions, and route complex issues to human representatives."
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#limitations-of-expert-systems",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html#limitations-of-expert-systems",
+    "title": "Play with Prolog",
+    "section": "Limitations of Expert Systems",
+    "text": "Limitations of Expert Systems\nWhile Expert Systems have shown significant promise, they also have some limitations. Building an ES requires a significant amount of knowledge acquisition, which can be time-consuming and costly. The knowledge base must be accurately represented and organized to ensure effective reasoning and problem-solving. ESs require ongoing maintenance to keep their knowledge base up-to-date and ensure they remain effective. ESs may struggle with complex, ambiguous, or uncertain problems that require human intuition or creativity. Because ESs rely on predefined rules and logic, they may not adapt well to new or unexpected situations such as additional symptoms, tests, or rare conditions not accounted for when the system was built."
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#using-chatgpt-or-claude-to-understand-expert-systems",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html#using-chatgpt-or-claude-to-understand-expert-systems",
+    "title": "Play with Prolog",
+    "section": "Using ChatGPT (or Claude) to understand Expert Systems",
+    "text": "Using ChatGPT (or Claude) to understand Expert Systems\nBefore we dive into the actual exercise, ask ChatGPT (or Claude) a few questions to understand the concept of Expert Systems better. Some examples might include:\n\nWhat is an Expert System?\nHow do Expert Systems work?\nWhat are the components of an Expert System?\nWhat are some applications of Expert Systems?\nWhat are the limitations of Expert Systems?\nHow are Expert Systems different from traditional software systems?\nHow do expert systems compare to machine learning systems?\nWhat are some examples of Expert Systems in healthcare?"
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#key-features-of-prolog",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html#key-features-of-prolog",
+    "title": "Play with Prolog",
+    "section": "Key features of Prolog",
+    "text": "Key features of Prolog\n\nDeclarative Approach: Prolog focuses on what needs to be solved rather than how to solve it. Think of it like giving a set of rules and facts, and then letting the computer figure out the solution on its own, rather than telling it step-by-step how to get there.\nLogical Reasoning: Prolog is built on logic. It uses logical thinking to figure things out, much like how we reason through problems in everyday life. For example, if you tell it certain facts like “All humans are mortal” and “Socrates is a human,” Prolog can figure out that “Socrates is mortal.”\nFacts, Rules, and Questions: Prolog programs are made up of facts (like “Socrates is a human”), rules (like “all humans are mortal”), and questions (like “is Socrates mortal?”). You give Prolog the facts and rules, and then you can ask it questions. It works to find the answers using the information you’ve provided.\n\nIn short, Prolog is like a puzzle solver that uses logic and rules to find solutions, and you don’t have to tell it every step—it figures that part out by itself!"
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#role-in-ai",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html#role-in-ai",
+    "title": "Play with Prolog",
+    "section": "Role in AI",
+    "text": "Role in AI\nProlog has played a significant role in the history of AI and has been used in various AI applications. Some of the key areas where Prolog has been applied include:\n\nExpert Systems: In the 1980s, Prolog was widely used to develop expert systems, which rely on predefined knowledge and logical rules to provide decision-making capabilities.\nNatural Language Processing (NLP): Prolog’s strengths in pattern matching and symbolic reasoning made it a good choice for early NLP research and applications, as it could model syntactic and semantic relationships in language.\nAutomated Theorem Proving: Due to its foundation in formal logic, Prolog was used in AI systems aimed at proving theorems and solving puzzles."
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#historical-significance",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html#historical-significance",
+    "title": "Play with Prolog",
+    "section": "Historical Significance",
+    "text": "Historical Significance\nProlog played a crucial role in early AI research. It was one of the key languages, alongside LISP, that shaped the development of AI methodologies, particularly in areas such as knowledge representation, reasoning, and machine learning. In the 1980s, Prolog gained popularity when it was adopted by the Japanese Fifth Generation Computer Systems (FGCS) project, which aimed to develop intelligent computers. Although the project did not meet all of its goals, it contributed to Prolog’s international prominence."
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#current-usage",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html#current-usage",
+    "title": "Play with Prolog",
+    "section": "Current Usage",
+    "text": "Current Usage\nProlog is not as widely used today as mainstream languages like Python or Java, particularly in AI development. However, it still has a niche role in certain areas of AI, particularly in research and specialized fields like automated reasoning, logic programming, and computational linguistics. Prolog continues to be taught in some academic settings as a tool for understanding logic programming and the fundamentals of AI.\nProlog remains an important historical pillar in AI, particularly for its contributions to logical reasoning, knowledge representation, and expert systems."
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#an-example-prolog-program",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html#an-example-prolog-program",
+    "title": "Play with Prolog",
+    "section": "An example Prolog program",
+    "text": "An example Prolog program\nThis example illustrates a simple Prolog program that defines facts, rules, and queries. The program is designed to answer the question of whether Socrates is mortal based on the fact that he is human. In practice, Prolog programs can be much more complex, with many facts, rules, and queries that define a domain of interest.\nIn the code below, everything in a line after a ‘%’ is a comment that explains what the code is doing. Comments are not part of the program itself but are there to help you understand the code.\n% Facts\nhuman(socrates).\n\n% Rules\nmortal(X) :- human(X). \n\n% Queries\n?- mortal(socrates).\n\nExplanation:\n\nFacts:\nIn Prolog, facts are basic statements about things we know to be true. In this case, the fact human(socrates). means that Socrates is a human. This is a piece of information we’re giving to the program. In a medical context, we might have facts like symptom(fever). or history_of(cancer). that represent information about patients.\nRules:\nRules in Prolog define relationships between facts. Here, we have the rule mortal(X) :- human(X)., which means “X is mortal if X is human.” “Variables” in prolog begin with capital letters, so X is a variable. In Prolog, the :- symbol can be read as “if.” So, this rule is saying, “if X is human, then X is mortal.” This is a simple logical relationship that Prolog can use to make inferences.\nQueries:\nWhen we want to ask Prolog a question (or query), we do so by providing a query. For example, the query ?- mortal(socrates). is asking, “Is Socrates mortal?” Prolog will use the facts and rules we’ve provided to answer this question.\nIn this case, it looks at the rule mortal(X) :- human(X). and sees that since Socrates is a human (from the fact human(socrates).), he must also be mortal. So, Prolog will respond with “Yes” or true.\n\n\n\nHow It Works:\n\nhuman(socrates).: This is a fact we already know—Socrates is human.\nmortal(X) :- human(X).: This is a rule that says any human is mortal.\n?- mortal(socrates).: This is the query we ask, and Prolog checks the facts and rules to conclude that Socrates is mortal because he is human.\n\nIn summary, this small Prolog program uses logic to infer that Socrates is mortal based on the information that he’s human. It reflects how Prolog works by defining facts, applying rules, and answering queries logically."
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#knowledge-base",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html#knowledge-base",
+    "title": "Play with Prolog",
+    "section": "Knowledge Base",
+    "text": "Knowledge Base\nThe first step in building an expert system is to define the knowledge base. This knowledge base will contain the facts and rules that the system will use to reason and make decisions. In our case, we are going to build an expert system that can diagnose common conditions like colds, flu, and allergies based on a set of symptoms.\nWe are going to limit our facts to the following symptoms:\n\nrunny nose\nsneezing\nfever\nfatigue\n\nThese are common symptoms that can help differentiate between colds, flu, and allergies. For this exercise, lets assume that the following rules apply:\n\nIf a patient has a runny nose and sneezing with or without a fever, they likely have a common cold.\nIf a patient has a fever, sore throat, and runny nose, they likely have the flu.\nIf a patient has sneezing and a runny nose but no fever, they likely have allergies.\n\nWe can define these symptoms as facts in Prolog, like this:\n\n\n\nSymptom\nProlog Fact Representation\n\n\n\n\nRunny Nose\nsymptom(runny_nose).\n\n\nSneezing\nsymptom(sneezing).\n\n\nFever\nsymptom(fever).\n\n\nFatigue\nsymptom(fatigue).\n\n\nItchy Eyes\nsymptom(itchy_eyes).\n\n\n\nWe are going to simplify the rules for the sake of this exercise, but in a real-world scenario, the rules would be more complex and based on a larger set of symptoms and diagnostic criteria. In this case, we’ll assume that the presence or absence of these symptoms is enough to differentiate between the conditions.\nFor the common cold, we’ll use the following rule:\n\nIf a patient has a runny nose and sneezing but no fever, they likely have a common cold.\nTreatment: Rest, drink fluids, consider over-the-counter cold medicine.\n\nFor the flu, we’ll use the following rule:\n\nIf a patient has a fever, fatigue, and runny nose, they likely have the flu.\nTreatment: Rest, stay hydrated, take anti-fever medication, see a doctor if symptoms worsen.\n\nFor allergies, we’ll use the following rule:\n\nIf a patient has sneezing, a runny nose, and itchy eyes, they likely have allergies.\nTreatment: Avoid allergens, use antihistamines, consult an allergist if needed."
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#visualizing-the-expert-system",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html#visualizing-the-expert-system",
+    "title": "Play with Prolog",
+    "section": "Visualizing the Expert System",
+    "text": "Visualizing the Expert System\nBefore we dive into the Prolog code, let’s visualize the expert system using a flowchart. This will help us understand the logic and decision-making process that the system will follow. The flowchart will show how the system will diagnose patients based on their symptoms and recommend appropriate treatments.\n\n\n\n\n\ngraph TD\n    A[Start] --&gt; B{Runny nose?}\n    B --&gt;|No| Z[No diagnosis]\n\n    subgraph Symptom_Check\n        B --&gt;|Yes| C{Sneezing?}\n        C --&gt;|No| Z\n        C --&gt;|Yes| D{Fever?}\n        D --&gt;|Yes| E[Flu]\n        D --&gt;|No| F{Itchy eyes?}\n        F --&gt;|Yes| G[Allergies]\n        F --&gt;|No| H[Common Cold]\n    end\n\n    subgraph Diagnosis\n        E --&gt; I[Diagnosis: Flu]\n        G --&gt; J[Diagnosis: Allergies]\n        H --&gt; K[Diagnosis: Common Cold]\n    end\n\n    subgraph Treatment\n        I --&gt; L[Treatment: Rest, stay hydrated, take anti-fever medication, see doctor if symptoms worsen]\n        J --&gt; M[Treatment: Avoid allergens, use antihistamines, consult allergist if needed]\n        K --&gt; N[Treatment: Rest, drink fluids, consider over-the-counter cold medicine]\n    end"
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#reasoning-engine",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html#reasoning-engine",
+    "title": "Play with Prolog",
+    "section": "Reasoning engine",
+    "text": "Reasoning engine\nOnce we have defined our knowledge base, we need some kind of “reaoning” or “inference” engine to process the information and draw conclusions. This is where the Prolog programming language comes in. Prolog is a logic programming language that is well-suited for representing and reasoning with complex knowledge and rules. It uses a declarative syntax that allows you to define relationships, rules, and facts in a concise and intuitive way.\nProlog programs consist of a set of facts and rules that define the relationships between different entities in the system. The Prolog interpreter uses these facts and rules to answer queries and make inferences based on the input data.\nHere are some facts that we might include in our Prolog program based on some symptoms that a patient might present with:\n% Facts\nsymptom(fever).\nsymptom(fatigue).\nsymptom(runny_nose).\nsymptom(sneezing).\nsymptom(itchy_eyes).\nWhen we want to use Prolog, we tell the system what we know (facts) and what we want to know (queries). The system then uses the rules and facts to answer our queries.\nAnd here are some rules that we might include in our Prolog program based on the diagnostic criteria for different conditions:\n% Rules for diagnossis\n% Diagnosis rules\ndiagnose(common_cold) :-\n    symptom(runny_nose),\n    symptom(sneezing),\n    \\+ symptom(fever),\n    write('Diagnosis: Common Cold'), nl.\n\ndiagnose(flu) :-\n    symptom(fever),\n    symptom(fatigue),\n    symptom(runny_nose),\n    write('Diagnosis: Flu'), nl.\n\ndiagnose(allergies) :-\n    symptom(sneezing),\n    symptom(runny_nose),\n    symptom(itchy_eyes),\n    write('Diagnosis: Allergies'), nl.\nAnd we can do the same for the treatment recommendations:\n% Rules for treatment\ntreatment(common_cold) :-\n    write('Treatment: Rest, drink plenty of fluids, and consider over-the-counter cold medicine.'), nl.\n\ntreatment(flu) :-\n    write('Treatment: Rest, stay hydrated, take anti-fever medication, and see a doctor if symptoms worsen.'), nl.\n\ntreatment(allergies) :-\n    write('Treatment: Avoid allergens, use antihistamines, and consult an allergist if needed.'), nl.\nFinally, we can put it all together in a Prolog program that checks the symptoms, makes a diagnosis, and provides treatment recommendations:\n% Rule to check diagnosis and apply treatment\ncheck_diagnosis_and_treatment :-\n    diagnose(Disease),\n    treatment(Disease)."
+  },
+  {
+    "objectID": "Exercises/aom-expert-system/play-with-prolog.html#footnotes",
+    "href": "Exercises/aom-expert-system/play-with-prolog.html#footnotes",
+    "title": "Play with Prolog",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nSee https://www.datacamp.com/blog/what-is-narrow-ai for more information on narrow AI.↩︎"
   }
 ]
