@@ -258,77 +258,77 @@ Table&nbsp;1: A comparison of the features and characteristics of RAG vs fine-tu
 <div aria-describedby="tbl-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 18%">
+<col style="width: 20%">
 <col style="width: 40%">
 <col style="width: 40%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Aspect</th>
-<th>Fine-tuning</th>
-<th>RAG</th>
+<th style="text-align: left;">Aspect</th>
+<th style="text-align: left;">Fine-tuning</th>
+<th style="text-align: left;">RAG</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Purpose</td>
-<td>Modifies base model weights to specialize in specific tasks/domains</td>
-<td>Augments model responses with external knowledge without modifying the base model</td>
+<td style="text-align: left;">Purpose</td>
+<td style="text-align: left;">Modifies base model weights to specialize in specific tasks/domains</td>
+<td style="text-align: left;">Augments model responses with external knowledge without modifying the base model</td>
 </tr>
 <tr class="even">
-<td>Training Data Requirements</td>
-<td>Requires high-quality labeled training data pairs</td>
-<td>Requires only reference documents/knowledge base</td>
+<td style="text-align: left;">Training Data Requirements</td>
+<td style="text-align: left;">Requires high-quality labeled training data pairs</td>
+<td style="text-align: left;">Requires only reference documents/knowledge base</td>
 </tr>
 <tr class="odd">
-<td>Computational Cost</td>
-<td>High - requires significant compute resources for training</td>
-<td>Lower - mainly needs storage and embedding computation</td>
+<td style="text-align: left;">Computational Cost</td>
+<td style="text-align: left;">High - requires significant compute resources for training</td>
+<td style="text-align: left;">Lower - mainly needs storage and embedding computation</td>
 </tr>
 <tr class="even">
-<td>Updates &amp; Maintenance</td>
-<td>Requires complete retraining to update knowledge</td>
-<td>Easy to update by simply modifying the knowledge base</td>
+<td style="text-align: left;">Updates &amp; Maintenance</td>
+<td style="text-align: left;">Requires complete retraining to update knowledge</td>
+<td style="text-align: left;">Easy to update by simply modifying the knowledge base</td>
 </tr>
 <tr class="odd">
-<td>Consistency</td>
-<td>Generally more consistent in specialized domain</td>
-<td>May vary based on retrieval quality</td>
+<td style="text-align: left;">Consistency</td>
+<td style="text-align: left;">Generally more consistent in specialized domain</td>
+<td style="text-align: left;">May vary based on retrieval quality</td>
 </tr>
 <tr class="even">
-<td>Response Speed</td>
-<td>Fast inference once trained</td>
-<td>Slightly slower due to retrieval step</td>
+<td style="text-align: left;">Response Speed</td>
+<td style="text-align: left;">Fast inference once trained</td>
+<td style="text-align: left;">Slightly slower due to retrieval step</td>
 </tr>
 <tr class="odd">
-<td>Memory Requirements</td>
-<td>Fixed model size</td>
-<td>Scales with knowledge base size</td>
+<td style="text-align: left;">Memory Requirements</td>
+<td style="text-align: left;">Fixed model size</td>
+<td style="text-align: left;">Scales with knowledge base size</td>
 </tr>
 <tr class="even">
-<td>Hallucination Risk</td>
-<td>Lower for domain-specific knowledge</td>
-<td>Can be lower when retrievals are accurate</td>
+<td style="text-align: left;">Hallucination Risk</td>
+<td style="text-align: left;">Lower for domain-specific knowledge</td>
+<td style="text-align: left;">Can be lower when retrievals are accurate</td>
 </tr>
 <tr class="odd">
-<td>Cost</td>
-<td>High upfront cost for training</td>
-<td>Lower upfront cost, ongoing storage/compute costs</td>
+<td style="text-align: left;">Cost</td>
+<td style="text-align: left;">High upfront cost for training</td>
+<td style="text-align: left;">Lower upfront cost, ongoing storage/compute costs</td>
 </tr>
 <tr class="even">
-<td>Use Cases</td>
-<td>- Domain-specific applications<br>- Style transfer<br>- Consistent brand voice</td>
-<td>- Question answering<br>- Up-to-date information<br>- Compliance requirements</td>
+<td style="text-align: left;">Use Cases</td>
+<td style="text-align: left;">- Domain-specific applications<br>- Style transfer<br>- Consistent brand voice</td>
+<td style="text-align: left;">- Question answering<br>- Up-to-date information<br>- Compliance requirements</td>
 </tr>
 <tr class="odd">
-<td>Flexibility</td>
-<td>Less flexible - tied to training data</td>
-<td>More flexible - easy to modify knowledge</td>
+<td style="text-align: left;">Flexibility</td>
+<td style="text-align: left;">Less flexible - tied to training data</td>
+<td style="text-align: left;">More flexible - easy to modify knowledge</td>
 </tr>
 <tr class="even">
-<td>Development Time</td>
-<td>Longer - requires careful training and validation</td>
-<td>Shorter - focus on knowledge engineering</td>
+<td style="text-align: left;">Development Time</td>
+<td style="text-align: left;">Longer - requires careful training and validation</td>
+<td style="text-align: left;">Shorter - focus on knowledge engineering</td>
 </tr>
 </tbody>
 </table>
@@ -967,7 +967,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":false});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
