@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Sean Davis, MD, PhD">
-<meta name="dcterms.date" content="2024-10-14">
 
-<title>Machine Learning and Arfificial Intelligence for Medical Professionals</title>
+<title>Overview of Machine Learning in Medicine – Machine Learning and Arfificial Intelligence for Medical Professionals</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./history-of-ai.html" rel="next">
+<link href="./nlp-section/word-embeddings.html" rel="next">
+<link href="./history-of-ai.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ml-overview.html">Overview of Machine Learning in Medicine</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -110,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -122,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ml-overview.html" class="sidebar-item-text sidebar-link">
+            <a href="./ml-overview.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Overview of Machine Learning in Medicine</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -131,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ml-overview.html" class="sidebar-item-text sidebar-link">
+  <a href="./ml-overview.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Overview of Machine Learning in Medicine</span></a>
   </div>
 </li>
@@ -170,7 +169,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#structure-of-the-section" id="toc-structure-of-the-section" class="nav-link" data-scroll-target="#structure-of-the-section">Structure of the Section</a>
+  <ul class="collapse">
+  <li><a href="#chapter-1-introduction-to-machine-learning-in-medicine" id="toc-chapter-1-introduction-to-machine-learning-in-medicine" class="nav-link" data-scroll-target="#chapter-1-introduction-to-machine-learning-in-medicine">Chapter 1: <strong>Introduction to Machine Learning in Medicine</strong></a></li>
+  <li><a href="#chapter-2-supervised-learning" id="toc-chapter-2-supervised-learning" class="nav-link" data-scroll-target="#chapter-2-supervised-learning">Chapter 2: <strong>Supervised Learning</strong></a></li>
+  <li><a href="#chapter-3-unsupervised-learning" id="toc-chapter-3-unsupervised-learning" class="nav-link" data-scroll-target="#chapter-3-unsupervised-learning">Chapter 3: <strong>Unsupervised Learning</strong></a></li>
+  <li><a href="#chapter-4-model-evaluation-and-validation" id="toc-chapter-4-model-evaluation-and-validation" class="nav-link" data-scroll-target="#chapter-4-model-evaluation-and-validation">Chapter 4: <strong>Model Evaluation and Validation</strong></a></li>
+  <li><a href="#chapter-5-deep-learning-in-medicine" id="toc-chapter-5-deep-learning-in-medicine" class="nav-link" data-scroll-target="#chapter-5-deep-learning-in-medicine">Chapter 5: <strong>Deep Learning in Medicine</strong></a></li>
+  <li><a href="#chapter-6-challenges-in-medical-machine-learning" id="toc-chapter-6-challenges-in-medical-machine-learning" class="nav-link" data-scroll-target="#chapter-6-challenges-in-medical-machine-learning">Chapter 6: <strong>Challenges in Medical Machine Learning</strong></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -179,26 +188,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Machine Learning and Arfificial Intelligence for Medical Professionals</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="repo"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Overview of Machine Learning in Medicine</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="repo"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Sean Davis, MD, PhD </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 14, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -208,12 +205,54 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Machine learning (ML) has emerged as a transformative tool in modern medicine, reshaping how we approach diagnosis, treatment, and the management of complex health data. As medical professionals, understanding the foundational concepts and applications of ML is increasingly critical to improving patient care, optimizing operational efficiency, and driving innovative medical research.</p>
+<p>This section introduces you to the key principles of machine learning, focusing on its practical applications in healthcare. From the basics of supervised and unsupervised learning to the more advanced techniques of deep learning, we will explore how these tools are used to solve real-world medical problems. This overview aims to give you the knowledge required to critically evaluate ML models and their impact on clinical practice.</p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this section, you will be able to:</p>
+<ul>
+<li>Define machine learning and its subtypes, including supervised, unsupervised, and deep learning.</li>
+<li>Understand how machine learning is applied to medical problems, such as diagnosis, prognosis, and personalized treatment.</li>
+<li>Identify key concepts in model evaluation, such as accuracy, precision, recall, and the importance of balancing bias and variance.</li>
+<li>Recognize the challenges and limitations of using machine learning in medical contexts, including issues of interpretability, fairness, and ethical considerations.</li>
+</ul>
+</section>
+<section id="structure-of-the-section" class="level2">
+<h2 class="anchored" data-anchor-id="structure-of-the-section">Structure of the Section</h2>
+<p>This section is divided into the following chapters, each focusing on different aspects of machine learning in medicine:</p>
+<section id="chapter-1-introduction-to-machine-learning-in-medicine" class="level3">
+<h3 class="anchored" data-anchor-id="chapter-1-introduction-to-machine-learning-in-medicine">Chapter 1: <strong>Introduction to Machine Learning in Medicine</strong></h3>
+<p>Here, you will learn the fundamental concepts of machine learning, including how data-driven algorithms learn patterns from clinical data. We will discuss the various types of learning models and their relevance to different medical tasks.</p>
+</section>
+<section id="chapter-2-supervised-learning" class="level3">
+<h3 class="anchored" data-anchor-id="chapter-2-supervised-learning">Chapter 2: <strong>Supervised Learning</strong></h3>
+<p>This chapter focuses on the most common type of machine learning—supervised learning. We will explore key algorithms like decision trees and support vector machines, and how they are applied in tasks like disease classification and predictive analytics.</p>
+</section>
+<section id="chapter-3-unsupervised-learning" class="level3">
+<h3 class="anchored" data-anchor-id="chapter-3-unsupervised-learning">Chapter 3: <strong>Unsupervised Learning</strong></h3>
+<p>Unsupervised learning techniques are essential for discovering hidden patterns in data. In this chapter, we will cover clustering and dimensionality reduction methods and their uses in medical research, such as patient stratification and exploratory analysis.</p>
+</section>
+<section id="chapter-4-model-evaluation-and-validation" class="level3">
+<h3 class="anchored" data-anchor-id="chapter-4-model-evaluation-and-validation">Chapter 4: <strong>Model Evaluation and Validation</strong></h3>
+<p>Building an accurate model is only half the challenge. In this chapter, we will delve into evaluating models using metrics such as sensitivity, specificity, and the importance of balancing precision and recall in clinical settings.</p>
+</section>
+<section id="chapter-5-deep-learning-in-medicine" class="level3">
+<h3 class="anchored" data-anchor-id="chapter-5-deep-learning-in-medicine">Chapter 5: <strong>Deep Learning in Medicine</strong></h3>
+<p>Deep learning has become especially useful in analyzing complex medical data, including medical images and genomic sequences. We will discuss the architecture of neural networks and their applications in healthcare.</p>
+</section>
+<section id="chapter-6-challenges-in-medical-machine-learning" class="level3">
+<h3 class="anchored" data-anchor-id="chapter-6-challenges-in-medical-machine-learning">Chapter 6: <strong>Challenges in Medical Machine Learning</strong></h3>
+<p>While machine learning holds great promise, it also comes with significant challenges. This final chapter addresses the limitations of current models, including issues of interpretability, fairness, and ethical implications in medical decision-making.</p>
+<hr>
+<p>This overview sets the stage for a detailed exploration of machine learning techniques and their critical role in healthcare. Each chapter builds upon core principles to deepen your understanding of how machine learning can be leveraged to enhance medical practice and research.</p>
+<hr>
+<p>Would you like to adjust or expand on any part of this section overview?</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -690,10 +729,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./history-of-ai.html" class="pagination-link" aria-label="The Evolution of Artificial Intelligence">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Evolution of Artificial Intelligence</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./history-of-ai.html" class="pagination-link" aria-label="The Evolution of Artificial Intelligence">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Evolution of Artificial Intelligence</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./nlp-section/word-embeddings.html" class="pagination-link" aria-label="Word Embeddings and Representation in Text">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Word Embeddings and Representation in Text</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
