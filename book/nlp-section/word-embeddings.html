@@ -542,14 +542,14 @@ Figure&nbsp;5: The skip-gram model is trained using backpropagation to minimize 
 <p>First, you need to install the <code>gensim</code> library if you haven’t already. You can do this using <code>pip</code>:</p>
 <pre class="{bash}"><code>pip install gensim</code></pre>
 <p>Next, you can use the following code to load a pre-trained word embedding model and explore the relationships between words.</p>
-<div id="0f9e80af" class="cell" data-execution_count="1">
+<div id="7fa7e251" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gensim.downloader <span class="im">as</span> api</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Download a pre-trained word embedding model (if not already downloaded)</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> api.load(<span class="st">"glove-wiki-gigaword-50"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>model</code> object is now a word embedding model that you can use to get word vectors and find similar words. Someone else has trained the model already. Here are a few things you can do with the model:</p>
-<div id="e76f8adb" class="cell" data-execution_count="2">
+<div id="b1bca4d6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the word embedding vector for a word</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>word <span class="op">=</span> <span class="st">"king"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>vector <span class="op">=</span> model[word]</span>
@@ -566,7 +566,7 @@ Figure&nbsp;5: The skip-gram model is trained using backpropagation to minimize 
 </div>
 </div>
 <p>The <code>vector</code> variable now contains the word embedding for the word “king.” You can use this to find similar words or perform vector arithmetic. Here’s an example:</p>
-<div id="4e39b24f" class="cell" data-execution_count="3">
+<div id="dd3ec011" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find similar words</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>similar_words <span class="op">=</span> model.most_similar(word, topn<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -584,7 +584,7 @@ Figure&nbsp;5: The skip-gram model is trained using backpropagation to minimize 
 </div>
 </div>
 <p>You can also perform vector arithmetic to find relationships between words. Coming back to our earlier example of the king-queen analogy, you can use the word embeddings to find the word that completes the analogy “Man is to king as woman is to ___.”</p>
-<div id="2553dd5e" class="cell" data-execution_count="4">
+<div id="51abadf6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform vector arithmetic</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> model.most_similar(positive<span class="op">=</span>[<span class="st">"king"</span>, <span class="st">"woman"</span>], negative<span class="op">=</span>[<span class="st">"man"</span>], topn<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"King + Woman - Man = </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
