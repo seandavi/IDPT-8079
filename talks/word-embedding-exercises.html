@@ -8,7 +8,7 @@
 
 <meta name="author" content="Sean Davis">
 
-<title>IDPT-8079: Frontier of AI in Medicine</title>
+<title>Experiments in Word Embeddings – IDPT-8079: Frontier of AI in Medicine</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,24 +24,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-018089954d508eae8a473f0b7f0491f0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fe4cc245a31873b96c1add286a26fa35.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-018089954d508eae8a473f0b7f0491f0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fe4cc245a31873b96c1add286a26fa35.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,63 +67,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-talks .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-talks'] = new List('listing-talks', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-exercises .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-exercises'] = new List('listing-exercises', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KLLV1GCF4E"></script>
 
 <script type="text/javascript">
@@ -136,35 +77,6 @@ gtag('js', new Date());
 gtag('config', 'G-KLLV1GCF4E', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -175,7 +87,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">IDPT-8079: Frontier of AI in Medicine</span>
     </a>
   </div>
@@ -186,7 +98,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -205,19 +117,25 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#talks" id="toc-talks" class="nav-link active" data-scroll-target="#talks">talks</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
-  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1">Exercises</a></li>
-  <li><a href="#talks-1" id="toc-talks-1" class="nav-link" data-scroll-target="#talks-1">Talks</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#tensorflow-embedding-projector" id="toc-tensorflow-embedding-projector" class="nav-link" data-scroll-target="#tensorflow-embedding-projector">TensorFlow Embedding Projector</a></li>
+  <li><a href="#webvectors" id="toc-webvectors" class="nav-link" data-scroll-target="#webvectors">WebVectors</a>
+  <ul class="collapse">
+  <li><a href="#find-words-with-similar-meanings" id="toc-find-words-with-similar-meanings" class="nav-link" data-scroll-target="#find-words-with-similar-meanings">Find words with similar meanings</a></li>
+  <li><a href="#visualizing-word-relationships" id="toc-visualizing-word-relationships" class="nav-link" data-scroll-target="#visualizing-word-relationships">Visualizing word relationships</a></li>
+  <li><a href="#semantic-calculator" id="toc-semantic-calculator" class="nav-link" data-scroll-target="#semantic-calculator">Semantic calculator</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="teaching">teaching <span class="quarto-category-count">(1)</span></div></div></div>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">IDPT-8079: Frontier of AI in Medicine</h1>
+<h1 class="title">Experiments in Word Embeddings</h1>
 </div>
 
 
@@ -249,260 +167,116 @@ window.Quarto = {
 </header>
 
 
-<p>This is a collection of talks on various topics in machine learning and artificial intelligence. It also includes some exercises and interactive demos.</p>
-<section id="talks" class="level2">
-<h2 class="anchored" data-anchor-id="talks">talks</h2>
-<div id="listing-talks" class="quarto-listing quarto-listing-container-grid">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-talks-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-talks'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Recall that word embeddings are a way of representing words as vectors in a high-dimensional space. The idea is that words that are similar in meaning should be close together in this space. Word embeddings are often used as a way of representing words in natural language processing tasks, such as sentiment analysis, machine translation, and named entity recognition. <a href="#fig-word-embeddings" class="quarto-xref">Figure&nbsp;1</a> schematically illustrates how words are represented in a vector space.</p>
+<div id="fig-word-embeddings" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-word-embeddings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0231189.g008&amp;type=large" class="img-fluid figure-img">
 </div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1729137600000" data-listing-file-modified-sort="1729258738324" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="594">
-<a href="./talks/ai-agents/llm-2.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./talks/ai-agents/images/ai-agents-cover.webp" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-AI Agents
-</h5>
-<div class="card-text listing-description">
-Learn how large language models can be used as agents to solve complex tasks by interacting with external tools.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-word-embeddings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Linear combinations of dimensions in vector space correlate with the semantic and syntactic roles of the words in the corpus<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For illustration purposes, dimension d1 in the figure has a high positive correlation with living beings. A properly tuned word embedding model will map words with similar semantic or syntactic roles to adjacent regions in vector space. This property can be visualized through dimensionality reduction techniques such as t-SNE or PCA. Cultural concepts are also apparent in vector space as consistent offsets between vector representations of words sharing a particular relationship. For instance, in the bottom right of the figure, the dotted vector represents a gender regularity that goes from masculinity to femininity.
+</figcaption>
+</figure>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Sean Davis, Sean Davis, MD, PhD
-</div>
-<div class="listing-date">
-Oct 17, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1729656000000" data-listing-file-modified-sort="1729699401840" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1551">
-<a href="./talks/ai-in-medical-education/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./talks/ai-in-medical-education/title-art.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-AI in Medical Education
-</h5>
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Sean Davis, Sean Davis, MD, PhD
-</div>
-<div class="listing-date">
-Oct 23, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1729100785194" data-listing-reading-time-sort="20" data-listing-word-count-sort="3938">
-<a href="./talks/ml-intro/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./talks/ml-intro/images/ml-intro-cover.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Introduction to Machine Learning
-</h5>
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-Sean Davis, Sean Davis, MD, PhD
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="teaching" data-listing-date-sort="1729137600000" data-listing-file-modified-sort="1729257427907" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="551">
-<a href="./talks/prompt-engineering/prompt-engineering.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./talks/prompt-engineering/images/prompt-engineering-title-background.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Prompt Engineering
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('teaching'); return false;">
-teaching
-</div>
-</div>
-<div class="card-text listing-description">
-Learn design principles for effective prompts for language models to improve accuracy, usability, and relevance of model outputs.
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Sean Davis, Sean Davis, MD, PhD
-</div>
-<div class="listing-date">
-Oct 17, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1726718400000" data-listing-file-modified-sort="1728931403225" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1563">
-<a href="./talks/ai-history/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./talks/ai-history/images/cover.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-The History of Artificial Intelligence and Machine Learning
-</h5>
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Sean Davis, Sean Davis, MD, PhD
-</div>
-<div class="listing-date">
-Sep 19, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+<p>In this set of experiments, we’ll be using some online tools that allow us to explore word embeddings. We’ll be using the <a href="http://projector.tensorflow.org/">TensorFlow Embedding Projector</a> and the <a href="https://code.google.com/archive/p/word2vec/">Word2Vec</a> tool from Google.</p>
+<section id="tensorflow-embedding-projector" class="level2">
+<h2 class="anchored" data-anchor-id="tensorflow-embedding-projector">TensorFlow Embedding Projector</h2>
+<p>The TensorFlow Embedding Projector is a web-based tool that allows you to visualize word embeddings in a 3D space. You can use it to explore the relationships between words and see how they are clustered together. Navigate to the <a href="http://projector.tensorflow.org/">TensorFlow Embedding Projector</a> and experiment a bit.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/t5OXoOgaFWM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>By mousing over the points in the 3D space, you can see the words that are closest to a given word. You can also search for a specific word and see how it is related to other words in the space. If you click on a word, you can see a list of the words that are closest to it (based on cosine similarity in the embedding space, not necessarily in the 2D projection).</p>
 </section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<div id="listing-exercises" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1727841600000" data-listing-file-modified-sort="1729279647858" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3506">
-<div class="thumbnail">
-<p><a href="./Exercises/aom-expert-system/play-with-prolog.html" class="no-external"></a></p><a href="./Exercises/aom-expert-system/play-with-prolog.html" class="no-external">
-<p class="card-img-top"><img src="Exercises/aom-expert-system/20241002094927.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./Exercises/aom-expert-system/play-with-prolog.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./Exercises/aom-expert-system/play-with-prolog.html" class="no-external">Build an Expert System using Prolog</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./Exercises/aom-expert-system/play-with-prolog.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./Exercises/aom-expert-system/play-with-prolog.html" class="no-external">Learn how to build a simple expert system using Prolog, a logic programming language, to diagnose common conditions like colds, flu, and allergies based on a set of symptoms.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./Exercises/aom-expert-system/play-with-prolog.html" class="no-external">
-<div class="listing-date">
-Oct 2, 2024
-</div>
-<div class="listing-author">
-Sean Davis
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1729556693108" data-listing-reading-time-sort="15" data-listing-word-count-sort="2822">
-<div class="thumbnail">
-<p><a href="./Exercises/retrieval-augmented-generation/rag.html" class="no-external"></a></p><a href="./Exercises/retrieval-augmented-generation/rag.html" class="no-external">
-<p class="card-img-top"><img src="Exercises/retrieval-augmented-generation/20241010152039.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./Exercises/retrieval-augmented-generation/rag.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./Exercises/retrieval-augmented-generation/rag.html" class="no-external">Large Language Models and Retrieval-Augmented Generation: A Technical Overview</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./Exercises/retrieval-augmented-generation/rag.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./Exercises/retrieval-augmented-generation/rag.html" class="no-external">Large Language Models (LLMs) have revolutionized natural language processing by generating human-like text and enabling a wide range of applications, from chatbots to…</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./Exercises/retrieval-augmented-generation/rag.html" class="no-external"></a></p><a href="./Exercises/retrieval-augmented-generation/rag.html" class="no-external">
-<div class="listing-author">
-Sean Davis
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+<section id="webvectors" class="level2">
+<h2 class="anchored" data-anchor-id="webvectors">WebVectors</h2>
+<section id="find-words-with-similar-meanings" class="level3">
+<h3 class="anchored" data-anchor-id="find-words-with-similar-meanings">Find words with similar meanings</h3>
+<p>In this page, you can supply a word and the tool will find words that are similar in meaning. The “model” choice is based on the text that was used to train the embeddings (eg. Wikipedia, Google News, etc.). The numbers next to the words are the cosine similarity between the input word and the word in the list.</p>
+<p><strong>Exercise</strong>: Navigate to <a href="http://vectors.nlpl.eu/explore/embeddings/en/associates/" class="uri">http://vectors.nlpl.eu/explore/embeddings/en/associates/</a> and experiment a bit.</p>
 </section>
-<section id="exercises-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercises-1">Exercises</h2>
-<ul>
-<li><a href="./Exercises/aom-expert-system/play-with-prolog.html">Build an expert system using Prolog</a></li>
-<li><a href="./Exercises/retrieval-augmented-generation/rag.html">Retrieval augmented generation</a></li>
-<li><a href="https://gist.github.com/seandavi/1237085cb35d63da6cc423e7f5ea9150">Machine learning using R</a></li>
-</ul>
+<section id="visualizing-word-relationships" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-word-relationships">Visualizing word relationships</h3>
+<p>This little tool allows you to visualize word embeddings in 2D. You can see how words are related to each other based on their embeddings. You’ll supply a list of words and the tool will show you how they are related to each other using TSNE or PCA (these are dimensionality reduction techniques that allow you to visualize high-dimensional data in 2D). The “model” choice is based on the text that was used to train the embeddings (eg. Wikipedia, Google News, etc.).</p>
+<p><strong>Exercise</strong>: Navigate to <a href="http://vectors.nlpl.eu/explore/embeddings/en/visual/" class="uri">http://vectors.nlpl.eu/explore/embeddings/en/visual/</a> and experiment a bit.</p>
 </section>
-<section id="talks-1" class="level2">
-<h2 class="anchored" data-anchor-id="talks-1">Talks</h2>
-<ul>
-<li><a href="./talks/ai-history/index.html">AI History</a></li>
-<li><a href="./talks/ml-intro/index.html">Introduction to Artificial Intelligence and Machine Learning</a></li>
-</ul>
-
+<section id="semantic-calculator" class="level3">
+<h3 class="anchored" data-anchor-id="semantic-calculator">Semantic calculator</h3>
+<p><img src="20241014012322.png" class="img-fluid"></p>
+<p>Calculate ratios, such as «find a word D related to the word C in the same way as the word A is related to the word B». An example is given in the placeholder: which word is in the same relation to the word «father» as «daughter» is to «mother»? The answer is «son». The model calculates the difference between the vectors of «mother» and «daughter» and adds it to the vector of «father». After doing so, the word with the closest vector to the result is output, which in this case is «son».</p>
+<p>So, what does the difference between the vectors of «mother» and «daughter» represent? It represents the concept of a parent-child relationship. By adding this difference to the vector of «father», the model is looking for a word that is related to «father» in the same way that «daughter» is related to «mother». In this case, the answer is «son».</p>
+<p><strong>Exercise</strong>: Navigate to <a href="http://vectors.nlpl.eu/explore/embeddings/en/calculator/" class="uri">http://vectors.nlpl.eu/explore/embeddings/en/calculator/</a> and experiment a bit, perhaps trying some of the examples from <a href="#tbl-semantic-calculator" class="quarto-xref">Table&nbsp;1</a>.</p>
+<p>A few examples to try:</p>
+<div id="tbl-semantic-calculator" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-semantic-calculator-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Some examples to try in the semantic calculator. What will be the result for word 4?
+</figcaption>
+<div aria-describedby="tbl-semantic-calculator-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Word 1</th>
+<th>Word 2</th>
+<th>Word 3</th>
+<th>Word 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dog</td>
+<td>puppy</td>
+<td>cat</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>king</td>
+<td>man</td>
+<td>queen</td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td>cat</td>
+<td>kitten</td>
+<td>horse</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>king</td>
+<td>boyfriend</td>
+<td>queen</td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td>heart</td>
+<td>lungs</td>
+<td>stomach</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 
 
 </section>
+</section>
+</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{davis,
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>https://doi.org/10.1371/journal.pone.0231189<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{davis,
   author = {Davis, Sean},
-  title = {IDPT-8079: {Frontier} of {AI} in {Medicine}},
-  url = {https://seandavi.github.io/IDPT-8079/},
+  title = {Experiments in {Word} {Embeddings}},
+  url = {https://seandavi.github.io/IDPT-8079/talks/word-embedding-exercises.html},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-davis" class="csl-entry quarto-appendix-citeas" role="listitem">
-Davis, Sean. n.d. <span>“IDPT-8079: Frontier of AI in Medicine.”</span>
-<a href="https://seandavi.github.io/IDPT-8079/">https://seandavi.github.io/IDPT-8079/</a>.
+Davis, Sean. n.d. <span>“Experiments in Word Embeddings.”</span> <a href="https://seandavi.github.io/IDPT-8079/talks/word-embedding-exercises.html">https://seandavi.github.io/IDPT-8079/talks/word-embedding-exercises.html</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

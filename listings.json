@@ -1,0 +1,14 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/talks/ai-agents/llm-2.html",
+      "/talks/ai-in-medical-education/index.html",
+      "/talks/ml-intro/index.html",
+      "/talks/prompt-engineering/prompt-engineering.html",
+      "/talks/ai-history/index.html",
+      "/Exercises/aom-expert-system/play-with-prolog.html",
+      "/Exercises/retrieval-augmented-generation/rag.html"
+    ]
+  }
+]
